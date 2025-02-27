@@ -14,7 +14,7 @@ flatpickr("#bookingDate", {
 document.getElementById('signupForm').addEventListener('submit', async function(e) {
   e.preventDefault(); // Prevent page reload
 
-  // Collect form data
+  // Collect and form data
   const formData = {
       firstName: document.getElementById('firstName').value.trim(),
       lastName: document.getElementById('lastName').value.trim(),
