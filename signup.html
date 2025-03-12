@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Day Signup</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="css/signup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Log In</title>
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
-  <div class="form-container">
-    <h1>Open Day Signup</h1>
-    <form id="signupForm">
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" name="firstName" required>
 
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" name="lastName" required>
+<div class="mobile-frame">
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
+    <div class="title-bar">
+        <div class="logo">Wolvo Open Day</div>
+    </div>
 
-      <label for="bookingDate">Booking Date</label>
-      <input type="text" id="bookingDate" name="bookingDate" placeholder="Select date" required>
+    <div class="mobile-content">
+        <section id="auth">
+            <div class="form-container">
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="date" required>
+                    <select required>
+                        <option value="">Select Country</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                    </select>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
 
-      <button type="submit">Register</button>
-    </form>
-    <div id="message"></div>
-  </div>
+                <h2>Log In</h2>
+                <form id="login-form">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit" class="btn">Log In</button>
+                </form>
+            </div>
+        </section>
+    </div>
 
-  <!-- Flatpickr JS -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="js/signup.js"></script>
+</div>
+
+<script src="js/auth.js"></script>
 </body>
 </html>
