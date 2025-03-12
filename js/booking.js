@@ -1,4 +1,3 @@
-// Initialize Flatpickr date picker
 flatpickr("#bookingDate", {
   dateFormat: "Y-m-d",
   enable: [
