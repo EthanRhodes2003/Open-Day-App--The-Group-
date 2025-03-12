@@ -1,66 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wolvo Open Day</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script>
-    // Check if the user is logged in when the page loads
-    window.onload = function() {
-      if (!localStorage.getItem("loggedIn")) {
-        // If not logged in, redirect to the signup page
-        window.location.href = "signup.html";
-      }
-    };
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolvo Open Day - Select Login</title>
+    <link rel="stylesheet" href="css/index.css"> <!-- Link to external CSS file for styling -->
 </head>
 <body>
 
 <div class="mobile-frame">
+    <!-- Title bar at the top displaying the app name -->
+    <div class="title-bar">
+        <div class="logo">Wolvo Open Day</div>
+    </div>
 
-  <div class="title-bar">
-    <div class="logo">Wolvo Open Day</div>
-  </div>
+    <div class="mobile-content">
+        <!-- Main heading of the page -->
+        <h1>Welcome to Wolvo Open Day</h1>
+        <p>Please select your login type:</p>
 
-  <div class="mobile-content">
-    <section id="hero">
-      <div class="hero-content">
-        <h1>Discover Your Future at Wolvo</h1>
-        <p>Experience campus life, meet our experts, and start your journey with us.</p>
-        <a href="#register" class="btn">Register Now</a>
-      </div>
-    </section>
-
-    <section id="events">
-      <div class="section-header">
-        <h2>Upcoming Open Days</h2>
-      </div>
-      <ul class="event-list">
-        <li>March 26, 2025</li>
-        <li>April 2, 2025</li>
-        <li>April 9, 2025</li>
-      </ul>
-    </section>
-
-    <section id="register">
-      <div class="section-header">
-        <h2>Register Now</h2>
-      </div>
-      <a href="signup.html" class="btn">Sign Up Now</a>
-    </section>
-
-    <section id="contact">
-      <div class="section-header">
-        <h2>Contact Us</h2>
-      </div>
-      <p>Email: <strong>openday@wlv.ac.uk</strong></p>
-      <p>Phone: <strong>01902 123456</strong></p>
-    </section>
-  </div>
-
+        <!-- Buttons for login options -->
+        <div class="btn-container">
+            <a href="signup.html" class="btn user-btn">User Signup/Login</a> <!-- Button for user login/signup -->
+            <a href="adminlogin.html" class="btn admin-btn">Admin Login</a> <!-- Button for admin login -->
+        </div>
+    </div>
 </div>
 
-<script src="js/main.js"></script>
 </body>
 </html>

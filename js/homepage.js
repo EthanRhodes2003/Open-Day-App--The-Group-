@@ -15,7 +15,7 @@ document.querySelectorAll('.nav-links li').forEach((item, index) => {
   item.style.transitionDelay = `${index * 0.1}s`;
 });
 
-// Smooth fade-in effect when sections appear in viewport
+// Smooth fade in effect when sections appear in viewport
 const observerOptions = {
   threshold: 0.1  // Trigger when 10% of section is visible
 };
@@ -36,4 +36,3 @@ document.querySelectorAll('section').forEach(section => {
   section.style.transform = 'translateY(20px)';
   observer.observe(section);
 });
-  

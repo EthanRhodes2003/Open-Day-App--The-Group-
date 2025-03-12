@@ -1,9 +1,11 @@
+/* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body styling */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #000; /* Website background set to black */
@@ -13,6 +15,7 @@ body {
   height: 100vh;
 }
 
+/* Mobile Frame Layout */
 .mobile-frame {
   width: 375px;
   height: 667px;
@@ -27,7 +30,7 @@ body {
 
 /* Title Bar inside the App Layout */
 .title-bar {
-  background: #BE0F34;
+  background: #BE0F34; /* Red title bar */
   color: white;
   text-align: center;
   padding: 10px;
@@ -40,8 +43,9 @@ body {
   z-index: 10;
 }
 
+/* Content Wrapper */
 .mobile-content {
-  padding: 60px 20px 20px;
+  padding: 60px 20px 20px; /* Adjusted padding to avoid title bar overlap */
   overflow-y: auto;
   flex-grow: 1;
   text-align: center;
@@ -67,6 +71,7 @@ section {
   border-radius: 15px;
 }
 
+/* Hero Section Text Styling */
 .hero-content h1 {
   font-size: 1.6rem;
   margin-bottom: 1rem;
@@ -81,7 +86,7 @@ section {
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #BE0F34;
+  background: #BE0F34; /* Red button */
   color: white;
   text-decoration: none;
   border-radius: 25px;

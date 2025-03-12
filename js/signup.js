@@ -1,7 +1,7 @@
 // Handle Sign Up form submission
 document.getElementById("signup-form").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent form from submitting
-  alert("Sign Up - Feature Coming Soon!"); // Placeholder message
+  alert("Sign up will be sorted soon"); // Placeholder message
 });
 
 // Handle Log In form submission (with test credentials)
