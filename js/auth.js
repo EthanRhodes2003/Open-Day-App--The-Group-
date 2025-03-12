@@ -1,7 +1,7 @@
 // Handle Sign Up form submission
 document.getElementById("signup-form").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent form from submitting
-  alert("Sign Up - Feature Coming Soon!");
+  alert("Sign Up - Feature Coming Soon!"); // Placeholder message
 });
 
 // Handle Log In form submission (with test credentials)
@@ -23,6 +23,6 @@ document.getElementById("login-form").addEventListener("submit", function(event)
     // Redirect to homepage
     window.location.href = "index.html"; // Redirect to the homepage
   } else {
-    alert("Invalid credentials. Please try again."); 
+    alert("Invalid credentials. Please try again."); // Error message
   }
 });
