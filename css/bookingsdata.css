@@ -114,5 +114,5 @@ h2 {
 #bookings-table th,
 #bookings-table td {
   width: auto; /* Flexible column width */
-  min-width: 10px; /* Minimum width for readability */
+  min-width: 10px; /* Minimum width for readability */ /*jsadf*
 }
