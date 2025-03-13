@@ -1,3 +1,14 @@
+// Add event listener for back button
+document.addEventListener('DOMContentLoaded', function() {
+  const backButton = document.querySelector('.back-button');
+  if (backButton) {
+    backButton.addEventListener('click', function() {
+      window.location.href = "homepage.html";
+    });
+  }
+});
+
+
 // Check if the admin is logged in when the page loads
 window.onload = function() {
   if (!localStorage.getItem("adminLoggedIn")) {

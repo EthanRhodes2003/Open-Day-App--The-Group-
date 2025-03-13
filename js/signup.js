@@ -1,44 +1,33 @@
-flatpickr("#bookingDate", {
-    dateFormat: "Y-m-d",
-    enable: [
-      function(date) {
-        const day = date.getDay();
-        return day === 1 || day === 6;
-      }
-    ],
-    minDate: "today"
-  });
-  
-  document.getElementById('signupForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-  
-    const formData = {
-      firstName: document.getElementById('firstName').value.trim(),
-      lastName: document.getElementById('lastName').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      bookingDate: document.getElementById('bookingDate').value.trim()
-    };
-  
-    try {
-      const response = await fetch('/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-  
-      const data = await response.json();
-      if (response.ok) {
-        document.getElementById('message').textContent =
-          `Registration successful! Your booking ID is: ${data.bookingID}. A confirmation email has been sent.`;
-        document.getElementById('signupForm').reset();
-      } else {
-        document.getElementById('message').textContent =
-          data.error || 'Registration failed. Please try again.';
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      document.getElementById('message').textContent =
-        'An error occurred. Please try again later.';
-    }
-  });
-  
+// Handle Sign Up form submission
+document.getElementById("signup-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form from submitting
+  alert("Sign up will be sorted soon"); // Placeholder message
+});
+
+// Handle Log In form submission (with test credentials)
+document.getElementById("login-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form from submitting
+
+  // Get the entered email and password
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  // Test credentials
+  const testEmail = "test@example.com";
+  const testPassword = "password123";
+
+  if (email === testEmail && password === testPassword) {
+    // If login is successful, store login status in localStorage
+    localStorage.setItem("loggedIn", "true");
+
+    // Redirect to homepage
+    window.location.href = "index.html"; // Redirect to the homepage
+  } else {
+    alert("Invalid credentials. Please try again."); // Error message
+  }
+});
+
+// Handle back button click
+document.getElementById("back-button").addEventListener("click", function() {
+  window.location.href = "index.html"; // Navigate back to index.html
+});

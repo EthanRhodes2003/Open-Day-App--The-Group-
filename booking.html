@@ -1,43 +1,77 @@
-<!-- This page is for the Open Day signup form -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags for character set and viewport settings -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open Day Signup</title>
-  <!-- Link to external CSS and flatpickr CSS for the date picker -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="css/booking.css">
 </head>
 <body>
-<!-- Main container for the signup form -->
 <div class="form-container">
+  <!-- Back button added here -->
+  <a href="homepage.html" class="back-button">&larr; Back to Home</a>
+  
   <h1>Open Day Signup</h1>
   <form id="signupForm">
-    <!-- Form fields for first name, last name, email, and booking date -->
-    <label for="firstName">First Name</label>
-    <input type="text" id="firstName" name="firstName" required>
+    <!-- Year of Entry field -->
+    <label for="entryYear">Year of Entry</label>
+    <select id="entryYear" name="entryYear" required>
+      <option value="" disabled selected>Select year</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+      <option value="2028">2028</option>
+    </select>
 
-    <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" name="lastName" required>
+    <!-- Changed: Level of Interest to University Level -->
+    <label for="educationLevel">Education Level</label>
+    <select id="educationLevel" name="educationLevel" required>
+      <option value="" disabled selected>Select level</option>
+      <option value="level-4">Level 4 (Certificate)</option>
+      <option value="level-5">Level 5 (Diploma/Foundation)</option>
+      <option value="level-6">Level 6 (Bachelor's Degree)</option>
+      <option value="level-7">Level 7 (Master's Degree)</option>
+      <option value="level-8">Level 8 (Doctorate)</option>
+    </select>
 
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required>
+    <!-- Subject Interest field -->
+    <label for="subjectInterest">Subject Interest</label>
+    <select id="subjectInterest" name="subjectInterest" required>
+      <option value="" disabled selected>Select subject</option>
+      <option value="arts">Arts & Humanities</option>
+      <option value="business">Business & Economics</option>
+      <option value="engineering">Engineering</option>
+      <option value="science">Science</option>
+      <option value="medicine">Medicine</option>
+      <option value="law">Law</option>
+      <option value="education">Education</option>
+      <option value="social-sciences">Social Sciences</option>
+    </select>
 
-    <label for="bookingDate">Booking Date</label>
-    <input type="text" id="bookingDate" name="bookingDate" placeholder="Select date" required>
+    <!-- Modified: Contact Preference field (removed 'post' option) -->
+    <label for="contactPreference">Contact Preference</label>
+    <select id="contactPreference" name="contactPreference" required>
+      <option value="" disabled selected>Select preference</option>
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+      <option value="sms">SMS</option>
+    </select>
+
+    <!-- Booking Date field with specific dates -->
+    <label for="bookingDate">Open Day Date</label>
+    <select id="bookingDate" name="bookingDate" required>
+      <option value="" disabled selected>Select date</option>
+      <option value="2025-03-26">March 26, 2025</option>
+      <option value="2025-04-02">April 2, 2025</option>
+      <option value="2025-04-09">April 9, 2025</option>
+    </select>
 
     <!-- Submit button -->
     <button type="submit">Register</button>
   </form>
-  <!-- Area for showing messages (e.g., success/failure) -->
   <div id="message"></div>
 </div>
 
-<!-- Include flatpickr JS for the date picker functionality -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="js/booking.js"></script>
 </body>
 </html>

@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wolvo Open Day</title>
   <link rel="stylesheet" href="css/homepage.css">
-  <script>
-    // Check if the user is logged in when the page loads
-    window.onload = function() {
-      if (!localStorage.getItem("loggedIn")) {
-        // If not logged in, redirect to the signup page
-        window.location.href = "signup.html";
-      }
-    };
-  </script>
 </head>
 <body>
 
@@ -29,7 +20,7 @@
       <div class="hero-content">
         <h1>Discover Your Future at Wolvo</h1>
         <p>Experience campus life, meet our experts, and start your journey with us.</p>
-        <a href="#register" class="btn">Register Now</a> <!-- Button linking to register section -->
+        <a href="#register" class="btn">Book NOW</a> <!-- Button linking to register section -->
       </div>
     </section>
 
@@ -46,9 +37,16 @@
 
     <section id="register"> <!-- Registration section with sign-up link -->
       <div class="section-header">
-        <h2>Register Now</h2>
+        <h2>Book Now</h2>
       </div>
-      <a href="booking.html" class="btn">Sign Up Now</a> <!-- Button linking to booking page -->
+      <a href="booking.html" class="btn">Booking</a> <!-- Button linking to booking page -->
+    </section>
+
+    <section id="account"> <!-- New account section with account link -->
+      <div class="section-header">
+        <h2>Your Account</h2>
+      </div>
+      <a href="account.html" class="btn account-btn">My Account</a> <!-- Button linking to account page -->
     </section>
 
     <section id="contact"> <!-- Contact information section -->
@@ -57,6 +55,13 @@
       </div>
       <p>Email: <strong>openday@wlv.ac.uk</strong></p> <!-- Contact email -->
       <p>Phone: <strong>01902 123456</strong></p> <!-- Contact phone number -->
+    </section>
+
+    <section id="admin"> <!-- Admin section with login link -->
+      <div class="section-header">
+        <h2>Administration</h2>
+      </div>
+      <a href="adminlogin.html" class="btn admin-btn">Admin Login</a> <!-- Button linking to admin login page -->
     </section>
 
   </div>

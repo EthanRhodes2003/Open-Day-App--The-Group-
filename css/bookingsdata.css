@@ -43,6 +43,22 @@ body {
   left: 0;
 }
 
+/* Back Button Styling */
+.back-button {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Adjust logo position to allow for back button */
+.logo {
+  width: 100%;
+}
+
 /* Mobile Content */
 .mobile-content {
   padding: 20px;
@@ -114,5 +130,5 @@ h2 {
 #bookings-table th,
 #bookings-table td {
   width: auto; /* Flexible column width */
-  min-width: 10px; /* Minimum width for readability */ /*jsadf*
+  min-width: 10px; /* Minimum width for readability */
 }
