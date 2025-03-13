@@ -1,0 +1,72 @@
+<!-- This page displays booking data for the Wolvo Open Day -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings Data - Wolvo Open Day</title>
+    <!-- Link to the common homepage stylesheet and a specific one for booking data -->
+    <link rel="stylesheet" href="css/homepage.css"> <!-- Reusing the same stylesheet as homepage -->
+    <link rel="stylesheet" href="css/bookingsdata.css"> <!-- Specific styles for this page -->
+</head>
+<body>
+
+<div class="mobile-frame">
+    <div class="title-bar">
+        <div class="logo">Wolvo Open Day</div>
+    </div>
+
+    <div class="mobile-content">
+        <!-- Section for displaying bookings data -->
+        <section id="bookings">
+            <div class="section-header">
+                <h2>Booking Data</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="bookings-table">
+                    <thead>
+                    <!-- Table headers for booking details -->
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Account ID</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                        <th>Country</th>
+                        <th>Event ID</th>
+                        <th>Event Title</th>
+                        <th>Event Date</th>
+                        <th>Level of Interest</th>
+                        <th>Subject of Interest</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Example data rows for bookings -->
+                    <tr>
+                        <td>001</td>
+                        <td>101</td>
+                        <td>07495483903</td>
+                        <td>1@example.com</td>
+                        <td>1998-03-25</td>
+                        <td>UK</td>
+                        <td>EVT01</td>
+                        <td>Wolvo Open Day 2025</td>
+                        <td>2025-03-26</td>
+                        <td>Level 3</td>
+                        <td>Computer Science</td>
+                    </tr>
+                    <!-- More rows can go here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Link to the script for handling bookings data -->
+<script src="js/bookingsdata.js"></script>
+</body>
+</html>

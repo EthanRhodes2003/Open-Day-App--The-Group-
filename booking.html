@@ -1,0 +1,43 @@
+<!-- This page is for the Open Day signup form -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for character set and viewport settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Day Signup</title>
+  <!-- Link to external CSS and flatpickr CSS for the date picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+<!-- Main container for the signup form -->
+<div class="form-container">
+  <h1>Open Day Signup</h1>
+  <form id="signupForm">
+    <!-- Form fields for first name, last name, email, and booking date -->
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="bookingDate">Booking Date</label>
+    <input type="text" id="bookingDate" name="bookingDate" placeholder="Select date" required>
+
+    <!-- Submit button -->
+    <button type="submit">Register</button>
+  </form>
+  <!-- Area for showing messages (e.g., success/failure) -->
+  <div id="message"></div>
+</div>
+
+<!-- Include flatpickr JS for the date picker functionality -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

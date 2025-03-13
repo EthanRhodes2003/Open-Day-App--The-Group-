@@ -1,0 +1,123 @@
+/* Reset default margin, padding, and apply box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000; /* Website background set to black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Mobile Frame Layout */
+.mobile-frame {
+  width: 375px;
+  height: 667px;
+  background-color: #001F3F; /* Dark blue mobile layout */
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Title Bar inside the App Layout */
+.title-bar {
+  background: #BE0F34; /* Red title bar */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* Content Wrapper */
+.mobile-content {
+  padding: 60px 20px 20px; /* Adjusted padding to avoid title bar overlap */
+  overflow-y: auto;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Sections with Light Blue Background */
+section {
+  background-color: #AEDFF7; /* Light blue sections */
+  padding: 1.5rem;
+  margin: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: black; /* Black text for readability */
+}
+
+/* Hero Section */
+#hero {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/800');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 2rem 1rem;
+  border-radius: 15px;
+}
+
+/* Hero Section Text Styling */
+.hero-content h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #BE0F34; /* Red button */
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(190, 15, 52, 0.2);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Event List */
+.event-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.event-list li {
+  background: white;
+  padding: 1rem;
+  margin: 0.5rem auto;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
