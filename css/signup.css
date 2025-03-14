@@ -53,6 +53,12 @@ body {
   cursor: pointer;
 }
 
+.back-button a {
+  color: white; /* Set text color to white */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.2rem; /* Adjust font size */
+}
+
 .back-button:hover {
   color: #f0f0f0;
 }
