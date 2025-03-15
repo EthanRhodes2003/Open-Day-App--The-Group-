@@ -1,4 +1,5 @@
 <?php
+// php -S localhost:8000 (run this in terminal)
 $host = '127.0.0.1'; // localhost
 $dbname = 'OpenDayAppDB';
 $username = 'root';
