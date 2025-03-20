@@ -16,7 +16,7 @@ body {
   padding: 0 20px; /* Added some padding on small devices */
 }
 
-/* Mobile Frame: Wrapper around content */
+/* Mobile Frame */
 .mobile-frame {
   width: 90%;
   max-width: 768px;
