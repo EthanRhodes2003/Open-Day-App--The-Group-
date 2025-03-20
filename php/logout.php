@@ -8,6 +8,6 @@ session_unset();
 session_destroy();
 
 // Redirect to index.html after logging out
-header("Location: index.html");
+header("Location: /index.html");
 exit();
 ?>
