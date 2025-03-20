@@ -1,23 +1,36 @@
-document.getElementById("admin-login-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent the form from submitting and refreshing the page
+// Check if script is loading
+console.log("Admin login script loaded!");
 
-  // Hardcoded admin credentials for testing
-  const adminEmail = "admin@example.com";
-  const adminPassword = "admin123";
+// Wait for the DOM to be fully loaded before adding event listeners
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("admin-login-form");
 
-  // Get the email and password entered by the user
-  const email = document.getElementById("admin-email").value;
-  const password = document.getElementById("admin-password").value;
+    if (loginForm) {
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-  // Check if the entered credentials match the admin credentials
-  if (email === adminEmail && password === adminPassword) {
-    // If credentials are correct, save the login status in localStorage
-    localStorage.setItem("adminLoggedIn", "true");
+            // Hardcoded admin credentials for testing
+            const adminEmail = "admin@example.com";
+            const adminPassword = "admin123";
 
-    // Redirect the user to the bookings data page
-    window.location.href = "bookingsdata.html";
-  } else {
-    // Show an alert if the credentials are incorrect
-    alert("Invalid credentials. Please try again.");
-  }
+            // Get user input values
+            const email = document.getElementById("admin-email").value;
+            const password = document.getElementById("admin-password").value;
+
+            console.log("User entered:", email, password); 
+
+            // Validate credentials
+            if (email === adminEmail && password === adminPassword) {
+
+                console.log("Login successful, redirecting...");
+
+                // Redirect to bookings data page
+                window.location.href = "bookingsdata.html";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    } else {
+        console.error("Admin login form not found!");
+    }
 });

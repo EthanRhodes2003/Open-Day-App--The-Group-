@@ -1,57 +1,35 @@
-// Add event listener for back button
-document.addEventListener('DOMContentLoaded', function() {
-  const backButton = document.querySelector('.back-button');
-  if (backButton) {
-    backButton.addEventListener('click', function() {
-      window.location.href = "homepage.html";
-    });
-  }
+// Wait for the DOM to be fully loaded before adding event listeners
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("admin-login-form");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the form from submitting
+
+            // Hardcoded admin credentials for testing
+            const adminEmail = "admin@example.com";
+            const adminPassword = "admin123";
+
+            // Get user input values
+            const email = document.getElementById("admin-email").value.trim();
+            const password = document.getElementById("admin-password").value.trim();
+
+            console.log("User entered:", email, password); 
+
+            // Validate credentials
+            if (email === adminEmail && password === adminPassword) {
+                console.log("Login successful, redirecting...");
+
+                // Ensure form does not submit
+                event.stopPropagation(); 
+
+                // Redirect to bookings data page
+                window.location.replace("bookingsdata.html");
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    } else {
+        console.error("Admin login form not found!");
+    }
 });
-
-
-// Check if the admin is logged in when the page loads
-window.onload = function() {
-  if (!localStorage.getItem("adminLoggedIn")) {
-    // If the admin is not logged in, redirect to the login page
-    window.location.href = "adminlogin.html";
-  } else {
-    // If logged in, load and display the booking data
-    loadBookingData();
-  }
-};
-
-// Mock booking data (This would typically come from a server in a real-world scenario)
-const bookings = [
-  {
-    bookingID: "001",
-    accountID: "101",
-    phone: "07495483903",
-    email: "user1@example.com",
-    dob: "1998-03-25",
-    country: "UK",
-    eventID: "EVT01",
-    eventTitle: "March Open Day",
-    eventDate: "2025-03-26",
-    levelOfInterest: "Level 3",
-    subjectOfInterest: "Computer Science"
-  },
-  // Add more mock data as needed
-];
-
-// Function to render the booking data on the page
-function loadBookingData() {
-  const tbody = document.getElementById("bookings-table-body");
-
-  bookings.forEach(booking => {
-    const row = document.createElement("tr");
-
-    // Loop through each booking property and add it to the table
-    Object.keys(booking).forEach(key => {
-      const td = document.createElement("td");
-      td.textContent = booking[key];
-      row.appendChild(td);
-    });
-
-    tbody.appendChild(row); // Append the row to the table
-  });
-}
