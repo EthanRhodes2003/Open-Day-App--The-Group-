@@ -8,75 +8,87 @@
 </head>
 <body>
 
-<div class="mobile-frame"> <!-- Mobile Layout Wrapper -->
-
-  <div class="title-bar"> <!-- Title Header -->
-    <!-- Back Button inside title bar -->
-    <a href="homepage.html" class="back-button">&larr;</a> <!-- Back button -->
+<!-- Mobile Frame -->
+<div class="mobile-frame">
+  
+  <!-- Title Bar -->
+  <div class="title-bar">
+    <a href="homepage.html" class="back-button">&larr;</a>
     <div class="logo">Open Day Signup</div>
   </div>
 
-  <div class="mobile-content"> <!-- Scrollable content wrapper -->
+  <!-- Main Content -->
+  <div class="mobile-content">
     <div class="form-container">
 
       <h1>Register for Open Day</h1>
 
       <form id="signupForm">
         <!-- Year of Entry -->
-        <label for="entryYear">Year of Entry</label>
-        <select id="entryYear" name="entryYear" required>
-          <option value="" disabled selected>Select year</option>
-          <option value="2025">2025</option>
-          <option value="2026">2026</option>
-          <option value="2027">2027</option>
-          <option value="2028">2028</option>
-        </select>
+        <div class="form-group">
+          <label for="entryYear" class="form-label">Year of Entry</label>
+          <select id="entryYear" name="entryYear" required>
+            <option value="" disabled selected>Select year</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+          </select>
+        </div>
 
         <!-- Education Level -->
-        <label for="educationLevel">Education Level</label>
-        <select id="educationLevel" name="educationLevel" required>
-          <option value="" disabled selected>Select level</option>
-          <option value="level-4">Level 4 (Certificate)</option>
-          <option value="level-5">Level 5 (Diploma/Foundation)</option>
-          <option value="level-6">Level 6 (Bachelor's Degree)</option>
-          <option value="level-7">Level 7 (Master's Degree)</option>
-          <option value="level-8">Level 8 (Doctorate)</option>
-        </select>
+        <div class="form-group">
+          <label for="educationLevel" class="form-label">Education Level</label>
+          <select id="educationLevel" name="educationLevel" required>
+            <option value="" disabled selected>Select level</option>
+            <option value="level-4">Level 4 (Certificate)</option>
+            <option value="level-5">Level 5 (Diploma/Foundation)</option>
+            <option value="level-6">Level 6 (Bachelor's Degree)</option>
+            <option value="level-7">Level 7 (Master's Degree)</option>
+            <option value="level-8">Level 8 (Doctorate)</option>
+          </select>
+        </div>
 
         <!-- Subject Interest -->
-        <label for="subjectInterest">Subject Interest</label>
-        <select id="subjectInterest" name="subjectInterest" required>
-          <option value="" disabled selected>Select subject</option>
-          <option value="arts">Arts & Humanities</option>
-          <option value="business">Business & Economics</option>
-          <option value="engineering">Engineering</option>
-          <option value="science">Science</option>
-          <option value="medicine">Medicine</option>
-          <option value="law">Law</option>
-          <option value="education">Education</option>
-          <option value="social-sciences">Social Sciences</option>
-        </select>
+        <div class="form-group">
+          <label for="subjectInterest" class="form-label">Subject Interest</label>
+          <select id="subjectInterest" name="subjectInterest" required>
+            <option value="" disabled selected>Select subject</option>
+            <option value="arts">Arts & Humanities</option>
+            <option value="business">Business & Economics</option>
+            <option value="engineering">Engineering</option>
+            <option value="science">Science</option>
+            <option value="medicine">Medicine</option>
+            <option value="law">Law</option>
+            <option value="education">Education</option>
+            <option value="social-sciences">Social Sciences</option>
+          </select>
+        </div>
 
         <!-- Contact Preference -->
-        <label for="contactPreference">Contact Preference</label>
-        <select id="contactPreference" name="contactPreference" required>
-          <option value="" disabled selected>Select preference</option>
-          <option value="email">Email</option>
-          <option value="phone">Phone</option>
-          <option value="sms">SMS</option>
-        </select>
+        <div class="form-group">
+          <label for="contactPreference" class="form-label">Contact Preference</label>
+          <select id="contactPreference" name="contactPreference" required>
+            <option value="" disabled selected>Select preference</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="sms">SMS</option>
+          </select>
+        </div>
 
         <!-- Booking Date -->
-        <label for="bookingDate">Open Day Date</label>
-        <select id="bookingDate" name="bookingDate" required>
-          <option value="" disabled selected>Select date</option>
-          <option value="2025-03-26">March 26, 2025</option>
-          <option value="2025-04-02">April 2, 2025</option>
-          <option value="2025-04-09">April 9, 2025</option>
-        </select>
+        <div class="form-group">
+          <label for="bookingDate" class="form-label">Open Day Date</label>
+          <select id="bookingDate" name="bookingDate" required>
+            <option value="" disabled selected>Select date</option>
+            <option value="2025-03-26">March 26, 2025</option>
+            <option value="2025-04-02">April 2, 2025</option>
+            <option value="2025-04-09">April 9, 2025</option>
+          </select>
+        </div>
 
         <!-- Submit Button -->
-        <button type="submit">Register</button>
+        <button type="submit" class="btn">Register</button>
       </form>
 
       <div id="message"></div>

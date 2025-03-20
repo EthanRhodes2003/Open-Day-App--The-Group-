@@ -15,22 +15,21 @@ body {
   height: 100vh;
 }
 
-/* Mobile Frame Layout */
+/* Mobile Frame Styling */
 .mobile-frame {
-  width: 375px;
-  height: 667px;
-  background-color: #0A192F; /* Dark blue frame */
+  max-width: 768px;
+  width: 90%;
+  height: 90vh;
+  background-color: #001F3F;
   border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
 /* Title Bar Styling */
 .title-bar {
-  background: #BE0F34; /* Red title bar */
+  background: #BE0F34;
   color: white;
   text-align: center;
   padding: 8px;
@@ -51,12 +50,8 @@ body {
   left: 15px;
   font-size: 1.5rem;
   cursor: pointer;
-}
-
-.back-button a {
-  color: white; /* Set text color to white */
-  text-decoration: none; /* Remove underline */
-  font-size: 1.2rem; /* Adjust font size */
+  color: white;
+  text-decoration: none;
 }
 
 .back-button:hover {
@@ -68,21 +63,21 @@ body {
   padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
-  margin-top: 40px; /* Offset for title bar */
+  margin-top: 40px;
 }
 
-/* Form Container */
+/* Form Container Styling */
 .form-container {
-  text-align: center;
   background: #5088C9; /* Blue background */
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* Form Headings */
 h2 {
-  color: black;
+  color: white;
   margin-bottom: 15px;
 }
 
@@ -99,7 +94,7 @@ input, select {
 button.btn {
   width: 100%;
   padding: 10px;
-  background: #BE0F34; /* Red button */
+  background: #BE0F34;
   color: white;
   border: none;
   border-radius: 5px;
@@ -109,7 +104,7 @@ button.btn {
 
 /* Button Hover Effect */
 button.btn:hover {
-  background: #a00d2e; /* Darker red on hover */
+  background: #a00d2e;
 }
 
 /* Focus Effects for Inputs and Select */

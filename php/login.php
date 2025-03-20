@@ -1,27 +1,34 @@
 <?php
 session_start();
-include 'db.php'; // Include your database connection
+include 'db.php'; // Ensure database connection is included
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form data
+    // Debug to check if form data is received
+    echo "<pre>";
+    print_r($_POST);  
+    echo "</pre>";
+
+    if (!isset($_POST['email']) || !isset($_POST['password'])) {
+        die("Error: Email or Password field is missing.");
+    }
+
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    // Query to check if the email exists in the account table
-    $stmt = $pdo->prepare("SELECT * FROM account WHERE email = ?");
+    // Corrected SQL query (matching table column names exactly)
+    $stmt = $pdo->prepare("SELECT AccountID, FirstName, LastName, Email, Password FROM ACCOUNT WHERE Email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        // Verify the password using password_verify()
-        if (password_verify($password, $user['password'])) {
-            // Password is correct, set session variables
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['first_name'] . ' ' . $user['last_name'];
-            $_SESSION['email'] = $user['email'];
+        // Directly compare the plain password with the stored one
+        if ($password === $user['Password']) {  
+            $_SESSION['user_id'] = $user['AccountID'];
+            $_SESSION['username'] = $user['FirstName'] . ' ' . $user['LastName'];
+            $_SESSION['email'] = $user['Email'];
 
             // Redirect to homepage or another protected page
-            header("Location: homepage.html"); // Change this to your protected page URL
+            header("Location: /homepage.html"); 
             exit();
         } else {
             echo "Incorrect password!";
@@ -29,5 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "No user found with that email!";
     }
+} else {
+    echo "Invalid request!";
 }
 ?>

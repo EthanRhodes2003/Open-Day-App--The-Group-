@@ -1,36 +1,38 @@
-/* Reset default margin, padding, and apply box-sizing */
+/* Reset default margin, padding, and apply box-sizing for consistency */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* Body styling: black background, centring content */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #000; /* Website background set to black */
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 0 20px; /* Added some padding on small devices */
 }
 
-/* Mobile Frame Layout */
+/* Mobile Frame: Wrapper around content */
 .mobile-frame {
-  width: 375px;
-  height: 667px;
-  background-color: #001F3F; /* Dark blue mobile layout */
+  width: 90%;
+  max-width: 768px;
+  height: 90vh;
+  background-color: #001F3F;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
-/* Title Bar inside the App Layout */
+/* Title Bar: Red background with white text, fixed at the top */
 .title-bar {
-  background: #BE0F34; /* Red title bar */
+  background: #BE0F34;
   color: white;
   text-align: center;
   padding: 10px;
@@ -43,25 +45,25 @@ body {
   z-index: 10;
 }
 
-/* Content Wrapper */
+/* Content Wrapper: Adjusted padding to avoid title bar overlap */
 .mobile-content {
-  padding: 60px 20px 20px; /* Adjusted padding to avoid title bar overlap */
+  padding: 60px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
   text-align: center;
 }
 
-/* Sections with Light Blue Background */
+/* Section Styling: Light blue background with shadow and rounded corners */
 section {
-  background-color: #AEDFF7; /* Light blue sections */
+  background-color: #AEDFF7;
   padding: 1.5rem;
   margin: 1rem;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: black; /* Black text for readability */
+  color: black;
 }
 
-/* Hero Section */
+/* Hero Section: Gradient overlay on background image */
 #hero {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/800');
   background-size: cover;
@@ -71,7 +73,7 @@ section {
   border-radius: 15px;
 }
 
-/* Hero Section Text Styling */
+/* Hero Section Text: Adjusted heading and paragraph sizes */
 .hero-content h1 {
   font-size: 1.6rem;
   margin-bottom: 1rem;
@@ -82,11 +84,11 @@ section {
   margin-bottom: 1.5rem;
 }
 
-/* Buttons */
+/* Button Styling: Red background with hover effect */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #BE0F34; /* Red button */
+  background: #BE0F34;
   color: white;
   text-decoration: none;
   border-radius: 25px;
@@ -94,14 +96,15 @@ section {
   font-weight: bold;
 }
 
+/* Button Hover Effect: Slight lift and shadow */
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(190, 15, 52, 0.2);
 }
 
-/* Account Button Styling */
+/* Account Button Styling: Blue background for account-related actions */
 .account-btn {
-  background: #0072CE; /* Blue background for account button */
+  background: #0072CE;
 }
 
 .account-btn:hover {
@@ -109,13 +112,13 @@ section {
   box-shadow: 0 4px 8px rgba(0, 114, 206, 0.3);
 }
 
-/* Section Headers */
+/* Section Header Styling: Centered and spaced out */
 .section-header {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-/* Event List */
+/* Event List Styling: Styled list with white background and shadow */
 .event-list {
   list-style: none;
   padding: 0;
@@ -132,7 +135,7 @@ section {
   font-weight: bold;
 }
 
-/* Account page specific styles */
+/* Account Page: User profile styling */
 .user-profile {
   background: white;
   padding: 1.5rem;
@@ -140,12 +143,14 @@ section {
   margin-bottom: 1.5rem;
 }
 
+/* Profile Header: Display profile picture and user info side by side */
 .profile-header {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
+/* Profile Picture Styling: Circular and centered */
 .profile-picture {
   width: 80px;
   height: 80px;
@@ -158,6 +163,7 @@ section {
   overflow: hidden;
 }
 
+/* Profile Info: Text aligned to the left */
 .profile-info {
   text-align: left;
 }
@@ -166,6 +172,7 @@ section {
   margin-bottom: 0.5rem;
 }
 
+/* Data Section Styling: Margin for spacing and header with underline */
 .data-section {
   margin-bottom: 1.5rem;
 }
@@ -177,6 +184,7 @@ section {
   padding-bottom: 0.5rem;
 }
 
+/* Data Item Styling: Flex layout for labels and values */
 .data-item {
   display: flex;
   justify-content: space-between;
@@ -187,13 +195,3 @@ section {
 .item-label {
   font-weight: bold;
 }
-
-/* Remove Admin button styles (no longer used) */
-/* .admin-btn {
-  background: #333;
-}
-
-.admin-btn:hover {
-  background: #555;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-} */

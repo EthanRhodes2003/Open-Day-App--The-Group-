@@ -1,128 +1,125 @@
-/* Reset default styles */
+/* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Ensure full height and proper layout */
+/* Body styling */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #000; /* Matches homepage */
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden; /* Prevents extra scrolling */
 }
 
-/* Mobile Frame */
+/* Mobile Frame Styling */
 .mobile-frame {
-  width: 375px;
-  height: 667px;
-  background-color: #001F3F; /* Dark blue background */
+  max-width: 768px;
+  width: 90%;
+  height: 90vh;
+  background-color: #001F3F;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
-/* Title Bar */
+/* Title Bar Styling */
 .title-bar {
-  background: #BE0F34; /* Red header */
+  background: #BE0F34;
   color: white;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  font-size: 1.2rem;
+  text-align: center;
+  padding: 8px;
+  font-size: 1.1rem;
   font-weight: bold;
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Back Button */
+/* Back Button Styling */
 .back-button {
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
-  margin-right: 10px; /* Space between arrow and title */
-  padding: 0;
-  display: inline-block;
-  line-height: 0;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-/* Logo */
-.logo {
-  flex-grow: 1;
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-/* Scrollable Content */
+/* Main Content */
 .mobile-content {
-  padding: 60px 20px 20px; /* Prevent overlap with title bar */
-  overflow-y: auto; /* Allows scrolling */
+  padding: 50px 20px 20px;
+  overflow-y: auto;
   flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 40px;
 }
 
-/* Form Container */
+/* Booking Form Container */
 .form-container {
-  width: 90%;
-  max-width: 350px;
-  background-color: #AEDFF7; /* Light blue background */
+  text-align: center;
+  background: #5088C9;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  height: auto; /* Allows flexibility */
-  min-height: 80vh; /* Taller box */
-  overflow-y: auto; /* Ensures scrolling */
 }
 
-/* Form Styling */
-label {
-  display: block;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: left;
+/* Form Heading Styling */
+h1 {
+  color: black;
+  margin-bottom: 15px;
 }
 
-select, button {
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Form Label Styling */
+.form-label {
+  color: white;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Input Fields Styling */
+input, select {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
 }
 
 /* Button Styling */
-button {
+button.btn {
+  width: 100%;
+  padding: 10px;
   background: #BE0F34;
   color: white;
   border: none;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-button:hover {
-  background: #A50E2C;
-  transform: translateY(-2px);
+/* Button Hover Effect */
+button.btn:hover {
+  background: #a00d2e;
 }
 
-/* Message Styling */
-#message {
-  margin-top: 10px;
-  color: green;
+/* Focus Effects for Inputs and Select */
+input:focus, select:focus {
+  border: 2px solid #BE0F34;
+  outline: none;
 }

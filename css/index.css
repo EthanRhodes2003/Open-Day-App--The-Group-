@@ -7,98 +7,84 @@
 
 /* Set a dark background for the entire page and center content */
 body {
-  font-family: 'Poppins', sans-serif; /* Use a modern, readable font */
-  background-color: black; /* Black background for contrast */
-  color: white; /* White text for readability */
-  display: flex; /* Enable flexbox for centering */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  height: 100vh; /* Make sure the body takes the full height of the viewport */
-}
-
-/* Main container that represents a mobile-sized frame */
-.mobile-frame {
-  width: 375px; /* Standard mobile width */
-  height: 667px; /* Standard mobile height */
-  background-color: #0A192F; /* Dark blue background */
-  border-radius: 30px; /* Rounded corners for a modern look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow: hidden; /* Prevent content from overflowing */
-  display: flex; /* Enable flexbox for layout control */
-  flex-direction: column; /* Stack elements vertically */
-  position: relative; /* Allows for absolute positioning inside */
-  padding: 20px; /* Padding for spacing */
+  font-family: 'Poppins', sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /* Top bar with the application title */
 .title-bar {
-  background: #BE0F34; /* Red background */
-  color: white; /* White text for contrast */
-  text-align: center; /* Center the text */
-  padding: 12px; /* Add spacing inside the bar */
-  font-size: 1.2rem; /* Increase font size */
-  font-weight: bold; /* Make the text bold */
-  position: absolute; /* Fixed position at the top */
-  width: 100%; /* Ensure it spans the full width */
-  top: 0; /* Stick to the top of the container */
+  background: #BE0F34;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
   left: 0;
 }
 
 /* Main content inside the mobile frame */
 .mobile-content {
-  text-align: center; /* Center the content */
-  margin-top: 80px; /* Space below the title bar */
+  text-align: center;
+  margin-top: 80px;
 }
 
 /* Main heading styles */
 h1 {
-  font-size: 1.5rem; /* Large font for readability */
-  margin-bottom: 15px; /* Space below heading */
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
 /* Paragraph styles */
 p {
-  font-size: 1rem; /* Standard font size */
-  margin-bottom: 20px; /* Space below paragraph */
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
 /* Container for buttons */
 .btn-container {
-  display: flex; /* Enable flexbox */
-  flex-direction: column; /* Stack buttons vertically */
-  gap: 15px; /* Space between buttons */
-  align-items: center; /* Center buttons horizontally */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 
 /* General button styling */
 .btn {
-  display: block; /* Make it behave like a block */
-  width: 80%; /* Set width to 80% of container */
-  max-width: 250px; /* Prevent buttons from getting too wide */
-  padding: 15px; /* Add padding for better clickability */
-  text-align: center; /* Center text inside buttons */
-  font-size: 1rem; /* Adjust font size */
-  font-weight: bold; /* Make text bold */
-  color: white; /* White text */
-  border-radius: 8px; /* Rounded corners */
-  text-decoration: none; /* Remove underlines */
-  transition: 0.3s; /* Smooth transition effect */
+  display: block;
+  width: 80%;
+  max-width: 250px;
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 /* User login/signup button with blue color */
 .user-btn {
-  background: #1E90FF; /* Blue background */
+  background: #1E90FF;
 }
 
 .user-btn:hover {
-  background: #187bcd; /* Darker blue on hover */
+  background: #187bcd;
 }
 
 /* Admin login button with red color */
 .admin-btn {
-  background: #BE0F34; /* Red background */
+  background: #BE0F34;
 }
 
 .admin-btn:hover {
-  background: #9a0d2b; /* Darker red on hover */
+  background: #9a0d2b;
 }
