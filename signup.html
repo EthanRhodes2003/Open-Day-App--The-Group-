@@ -9,42 +9,42 @@
 <body>
 
 <!-- Mobile Frame -->
-<div class="mobile-frame">
+<div class="mobileFrame">
   
   <!-- Title Bar with Logo and Back Button -->
-  <div class="title-bar">
-    <a href="index.html" class="back-button">&larr;</a>
+  <div class="titleBar">
+    <a href="index.html" class="backButton">&larr;</a>
     <div class="logo">Wolvo Open Day</div>
   </div>
 
   <!-- Main Content Section -->
-  <div class="mobile-content">
+  <div class="mobileContent">
     <!-- Authentication Forms -->
     <section id="auth">
-      <div class="form-container">
+      <div class="formContainer">
         <!-- Sign Up Form -->
         <h2>Sign Up</h2>
         <form action="php/signup.php" method="POST">
-          <div class="form-group">
-            <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+          <div class="formElement">
+            <input type="text" name="first_name" class="formControl" placeholder="First Name" required>
           </div>
-          <div class="form-group">
-            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+          <div class="formElement">
+            <input type="text" name="last_name" class="formControl" placeholder="Last Name" required>
           </div>
-          <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Email" required>
+          <div class="formElement">
+            <input type="email" name="email" class="formControl" placeholder="Email" required>
           </div>
-          <div class="form-group">
-            <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+          <div class="formElement">
+            <input type="tel" name="phone" class="formControl" placeholder="Phone Number" required>
           </div>
-          <div class="form-group">
-            <input type="password" name="password" class="form-control" placeholder="Password" required>
+          <div class="formElement">
+            <input type="password" name="password" class="formControl" placeholder="Password" required>
           </div>
-          <div class="form-group">
-            <input type="date" name="dob" class="form-control" required>
+          <div class="formElement">
+            <input type="date" name="dob" class="formControl" required>
           </div>
-          <div class="form-group">
-            <select name="country" class="form-control" required>
+          <div class="formElement">
+            <select name="country" class="formControl" required>
               <option value="">Select Country</option>
               <option value="UK">United Kingdom</option>
               <option value="US">United States</option>
@@ -57,11 +57,11 @@
         <!-- Log In Form -->
         <h2>Log In</h2>
         <form action="php/login.php" method="POST">
-          <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Email" required>
+          <div class="formElement">
+            <input type="email" name="email" class="formControl" placeholder="Email" required>
           </div>
-          <div class="form-group">
-            <input type="password" name="password" class="form-control" placeholder="Password" required>
+          <div class="formElement">
+            <input type="password" name="password" class="formControl" placeholder="Password" required>
           </div>
           <button type="submit" class="btn">Log In</button>
         </form>

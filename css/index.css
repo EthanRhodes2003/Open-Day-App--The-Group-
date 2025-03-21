@@ -17,7 +17,7 @@ body {
 }
 
 /* Mobile Frame */
-.mobile-frame {
+.mobileFrame {
   width: 90%;
   max-width: 768px;
   height: 90vh;
@@ -31,7 +31,7 @@ body {
 }
 
 /* Top bar with the application title */
-.title-bar {
+.titleBar {
   background: #BE0F34;
   color: white;
   text-align: center;
@@ -45,7 +45,7 @@ body {
 }
 
 /* Main content inside the mobile frame */
-.mobile-content {
+.mobileContent {
   text-align: center;
   margin-top: 80px;
 }
@@ -63,7 +63,7 @@ p {
 }
 
 /* Container for buttons */
-.btn-container {
+.btnContainer {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -86,19 +86,19 @@ p {
 }
 
 /* User login/signup button with blue color */
-.user-btn {
+.userBtn {
   background: #1E90FF;
 }
 
-.user-btn:hover {
+.userBtn:hover {
   background: #187bcd;
 }
 
 /* Admin login button with red color */
-.admin-btn {
+.adminBtn {
   background: #BE0F34;
 }
 
-.admin-btn:hover {
+.adminBtn:hover {
   background: #9a0d2b;
 }

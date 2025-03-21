@@ -16,7 +16,7 @@ body {
 }
 
 /* Mobile Frame */
-.mobile-frame {
+.mobileFrame {
   width: 90%;
   max-width: 768px;
   height: 90vh;
@@ -30,7 +30,7 @@ body {
 }
 
 /* Title Bar Styling */
-.title-bar {
+.titleBar {
   background: #BE0F34;
   color: white;
   text-align: center;
@@ -47,7 +47,7 @@ body {
 }
 
 /* Back Button Styling */
-.back-button {
+.backButton {
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
@@ -58,7 +58,7 @@ body {
 }
 
 /* Main Content Styling */
-.mobile-content {
+.mobileContent {
   padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
@@ -66,14 +66,14 @@ body {
 }
 
 /* Section Header Styling */
-.section-header h2 {
+.sectionHeader h2 {
   color: white;
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
 /* Table Styling */
-.table-wrapper {
+.tableWrapper {
   overflow-x: auto;
 }
 

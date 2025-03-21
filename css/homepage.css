@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Body styling: black background, centring content */
+/* Body styling: black background, centering content */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #000;
@@ -17,7 +17,7 @@ body {
 }
 
 /* Mobile Frame */
-.mobile-frame {
+.mobileFrame {
   width: 90%;
   max-width: 768px;
   height: 90vh;
@@ -31,7 +31,7 @@ body {
 }
 
 /* Title Bar: Red background with white text, fixed at the top */
-.title-bar {
+.titleBar {
   background: #BE0F34;
   color: white;
   text-align: center;
@@ -46,7 +46,7 @@ body {
 }
 
 /* Content Wrapper: Adjusted padding to avoid title bar overlap */
-.mobile-content {
+.mobileContent {
   padding: 60px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
@@ -74,18 +74,18 @@ section {
 }
 
 /* Hero Section Text: Adjusted heading and paragraph sizes */
-.hero-content h1 {
+.heroContent h1 {
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }
 
-.hero-content p {
+.heroContent p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
 
 /* Button Styling: Red background with hover effect */
-.btn {
+.button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
   background: #BE0F34;
@@ -97,35 +97,35 @@ section {
 }
 
 /* Button Hover Effect: Slight lift and shadow */
-.btn:hover {
+.button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(190, 15, 52, 0.2);
 }
 
 /* Account Button Styling: Blue background for account-related actions */
-.account-btn {
+.accountButton {
   background: #0072CE;
 }
 
-.account-btn:hover {
+.accountButton:hover {
   background: #0085E6;
   box-shadow: 0 4px 8px rgba(0, 114, 206, 0.3);
 }
 
 /* Section Header Styling: Centered and spaced out */
-.section-header {
+.sectionHeader {
   text-align: center;
   margin-bottom: 1rem;
 }
 
 /* Event List Styling: Styled list with white background and shadow */
-.event-list {
+.eventList {
   list-style: none;
   padding: 0;
   text-align: center;
 }
 
-.event-list li {
+.eventList li {
   background: white;
   padding: 1rem;
   margin: 0.5rem auto;
@@ -136,7 +136,7 @@ section {
 }
 
 /* Account Page: User profile styling */
-.user-profile {
+.userProfile {
   background: white;
   padding: 1.5rem;
   border-radius: 15px;
@@ -144,14 +144,14 @@ section {
 }
 
 /* Profile Header: Display profile picture and user info side by side */
-.profile-header {
+.profileHeader {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
 /* Profile Picture Styling: Circular and centered */
-.profile-picture {
+.profilePicture {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -164,20 +164,20 @@ section {
 }
 
 /* Profile Info: Text aligned to the left */
-.profile-info {
+.profileInfo {
   text-align: left;
 }
 
-.profile-info h3 {
+.profileInfo h3 {
   margin-bottom: 0.5rem;
 }
 
 /* Data Section Styling: Margin for spacing and header with underline */
-.data-section {
+.dataSection {
   margin-bottom: 1.5rem;
 }
 
-.data-section h4 {
+.dataSection h4 {
   text-align: left;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
@@ -185,13 +185,13 @@ section {
 }
 
 /* Data Item Styling: Flex layout for labels and values */
-.data-item {
+.dataItem {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
   text-align: left;
 }
 
-.item-label {
+.itemLabel {
   font-weight: bold;
 }

@@ -16,7 +16,7 @@ body {
 }
 
 /* Mobile Frame */
-.mobile-frame {
+.mobileFrame {
   width: 90%;
   max-width: 768px;
   height: 90vh;
@@ -30,7 +30,7 @@ body {
 }
 
 /* Title Bar Styling */
-.title-bar {
+.titleBar {
   background: #BE0F34;
   color: white;
   text-align: center;
@@ -46,17 +46,17 @@ body {
   justify-content: center;
 }
 
-/* Account Content Wrapper */
-.mobile-content {
+/* Main Content */
+.mobileContent {
   padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
   margin-top: 40px;
-  color: black; 
+  color: black;
 }
 
 /* User Profile Section */
-.user-profile {
+.userProfile {
   background: white;
   padding: 1.5rem;
   border-radius: 15px;
@@ -64,14 +64,14 @@ body {
 }
 
 /* Profile Header Section */
-.profile-header {
+.profileHeader {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
 /* Profile Picture Styling */
-.profile-picture {
+.profilePicture {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -84,61 +84,61 @@ body {
 }
 
 /* Profile Information Section */
-.profile-info {
+.profileInfo {
   text-align: left;
 }
 
 /* Profile Name Styling */
-.profile-info h3 {
+.profileInfo h3 {
   margin-bottom: 0.5rem;
-  color: black; /* Make sure name is black */
+  color: black;
 }
 
 /* Data Section for Account Information */
-.data-section {
+.dataSection {
   margin-bottom: 1.5rem;
 }
 
 /* Data Section Header Styling */
-.data-section h4 {
+.dataSection h4 {
   text-align: left;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
   padding-bottom: 0.5rem;
-  color: black; 
+  color: black;
 }
 
 /* Data Item Styling */
-.data-item {
+.dataItem {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
   text-align: left;
-  color: black; 
+  color: black;
 }
 
 /* Label for Data Items */
-.item-label {
+.itemLabel {
   font-weight: bold;
-  color: black; 
+  color: black;
 }
 
 /* Item Value Styling */
-.item-value {
-  color: black; 
+.itemValue {
+  color: black;
 }
 
 /* Title for Account Details Section */
-.section-header h2 {
-  text-align: center; 
-  color: white; 
-  font-size: 1.5rem; 
-  font-weight: bold; 
-  margin-bottom: 1rem; 
+.sectionHeader h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 /* Back to Home Button Styling */
-.btn-container {
+.btnContainer {
   text-align: center;
   margin-top: 1rem;
 }
@@ -150,7 +150,7 @@ body {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  display: inline-block; 
+  display: inline-block;
 }
 
 .btn:hover {
