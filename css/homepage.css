@@ -16,16 +16,18 @@ body {
   padding: 0 20px; /* Added some padding on small devices */
 }
 
-/* Mobile Frame Styling */
+/* Mobile Frame */
 .mobile-frame {
-  max-width: 768px;
   width: 90%;
+  max-width: 768px;
   height: 90vh;
   background-color: #001F3F;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Title Bar: Red background with white text, fixed at the top */
