@@ -72,27 +72,27 @@ body {
   margin-bottom: 20px;
 }
 
-/* Table Styling */
+/* Table Wrapper, for tables that need horizontal scrolling */
 .tableWrapper {
   overflow-x: auto;
 }
 
+/* Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
 
-th, td {
+/* Table Header Styling */
+th {
   padding: 12px 15px;
+  background-color: #BE0F34;
+  color: white;
   border-bottom: 1px solid #ddd;
 }
 
-th {
-  background-color: #BE0F34;
-  color: white;
-}
-
+/* Table Row Styling, even rows */
 tr:nth-child(even) {
   background-color: #2C3E50;
 }
@@ -101,7 +101,10 @@ tr:hover {
   background-color: #34495E;
 }
 
+/* Table Data Styling */
 td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
   color: white;
 }
 
