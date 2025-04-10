@@ -23,12 +23,12 @@
     <section id="auth">
       <div class="formContainer">
         <h2>Admin Login</h2>
-        <form id="admin-login-form"> 
+        <form id="admin-login-form" method="POST" action="adminlogin.php"> 
           <div class="formElement">
-            <input type="email" id="admin-email" class="formControl" placeholder="Email" required>
+            <input type="email" id="admin-email" name="adminEmail" class="formControl" placeholder="Email" required>
           </div>
           <div class="formElement">
-            <input type="password" id="admin-password" class="formControl" placeholder="Password" required>
+            <input type="password" id="admin-password" name="adminPassword" class="formControl" placeholder="Password" required>
           </div>
           <button type="submit" class="btn">Log In</button> 
         </form>
@@ -36,5 +36,7 @@
     </section>
   </div>
   <script src="js/adminlogin.js"></script>
+</div>
+
 </body>
 </html>
