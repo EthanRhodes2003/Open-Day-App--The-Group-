@@ -76,14 +76,12 @@
           </select>
         </div>
 
-        <!-- Booking Date -->
+        <!-- Booking Date (Populated from DB) -->
         <div class="formElement">
           <label for="bookingDate" class="formLabel">Open Day Date</label>
           <select id="bookingDate" name="bookingDate" required>
             <option value="" disabled selected>Select date</option>
-            <option value="2025-03-26">March 26, 2025</option>
-            <option value="2025-04-02">April 2, 2025</option>
-            <option value="2025-04-09">April 9, 2025</option>
+            <!-- Event dates will be added dynamically here -->
           </select>
         </div>
 
@@ -91,11 +89,65 @@
         <button type="submit" class="btn">Register</button>
       </form>
 
+      <!-- Display message after form submission -->
       <div id="message"></div>
     </div>
   </div>
 
 </div>
+
+<script>
+// Fetch event dates and populate the bookingDate dropdown
+async function loadEventDates() {
+  try {
+    // Fetch event dates from the eventdates.php script
+    const response = await fetch('../php/eventdates.php');
+    const events = await response.json();
+
+    const bookingDateSelect = document.getElementById('bookingDate');
+
+    // Clear the dropdown first to avoid duplicate options
+    bookingDateSelect.innerHTML = '<option value="" disabled selected>Select date</option>';
+
+    // Check if events were fetched successfully
+    if (Array.isArray(events) && events.length > 0) {
+      const seenDates = new Set(); // To track already seen dates
+
+      // Populate the event dates dynamically
+      events.forEach(event => {
+        const formattedDate = event.EventDate;  // Already in 'YYYY-MM-DD' format from PHP
+        
+        // Prevent duplicates by checking against seenDates set
+        if (!seenDates.has(formattedDate)) {
+          const option = document.createElement('option');
+          option.value = formattedDate;  // Use the 'YYYY-MM-DD' format as value
+          option.textContent = new Date(formattedDate).toLocaleDateString();  // Display the formatted date
+
+          bookingDateSelect.appendChild(option);
+          seenDates.add(formattedDate);  // Mark this date as seen
+        }
+      });
+    } else {
+      // If no events are available, show a message
+      const option = document.createElement('option');
+      option.disabled = true;
+      option.textContent = 'No open day events available';
+      bookingDateSelect.appendChild(option);
+    }
+  } catch (error) {
+    console.error('Error loading event dates:', error);
+    const bookingDateSelect = document.getElementById('bookingDate');
+    const option = document.createElement('option');
+    option.disabled = true;
+    option.textContent = 'Error loading event dates';
+    bookingDateSelect.appendChild(option);
+  }
+}
+
+// Call the function to load event dates when the page loads
+loadEventDates();
+
+</script>
 
 <script src="js/booking.js"></script>
 </body>

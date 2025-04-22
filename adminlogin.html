@@ -4,39 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="css/signup.css"> <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
-
-<!-- Mobile Frame -->
 <div class="mobileFrame">
-  
-  <!-- Title Bar with Logo and Back Button -->
-  <div class="titleBar">
-    <a href="index.html" class="backButton">&larr;</a>
-    <div class="logo">Wolvo Open Day</div>
-  </div>
+    <div class="titleBar">
+        <a href="index.html" class="backButton">&larr;</a>
+        <div class="logo">Wolvo Open Day</div>
+    </div>
 
-  <!-- Main Content Section -->
-  <div class="mobileContent">
-    <!-- Admin Login Form -->
-    <section id="auth">
-      <div class="formContainer">
-        <h2>Admin Login</h2>
-        <form id="admin-login-form" method="POST" action="adminlogin.php"> 
-          <div class="formElement">
-            <input type="email" id="admin-email" name="adminEmail" class="formControl" placeholder="Email" required>
-          </div>
-          <div class="formElement">
-            <input type="password" id="admin-password" name="adminPassword" class="formControl" placeholder="Password" required>
-          </div>
-          <button type="submit" class="btn">Log In</button> 
-        </form>
-      </div>
-    </section>
-  </div>
-  <script src="js/adminlogin.js"></script>
+    <div class="mobileContent">
+        <section id="auth">
+            <div class="formContainer">
+                <h2>Admin Login</h2>
+                <form id="admin-login-form" method="POST" action="php/adminlogin.php">
+                    <div class="formElement">
+                        <input type="email" id="admin-email" name="email" class="formControl" placeholder="Email" required>
+                    </div>
+                    <div class="formElement">
+                        <input type="password" id="admin-password" name="password" class="formControl" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn">Log In</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="js/adminlogin.js"></script>
 </div>
-
 </body>
 </html>
