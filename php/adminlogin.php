@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['admin_name'] = $admin['Name'];
             $_SESSION['admin_email'] = $admin['Email'];
 
-            header("Location: /bookingsdata.html");
+            header("Location: ../php/bookingsdata.php");
             exit();
         } else {
             echo "Incorrect admin password!";

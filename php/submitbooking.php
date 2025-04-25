@@ -1,51 +1,63 @@
 <?php
 session_start();
-include '../php/db.php'; // Ensure database connection
+include 'db.php'; // Include your database connection
 
-// Ensure user is logged in, otherwise return error
+// Check if user is logged in and AccountID exists in the session
 if (!isset($_SESSION['user_id'])) {
-    echo json_encode(['success' => false, 'message' => 'User not logged in.']);
+    echo json_encode(['success' => false, 'message' => 'You must be logged in to book.']);
     exit();
 }
 
-// Get the user ID from the session
-$userId = $_SESSION['user_id'];
+// Get the AccountID from session
+$accountID = $_SESSION['user_id'];
 
-// Get data from the POST request
-$entryYear = $_POST['entryYear'];
-$educationLevel = $_POST['educationLevel'];
-$subjectInterest = $_POST['subjectInterest'];
-$contactPreference = $_POST['contactPreference'];
-$bookingDate = $_POST['bookingDate']; // Ensure this is a valid Event Date
-$eventID = $_POST['eventID']; // New parameter for EventID
+// Get the other form details
+$subject = isset($_GET['subject']) ? $_GET['subject'] : null;
+$entryYear = $_POST['entryYear'] ?? '';
+$educationLevel = $_POST['educationLevel'] ?? '';
+$contactPreference = $_POST['contactPreference'] ?? '';
+$eventID = $_POST['eventID'] ?? '';
 
-// Validate data (check if fields are empty)
-if (empty($entryYear) || empty($educationLevel) || empty($subjectInterest) || empty($contactPreference) || empty($bookingDate) || empty($eventID)) {
-    echo json_encode(['success' => false, 'message' => 'Please fill in all the fields.']);
+if (!$subject || !$entryYear || !$educationLevel || !$contactPreference || !$eventID) {
+    echo json_encode(['success' => false, 'message' => 'Missing required fields.']);
     exit();
 }
 
-// Validate that the bookingDate corresponds to a valid EventID
 try {
-    // Ensure the date format is correct (YYYY-MM-DD) before checking the event
-    $stmt = $pdo->prepare("SELECT EventID FROM EVENT WHERE DATE(EventDate) = ? AND EventID = ?");
-    $stmt->execute([$bookingDate, $eventID]);
+    // Get the campus related to the subject
+    $stmt = $pdo->prepare("SELECT c.Name AS campusName, c.CampusID
+                           FROM CAMPUS c
+                           INNER JOIN SUBJECT_TO_CAMPUS s ON s.CampusID = c.CampusID
+                           WHERE s.SubjectName = :subject");
 
-    // Check if the event exists in the EVENT table
-    if ($stmt->rowCount() == 0) {
-        echo json_encode(['success' => false, 'message' => 'Invalid event date or EventID selected.']);
-        exit();
+    $stmt->execute(['subject' => $subject]);
+    $campus = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($campus) {
+        $campusName = $campus['campusName'];
+        $campusID = $campus['CampusID'];
+
+        // Check if the event is valid
+        $stmtEvent = $pdo->prepare("SELECT EventID FROM EVENT WHERE EventID = ?");
+        $stmtEvent->execute([$eventID]);
+
+        if ($stmtEvent->rowCount() == 0) {
+            echo json_encode(['success' => false, 'message' => 'Invalid EventID selected.']);
+            exit();
+        }
+
+        // Insert the booking into the database
+        $stmtBooking = $pdo->prepare("
+            INSERT INTO BOOKING (AccountID, YearOfEntry, LevelOfInterest, SubjectOfInterest, ContactPreference, EventID, CampusID) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ");
+        $stmtBooking->execute([$accountID, $entryYear, $educationLevel, $subject, $contactPreference, $eventID, $campusID]);
+
+        echo json_encode(['success' => true, 'message' => 'Booking successful!']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Campus not found for this subject.']);
     }
-
-    // Insert booking into the database
-    $stmt = $pdo->prepare("INSERT INTO BOOKING (AccountID, YearOfEntry, LevelOfInterest, SubjectOfInterest, ContactPreference, BookingDate, EventID) 
-                           VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$userId, $entryYear, $educationLevel, $subjectInterest, $contactPreference, $bookingDate, $eventID]);
-
-    // If booking was successful
-    echo json_encode(['success' => true, 'message' => 'Booking successful!']);
 } catch (PDOException $e) {
-    // If there was an issue inserting the booking
-    echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
+    echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
 }
 ?>

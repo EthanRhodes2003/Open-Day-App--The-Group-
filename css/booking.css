@@ -29,6 +29,27 @@ body {
   flex-direction: column;
 }
 
+.logoutButtonContainer {
+  position: absolute;
+  top: 5px;
+  right: 30px; 
+}
+
+.logoutButton {
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #d32f2f;
+}
+
 /* Title Bar Styling */
 .titleBar {
   background: #BE0F34;

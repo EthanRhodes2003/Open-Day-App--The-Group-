@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $user['Email'];
 
             // Redirect to homepage or another protected page
-            header("Location: /homepage.html"); 
+            header("Location: ../php/homepage.php"); 
             exit();
         } else {
             echo "Incorrect password!";

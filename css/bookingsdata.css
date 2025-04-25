@@ -29,6 +29,27 @@ body {
   flex-direction: column;
 }
 
+.logoutButtonContainer {
+  position: absolute;
+  top: 5px;
+  right: 30px; 
+}
+
+.logoutButton {
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #d32f2f;
+}
+
 /* Title Bar Styling */
 .titleBar {
   background: #BE0F34;
@@ -72,40 +93,53 @@ body {
   margin-bottom: 20px;
 }
 
-/* Table Wrapper, for tables that need horizontal scrolling */
-.tableWrapper {
-  overflow-x: auto;
-}
-
-/* Table Styling */
+/* Table Layout Fix for auto-width based on content */
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto; /* Let columns auto size to their content */
+}
+
+/* Ensure th and td don't wrap text unnecessarily */
+th, td {
+  white-space: nowrap;
+  padding: 8px 15px;
   text-align: left;
+  border-bottom: 1px solid #444;
+  color: white;
+}
+
+/* Make background of table black */
+table {
+  background-color: #000;
+  color: white;
+  border: 1px solid #444;
 }
 
 /* Table Header Styling */
 th {
-  padding: 12px 15px;
   background-color: #BE0F34;
-  color: white;
-  border-bottom: 1px solid #ddd;
+  font-weight: bold;
 }
 
-/* Table Row Styling, even rows */
+/* Zebra stripe rows */
 tr:nth-child(even) {
-  background-color: #2C3E50;
+  background-color: #111;
 }
 
 tr:hover {
-  background-color: #34495E;
+  background-color: #222;
 }
 
-/* Table Data Styling */
-td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
-  color: white;
+/* Horizontal scroll for smaller screens */
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+/* Hover effect */
+tr:hover {
+  background-color: #222;
 }
 
 /* Button Styling */
@@ -123,4 +157,82 @@ button.btn {
 /* Button Hover Effect */
 button.btn:hover {
   background: #a00d2e;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.action-buttons button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Search Input */
+.search-input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 200px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+.modal input, .modal select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal button {
+  background-color: #BE0F34;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #a00d2e;
 }

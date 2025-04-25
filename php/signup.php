@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Signup successful! You can now log in.";           
             $_SESSION['user_id'] = $pdo->lastInsertId(); // Get the ID of the newly inserted user
             $_SESSION['username'] = $first_name . ' ' . $last_name;
-            header("Location: /homepage.html"); // Redirect to homepage after successful signup
+            header("Location: ../php/homepage.php"); // Redirect to homepage after successful signup
         } else {
             echo "There was an error while signing up. Please try again.";
         }
