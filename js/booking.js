@@ -1,4 +1,4 @@
-// Fetch event dates and populate the bookingDate dropdown
+// Fetch event dates and show in drop down
 async function loadEventDates() {
     try {
       // Fetch event dates from the eventdates.php script
@@ -9,7 +9,6 @@ async function loadEventDates() {
   
       // Check if events were fetched successfully
       if (Array.isArray(events) && events.length > 0) {
-        // Populate the event dates dynamically
         events.forEach(event => {
           const option = document.createElement('option');
           option.value = event.EventID; // Use EventID as the value
@@ -78,7 +77,6 @@ async function loadEventDates() {
       if (data.success) {
         document.getElementById('message').textContent = 'Booking successful!';
         document.getElementById('message').className = 'success';
-        // Optionally redirect to account page or update UI
         window.location.href = '../php/account.php';  // Redirect to account page after successful booking
       } else {
         document.getElementById('message').textContent = data.message || 'Booking failed. Please try again.';

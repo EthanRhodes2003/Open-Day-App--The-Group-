@@ -1,42 +1,43 @@
 <?php
 session_start();
-include 'db.php'; // Ensure database connection is included
+include 'db.php'; // Database connection
+
+header('Content-Type: application/json'); // Set response type to JSON
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Debug to check if form data is received
-    echo "<pre>";
-    print_r($_POST);  
-    echo "</pre>";
-
-    if (!isset($_POST['email']) || !isset($_POST['password'])) {
-        die("Error: Email or Password field is missing.");
-    }
-
+    // Get form data
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    // Corrected SQL query (matching table column names exactly)
+    // Check if the user exists in the database
     $stmt = $pdo->prepare("SELECT AccountID, FirstName, LastName, Email, Password FROM ACCOUNT WHERE Email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        // Directly compare the plain password with the stored one
-        if ($password === $user['Password']) {  
+        if ($password === $user['Password']) {
             $_SESSION['user_id'] = $user['AccountID'];
             $_SESSION['username'] = $user['FirstName'] . ' ' . $user['LastName'];
             $_SESSION['email'] = $user['Email'];
 
-            // Redirect to homepage or another protected page
-            header("Location: ../php/homepage.php"); 
-            exit();
+            // Send a success response with redirect
+            echo json_encode([
+                "success" => true,
+                "redirect" => "php/homepage.php"
+            ]);
         } else {
-            echo "Incorrect password!";
+            // Incorrect password error message
+            echo json_encode([
+                "success" => false,
+                "message" => "Incorrect password!"
+            ]);
         }
     } else {
-        echo "No user found with that email!";
+        // User not found error message
+        echo json_encode([
+            "success" => false,
+            "message" => "No user found with that email!"
+        ]);
     }
-} else {
-    echo "Invalid request!";
 }
 ?>

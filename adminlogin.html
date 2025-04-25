@@ -17,15 +17,17 @@
         <section id="auth">
             <div class="formContainer">
                 <h2>Admin Login</h2>
-                <form id="admin-login-form" method="POST" action="../php/adminlogin.php">
+                <form id="adminLoginForm" method="POST">
                     <div class="formElement">
-                        <input type="email" id="admin-email" name="email" class="formControl" placeholder="Email" required>
+                        <input type="email" id="adminEmail" name="email" class="formControl" placeholder="Email" required>
                     </div>
                     <div class="formElement">
-                        <input type="password" id="admin-password" name="password" class="formControl" placeholder="Password" required>
+                        <input type="password" id="adminPassword" name="password" class="formControl" placeholder="Password" required>
                     </div>
                     <button type="submit" class="btn">Log In</button>
                 </form>
+                <!-- Message will be displayed here -->
+                <div id="loginMessage" class="message"></div>
             </div>
         </section>
     </div>

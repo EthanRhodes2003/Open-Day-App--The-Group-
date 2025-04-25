@@ -1,5 +1,5 @@
 <?php
-include 'db.php'; // Include database connection
+include 'db.php'; // Database connection
 
 try {
     // Query to get all unique subjects from the SUBJECT_TO_CAMPUS table

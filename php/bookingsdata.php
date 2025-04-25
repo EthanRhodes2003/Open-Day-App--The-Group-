@@ -2,16 +2,18 @@
 session_start();
 include '../php/db.php';
 
+// Check if the admin is logged in, if not, redirect to the login page
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: ../index.html");
+    header("Location: ../index.html"); // Redirect to login page if not logged in
     exit();
 }
 
+// Fetch booking data from the database
 $bookings = $pdo->query("
     SELECT 
         b.BookingID, b.AccountID, a.Phone, a.Email, a.Birthday, a.Country, 
         b.EventID, b.LevelOfInterest, b.SubjectOfInterest, b.YearOfEntry,
-        e.EventDate, b.CampusID, c.Name AS CampusName,
+        e.EventDate, b.CampusID, c.Name AS CampusName, b.ContactPreference,
         CONCAT(a.FirstName, ' ', a.LastName) AS FullName
     FROM BOOKING b
     JOIN ACCOUNT a ON b.AccountID = a.AccountID
@@ -19,6 +21,7 @@ $bookings = $pdo->query("
     JOIN CAMPUS c ON b.CampusID = c.CampusID
 ")->fetchAll(PDO::FETCH_ASSOC);
 
+// Fetch all accounts data
 $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -30,24 +33,13 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
   <title>Bookings Data - Wolvo Open Day</title>
   <link rel="stylesheet" href="../css/homepage.css" />
   <link rel="stylesheet" href="../css/bookingsdata.css" />
-  <style>
-    .sectionHeader input[type="text"] {
-      padding: 8px 12px;
-      margin: 8px 8px 15px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      max-width: 200px;
-    }
-    .filterInputs {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  </style>
 </head>
 <body>
 
+<!-- Mobile Frame -->
 <div class="mobileFrame">
+  
+  <!-- Title Bar with Logo and Logout Button -->
   <div class="titleBar">
     <div class="logo">Wolvo Open Day</div>
     <div class="logoutButtonContainer">
@@ -57,9 +49,10 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 
+  <!-- Main Content Area -->
   <div class="mobileContent">
     
-    <!-- Booking Data -->
+    <!-- Booking Data Section -->
     <section id="bookings">
       <div class="sectionHeader">
         <h2>Booking Data</h2>
@@ -88,6 +81,7 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
               <th>Subject</th>
               <th>Campus ID</th>
               <th>Campus Name</th>
+              <th>Contact Preference</th> <!-- Added column for Contact Preference -->
             </tr>
           </thead>
           <tbody>
@@ -98,14 +92,15 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($row['FullName']) ?></td>
                 <td><?= htmlspecialchars($row['Phone']) ?></td>
                 <td><?= htmlspecialchars($row['Email']) ?></td>
-                <td><?= htmlspecialchars($row['Birthday']) ?></td>
+                <td><?= date('d/m/Y', strtotime($row['Birthday'])) ?></td>
                 <td><?= htmlspecialchars($row['Country']) ?></td>
                 <td><?= htmlspecialchars($row['EventID']) ?></td>
-                <td><?= htmlspecialchars($row['EventDate']) ?></td>
+                <td><?= date('d/m/Y', strtotime($row['EventDate'])) ?></td>
                 <td><?= htmlspecialchars($row['LevelOfInterest']) ?></td>
                 <td><?= htmlspecialchars($row['SubjectOfInterest']) ?></td>
                 <td><?= htmlspecialchars($row['CampusID']) ?></td>
                 <td><?= htmlspecialchars($row['CampusName']) ?></td>
+                <td><?= htmlspecialchars($row['ContactPreference']) ?></td> <!-- Displaying Contact Preference -->
               </tr>
             <?php endforeach; ?>
           </tbody>
@@ -113,7 +108,6 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </section>
 
-    <!-- Account Data -->
     <hr style="margin: 2rem 0;">
     <section id="accounts">
       <div class="sectionHeader">
@@ -140,7 +134,7 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($acc['FirstName'] . ' ' . $acc['LastName']) ?></td>
                 <td><?= htmlspecialchars($acc['Email']) ?></td>
                 <td><?= htmlspecialchars($acc['Phone']) ?></td>
-                <td><?= htmlspecialchars($acc['Birthday']) ?></td>
+                <td><?= date('d/m/Y', strtotime($acc['Birthday'])) ?></td>
                 <td><?= htmlspecialchars($acc['Country']) ?></td>
               </tr>
             <?php endforeach; ?>
@@ -148,49 +142,49 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
         </table>
       </div>
     </section>
-
   </div>
 </div>
 
+<script src="../js/adminlogin.js"></script>
 <script>
-let inactivityTimeout;
-function resetInactivityTimer() {
-  clearTimeout(inactivityTimeout);
-  inactivityTimeout = setTimeout(() => {
-    alert("You have been logged out due to inactivity.");
-    window.location.href = "logout.php";
-  }, 5 * 60 * 1000);
-}
-['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
-  document.addEventListener(evt, resetInactivityTimer, false);
-});
-resetInactivityTimer();
-
-// Booking Filters
-const bookingFilters = {
-  filterBookingID: 0,
-  filterAccountID: 1,
-  filterEventID: 7,
-  filterCampusID: 11
-};
-
-Object.entries(bookingFilters).forEach(([inputID, columnIndex]) => {
-  document.getElementById(inputID).addEventListener("input", function () {
-    const filterValues = Object.entries(bookingFilters).map(([id, col]) => ({
-      colIndex: col,
-      value: document.getElementById(id).value.trim().toLowerCase()
-    }));
-
-    const rows = document.querySelectorAll("#bookingsTable tbody tr");
-    rows.forEach(row => {
-      const cells = row.getElementsByTagName("td");
-      const visible = filterValues.every(f => cells[f.colIndex].textContent.toLowerCase().includes(f.value));
-      row.style.display = visible ? "" : "none";
-    });
+// Filtering functionality for the bookings table
+document.getElementById("filterBookingID").addEventListener("input", function () {
+  const filter = this.value.trim().toLowerCase();
+  const rows = document.querySelectorAll("#bookingsTable tbody tr");
+  rows.forEach(row => {
+    const bookingID = row.cells[0].textContent.toLowerCase();
+    row.style.display = bookingID.includes(filter) ? "" : "none";
   });
 });
 
-// Account Filter
+document.getElementById("filterAccountID").addEventListener("input", function () {
+  const filter = this.value.trim().toLowerCase();
+  const rows = document.querySelectorAll("#bookingsTable tbody tr");
+  rows.forEach(row => {
+    const accountID = row.cells[1].textContent.toLowerCase();
+    row.style.display = accountID.includes(filter) ? "" : "none";
+  });
+});
+
+document.getElementById("filterEventID").addEventListener("input", function () {
+  const filter = this.value.trim().toLowerCase();
+  const rows = document.querySelectorAll("#bookingsTable tbody tr");
+  rows.forEach(row => {
+    const eventID = row.cells[7].textContent.toLowerCase();
+    row.style.display = eventID.includes(filter) ? "" : "none";
+  });
+});
+
+document.getElementById("filterCampusID").addEventListener("input", function () {
+  const filter = this.value.trim().toLowerCase();
+  const rows = document.querySelectorAll("#bookingsTable tbody tr");
+  rows.forEach(row => {
+    const campusID = row.cells[11].textContent.toLowerCase();
+    row.style.display = campusID.includes(filter) ? "" : "none";
+  });
+});
+
+// Filtering the account table based on Account ID
 document.getElementById("accountFilter").addEventListener("input", function () {
   const filter = this.value.trim().toLowerCase();
   const rows = document.querySelectorAll("#accountsTable tbody tr");

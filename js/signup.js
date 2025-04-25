@@ -1,31 +1,73 @@
-// Handle Sign Up form submission
-document.getElementById("signup-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form from submitting
-});
+document.addEventListener("DOMContentLoaded", function () {
+  const signupForm = document.getElementById("signupForm");  
+  const loginForm = document.getElementById("loginForm");    
 
-// Handle Log In form submission (with test credentials)
-document.getElementById("login-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form from submitting
+  // Handle Sign Up form submission
+  if (signupForm) {
+      signupForm.addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form from submitting
 
-  // Get the entered email and password
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+          const formData = new FormData(signupForm);
 
-  // Test credentials
-  const testEmail = "test@example.com";
-  const testPassword = "password123";
+          fetch("php/signup.php", {
+              method: "POST",
+              body: formData,
+          })
+              .then(res => res.json()) // Parse the JSON response from PHP
+              .then(data => {
+                  const messageDiv = document.getElementById("signupMessage"); 
 
-  if (email === testEmail && password === testPassword) {
-    // If login is successful, store login status in localStorage
-    localStorage.setItem("loggedIn", "true");
+                  if (data.message) {
+                      messageDiv.innerText = data.message;
+                      messageDiv.style.color = data.success ? "green" : "red";
+                  }
 
-    window.location.href = "index.html"; // Redirect to the homepage
-  } else {
-    alert("Invalid credentials. Please try again."); 
+                  // If sign up is successful, redirect to the homepage
+                  if (data.success) {
+                      window.location.href = data.redirect;
+                  }
+              })
+              .catch(err => {
+                  console.error(err);
+                  const messageDiv = document.getElementById("signupMessage");
+                  messageDiv.innerText = "There was an error during signup. Please try again.";
+                  messageDiv.style.color = "red";
+              });
+      });
   }
-});
 
-// Handle back button click
-document.getElementById("back-button").addEventListener("click", function() {
-  window.location.href = "index.html"; // Navigate back to index.html
+  // Handle Log In form submission
+  if (loginForm) {
+      loginForm.addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form from submitting
+
+          const formData = new FormData(loginForm);
+
+          fetch("php/login.php", {
+              method: "POST",
+              body: formData,
+          })
+              .then(res => res.json()) // Parse the JSON response from PHP
+              .then(data => {
+                  const messageDiv = document.getElementById("loginMessage"); 
+
+                  // If message exists, display it
+                  if (data.message) {
+                      messageDiv.innerText = data.message;
+                      messageDiv.style.color = data.success ? "green" : "red";
+                  }
+
+                  if (data.success) {
+                      // Redirect to homepage if login is successful
+                      window.location.href = data.redirect || "php/homepage.php";
+                  }
+              })
+              .catch(err => {
+                  console.error(err);
+                  const messageDiv = document.getElementById("loginMessage");
+                  messageDiv.innerText = "There was an error during login. Please try again.";
+                  messageDiv.style.color = "red";
+              });
+      });
+  }
 });

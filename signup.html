@@ -24,47 +24,70 @@
       <div class="formContainer">
         <!-- Sign Up Form -->
         <h2>Sign Up</h2>
-        <form action="php/signup.php" method="POST">
+        <form id="signupForm" method="POST"> 
           <div class="formElement">
-            <input type="text" name="first_name" class="formControl" placeholder="First Name" required>
+            <input type="text" name="firstName" id="firstName" class="formControl" placeholder="First Name" required>
           </div>
           <div class="formElement">
-            <input type="text" name="last_name" class="formControl" placeholder="Last Name" required>
+            <input type="text" name="lastName" id="lastName" class="formControl" placeholder="Last Name" required>
           </div>
           <div class="formElement">
-            <input type="email" name="email" class="formControl" placeholder="Email" required>
+            <input type="email" name="email" id="email" class="formControl" placeholder="Email" required>
           </div>
           <div class="formElement">
-            <input type="tel" name="phone" class="formControl" placeholder="Phone Number" required>
+            <input type="tel" name="phone" id="phone" class="formControl" placeholder="Phone Number" required>
           </div>
           <div class="formElement">
-            <input type="password" name="password" class="formControl" placeholder="Password" required>
+            <input type="password" name="password" id="password" class="formControl" placeholder="Password" required>
           </div>
           <div class="formElement">
-            <input type="date" name="dob" class="formControl" required>
+            <input type="date" name="dob" id="dob" class="formControl" required>
           </div>
           <div class="formElement">
-            <select name="country" class="formControl" required>
-              <option value="">Select Country</option>
-              <option value="UK">United Kingdom</option>
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
+            <select name="country" id="country" class="formControl" required>
+                <option value="">Select Country</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option value="India">India</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Spain">Spain</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Italy">Italy</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Ireland">Ireland</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Norway">Norway</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Singapore">Singapore</option>
             </select>
-          </div>
+        </div> 
           <button type="submit" class="btn">Sign Up</button>
         </form>
 
+        <!-- Sign Up Message Display -->
+        <div id="signupMessage" class="message"></div> 
+
         <!-- Log In Form -->
         <h2>Log In</h2>
-        <form action="php/login.php" method="POST">
+        <form id="loginForm" method="POST"> 
           <div class="formElement">
-            <input type="email" name="email" class="formControl" placeholder="Email" required>
+            <input type="email" name="email" id="loginEmail" class="formControl" placeholder="Email" required> 
           </div>
           <div class="formElement">
-            <input type="password" name="password" class="formControl" placeholder="Password" required>
+            <input type="password" name="password" id="loginPassword" class="formControl" placeholder="Password" required> 
           </div>
           <button type="submit" class="btn">Log In</button>
         </form>
+
+        <!-- Log In Message Display -->
+        <div id="loginMessage" class="message"></div> 
       </div>
     </section>
   </div>

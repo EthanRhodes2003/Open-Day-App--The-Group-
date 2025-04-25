@@ -1,12 +1,10 @@
 <?php
 session_start();
-include 'db.php'; // Connect to DB
+include '../php/db.php'; // Include your database connection
+
+header('Content-Type: application/json'); // Set response type to JSON
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!isset($_POST['email']) || !isset($_POST['password'])) {
-        die("Error: Email or Password field is missing.");
-    }
-
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
@@ -18,19 +16,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($admin) {
         if ($password === $admin['Password']) {
             // Login success
-            $_SESSION['admin_id'] = $admin['AdminID'];
+            $_SESSION['admin_id'] = $admin['AdminID']; // Save admin ID in session
             $_SESSION['admin_name'] = $admin['Name'];
             $_SESSION['admin_email'] = $admin['Email'];
-
-            header("Location: ../php/bookingsdata.php");
-            exit();
+            
+            // Return success response with redirect URL
+            echo json_encode([
+                "success" => true,
+                "message" => "Login successful",
+                "redirect" => "../php/bookingsdata.php"
+            ]);
         } else {
-            echo "Incorrect admin password!";
+            // Incorrect password
+            echo json_encode([
+                "success" => false,
+                "message" => "Incorrect admin password!"
+            ]);
         }
     } else {
-        echo "No admin found with that email!";
+        // No admin found with that email
+        echo json_encode([
+            "success" => false,
+            "message" => "No admin found with that email!"
+        ]);
     }
 } else {
-    echo "Invalid request!";
+    echo json_encode([
+        "success" => false,
+        "message" => "Invalid request method!"
+    ]);
 }
 ?>

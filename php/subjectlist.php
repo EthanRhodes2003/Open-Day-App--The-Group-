@@ -1,7 +1,7 @@
 <?php
-include 'db.php'; // Include database connection
+include 'db.php'; // Database connection
 
-// Get subject from the request
+// Get subject
 $subject = isset($_GET['subject']) ? $_GET['subject'] : null;
 
 if ($subject) {

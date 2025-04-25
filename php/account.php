@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../php/db.php'; // Ensure database connection
+include '../php/db.php';
 
 // Ensure user is logged in, otherwise redirect to login page
 if (!isset($_SESSION['user_id'])) {
@@ -15,7 +15,7 @@ $stmt = $pdo->prepare("SELECT * FROM ACCOUNT WHERE AccountID = ?");
 $stmt->execute([$userId]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Fetch booking data, including campus name
+// Fetch booking data, including campus name and event date
 $stmtBookings = $pdo->prepare("SELECT b.*, c.Name AS CampusName, e.EventDate 
                                FROM BOOKING b
                                JOIN CAMPUS c ON b.CampusID = c.CampusID
@@ -42,10 +42,10 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
   <div class="titleBar">
     <div class="logo">Wolvo Open Day</div>
     <div class="logoutButtonContainer">
-  <form method="POST" action="logout.php">
-    <button type="submit" class="logoutButton">Logout</button>
-  </form>
-</div>
+      <form method="POST" action="logout.php">
+        <button type="submit" class="logoutButton">Logout</button>
+      </form>
+    </div>
   </div>
 
   <!-- Main Content -->
@@ -84,7 +84,7 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
           </div>
           <div class="dataItem">
             <span class="itemLabel">Birthday:</span>
-            <span class="itemValue"><?php echo htmlspecialchars($user['Birthday']); ?></span>
+            <span class="itemValue"><?php echo date('d/m/Y', strtotime($user['Birthday'])); ?></span>
           </div>
         </div>
 
@@ -92,34 +92,34 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
           <h4>Booking Information</h4>
           <?php if (count($bookings) > 0): ?>
             <?php foreach ($bookings as $booking): ?>
-              <div class="dataItem">
-                <span class="itemLabel">Booking ID:</span>
-                <span class="itemValue"><?php echo htmlspecialchars($booking['BookingID']); ?></span>
+              <div class="bookingCard">
+                <h5>Booking ID: <?php echo htmlspecialchars($booking['BookingID']); ?></h5>
+                <div class="dataItem">
+                  <span class="itemLabel">Year of Entry:</span>
+                  <span class="itemValue"><?php echo htmlspecialchars($booking['YearOfEntry']); ?></span>
+                </div>
+                <div class="dataItem">
+                  <span class="itemLabel">Education Level:</span>
+                  <span class="itemValue"><?php echo htmlspecialchars($booking['LevelOfInterest']); ?></span>
+                </div>
+                <div class="dataItem">
+                  <span class="itemLabel">Subject Interest:</span>
+                  <span class="itemValue"><?php echo htmlspecialchars($booking['SubjectOfInterest']); ?></span>
+                </div>
+                <div class="dataItem">
+                  <span class="itemLabel">Contact Preference:</span>
+                  <span class="itemValue"><?php echo htmlspecialchars($booking['ContactPreference']); ?></span>
+                </div>
+                <div class="dataItem">
+                  <span class="itemLabel">Campus:</span>
+                  <span class="itemValue"><?php echo htmlspecialchars($booking['CampusName']); ?></span>
+                </div>
+                <div class="dataItem">
+                  <span class="itemLabel">Event Date:</span>
+                  <span class="itemValue"><?php echo date('d/m/Y', strtotime($booking['EventDate'])); ?></span>
+                </div>
               </div>
-              <div class="dataItem">
-                <span class="itemLabel">Year of Entry:</span>
-                <span class="itemValue"><?php echo htmlspecialchars($booking['YearOfEntry']); ?></span>
-              </div>
-              <div class="dataItem">
-                <span class="itemLabel">Education Level:</span>
-                <span class="itemValue"><?php echo htmlspecialchars($booking['LevelOfInterest']); ?></span>
-              </div>
-              <div class="dataItem">
-                <span class="itemLabel">Subject Interest:</span>
-                <span class="itemValue"><?php echo htmlspecialchars($booking['SubjectOfInterest']); ?></span>
-              </div>
-              <div class="dataItem">
-                <span class="itemLabel">Contact Preference:</span>
-                <span class="itemValue"><?php echo htmlspecialchars($booking['ContactPreference']); ?></span>
-              </div>
-              <div class="dataItem">
-                <span class="itemLabel">Campus:</span>
-                <span class="itemValue"><?php echo htmlspecialchars($booking['CampusName']); ?></span>
-              </div>
-              <div class="dataItem">
-                <span class="itemLabel">Event Date:</span>
-                <span class="itemValue"><?php echo date('Y-m-d', strtotime($booking['EventDate'])); ?></span>
-              </div>
+              <hr class="bookingSeparator" />
             <?php endforeach; ?>
           <?php else: ?>
             <p>No booking information available.</p>
@@ -136,22 +136,26 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
 
 </div>
 
+<!-- Inactivity Timer Script -->
 <script>
 let inactivityTimeout;
 
+// Function to reset the inactivity timer
 function resetInactivityTimer() {
   clearTimeout(inactivityTimeout);
   inactivityTimeout = setTimeout(() => {
-    alert("You have been logged out due to inactivity.");
-    window.location.href = "logout.php";
-  }, 5 * 60 * 1000); // 5 minutes
+    alert("You have been logged out due to inactivity."); // Show alert
+    window.location.href = "logout.php"; // Redirect to logout page
+  }, 5 * 60 * 1000); // Set timeout for 5 minutes
 }
 
+// Detect user interaction and reset the inactivity timer
 ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
   document.addEventListener(evt, resetInactivityTimer, false);
 });
 
-resetInactivityTimer(); // Start the timer initially
+// Start the inactivity timer
+resetInactivityTimer(); 
 </script>
 
 </body>  

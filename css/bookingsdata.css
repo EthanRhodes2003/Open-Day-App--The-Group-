@@ -67,17 +67,6 @@ body {
   justify-content: center;
 }
 
-/* Back Button Styling */
-.backButton {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 /* Main Content Styling */
 .mobileContent {
   padding: 50px 20px 20px;
@@ -142,35 +131,19 @@ tr:hover {
   background-color: #222;
 }
 
-/* Button Styling */
-button.btn {
-  width: 100%;
-  padding: 10px;
-  background: #BE0F34;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+/* Filter input styles */
+.sectionHeader input[type="text"] {
+  padding: 8px 12px;
+  margin: 8px 8px 15px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  max-width: 200px;
 }
 
-/* Button Hover Effect */
-button.btn:hover {
-  background: #a00d2e;
-}
-
-/* Action Buttons */
-.action-buttons {
+.filterInputs {
   display: flex;
-  gap: 5px;
-}
-
-.action-buttons button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: white;
+  flex-wrap: wrap;
 }
 
 /* Search Input */
@@ -178,61 +151,4 @@ button.btn:hover {
   margin-bottom: 10px;
   padding: 5px;
   width: 200px;
-}
-
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 10px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-}
-
-.modal input, .modal select {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.modal button {
-  background-color: #BE0F34;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.modal button:hover {
-  background-color: #a00d2e;
 }

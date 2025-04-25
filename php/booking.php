@@ -2,56 +2,70 @@
 session_start();
 include '../php/db.php';
 
-// Ensure the user is logged in
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
 
-// Handle form submission
+$accountID = $_SESSION['user_id'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get form data
     $entryYear = $_POST['entryYear'] ?? '';
     $educationLevel = $_POST['educationLevel'] ?? '';
     $subjectInterest = $_POST['subjectInterest'] ?? '';
     $contactPreference = $_POST['contactPreference'] ?? '';
     $eventDate = $_POST['bookingDate'] ?? '';
 
-    $accountID = $_SESSION['user_id']; // Get the current user's account ID from the session
-
-    // Validate the data
     if (empty($entryYear) || empty($educationLevel) || empty($subjectInterest) || empty($contactPreference) || empty($eventDate)) {
         $errorMessage = 'All fields are required.';
     } else {
         try {
-            // Fetch the associated campus based on the subject selected
-            $stmt = $pdo->prepare("SELECT c.CampusID, c.Name AS campusName 
-                                   FROM CAMPUS c
-                                   INNER JOIN SUBJECT_TO_CAMPUS stc ON c.CampusID = stc.CampusID
-                                   WHERE stc.SubjectName = ?");
-            $stmt->execute([$subjectInterest]);
-            $campus = $stmt->fetch(PDO::FETCH_ASSOC);
+            // Get EventID from date
+            $stmt = $pdo->prepare("SELECT EventID FROM EVENT WHERE EventDate = ?");
+            $stmt->execute([$eventDate]);
+            $eventRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($campus) {
-                // Insert the booking into the database
-                $stmtBooking = $pdo->prepare("INSERT INTO BOOKING (AccountID, YearOfEntry, LevelOfInterest, SubjectOfInterest, ContactPreference, EventID, CampusID)
-                                              VALUES (?, ?, ?, ?, ?, (SELECT EventID FROM EVENT WHERE EventDate = ? LIMIT 1), ?)");
-                $stmtBooking->execute([
-                    $accountID, 
-                    $entryYear, 
-                    $educationLevel, 
-                    $subjectInterest, 
-                    $contactPreference, 
-                    $eventDate, 
-                    $campus['CampusID']
-                ]);
+            if ($eventRow) {
+                $eventID = $eventRow['EventID'];
 
-                $successMessage = 'Booking successfully created!';
+                // Check for duplicate booking
+                $stmt = $pdo->prepare("SELECT COUNT(*) FROM BOOKING WHERE AccountID = ? AND EventID = ?");
+                $stmt->execute([$accountID, $eventID]);
+                $alreadyBooked = $stmt->fetchColumn();
+
+                if ($alreadyBooked) {
+                    $errorMessage = "You’ve already booked this Open Day.";
+                } else {
+                    // Get campus based on subject
+                    $stmt = $pdo->prepare("SELECT c.CampusID, c.Name AS campusName 
+                                           FROM CAMPUS c
+                                           INNER JOIN SUBJECT_TO_CAMPUS stc ON c.CampusID = stc.CampusID
+                                           WHERE stc.SubjectName = ?");
+                    $stmt->execute([$subjectInterest]);
+                    $campus = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($campus) {
+                        $stmt = $pdo->prepare("INSERT INTO BOOKING (AccountID, YearOfEntry, LevelOfInterest, SubjectOfInterest, ContactPreference, EventID, CampusID)
+                                               VALUES (?, ?, ?, ?, ?, ?, ?)");
+                        $stmt->execute([
+                            $accountID,
+                            $entryYear,
+                            $educationLevel,
+                            $subjectInterest,
+                            $contactPreference,
+                            $eventID,
+                            $campus['CampusID']
+                        ]);
+                        $successMessage = 'Booking successfully created!';
+                    } else {
+                        $errorMessage = 'No campus found for the selected subject.';
+                    }
+                }
             } else {
-                $errorMessage = 'Campus not found for this subject.';
+                $errorMessage = 'Invalid event date selected.';
             }
         } catch (PDOException $e) {
-            $errorMessage = 'Error processing the booking: ' . $e->getMessage();
+            $errorMessage = 'Booking failed: ' . $e->getMessage();
         }
     }
 }
@@ -67,62 +81,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<!-- Mobile Frame -->
 <div class="mobileFrame">
-  
-  <!-- Title Bar -->
   <div class="titleBar">
     <a href="homepage.php" class="backButton">&larr;</a>
     <div class="logo">Open Day Signup</div>
     <div class="logoutButtonContainer">
-  <form method="POST" action="logout.php">
-    <button type="submit" class="logoutButton">Logout</button>
-  </form>
-</div>
+      <form method="POST" action="logout.php">
+        <button type="submit" class="logoutButton">Logout</button>
+      </form>
+    </div>
   </div>
 
-  <!-- Main Content -->
   <div class="mobileContent">
     <div class="formContainer">
-
       <h1>Register for Open Day</h1>
 
       <form id="signupForm" method="POST">
-        <!-- Year of Entry -->
+        <!-- Entry Year -->
         <div class="formElement">
           <label for="entryYear" class="formLabel">Year of Entry</label>
           <select id="entryYear" name="entryYear" required>
             <option value="" disabled selected>Select year</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-            <option value="2027">2027</option>
-            <option value="2028">2028</option>
+            <option value="September 2025">September 2025</option>
+            <option value="January 2026">January 2026</option>
+            <option value="September 2026">September 2026</option>
+            <option value="January 2027">January 2027</option>
+            <option value="September 2027">September 2027</option>
+            <option value="January 2028">January 2028</option>
+            <option value="September 2028">September 2028</option>
           </select>
         </div>
 
         <!-- Education Level -->
-        <div class="formElement">
-          <label for="educationLevel" class="formLabel">Education Level</label>
-          <select id="educationLevel" name="educationLevel" required>
-            <option value="" disabled selected>Select level</option>
-            <option value="level-4">Level 4 (Certificate)</option>
-            <option value="level-5">Level 5 (Diploma/Foundation)</option>
-            <option value="level-6">Level 6 (Bachelor's Degree)</option>
-            <option value="level-7">Level 7 (Master's Degree)</option>
-            <option value="level-8">Level 8 (Doctorate)</option>
-          </select>
-        </div>
+  <div class="formElement">
+    <label for="educationLevel" class="formLabel">Education Level</label>
+    <select id="educationLevel" name="educationLevel" required>
+      <option value="" disabled selected>Select level</option>
+      <option value="Level 4">Level 4 (Certificate)</option>
+      <option value="Level 5">Level 5 (Diploma/Foundation)</option>
+      <option value="Level 6">Level 6 (Bachelor's Degree)</option>
+      <option value="Level 7">Level 7 (Master's Degree)</option>
+      <option value="Level 8">Level 8 (Doctorate)</option>
+    </select>
+  </div>
 
         <!-- Subject Interest -->
         <div class="formElement">
           <label for="subjectInterest" class="formLabel">Subject Interest</label>
           <select id="subjectInterest" name="subjectInterest" required>
             <option value="" disabled selected>Select subject</option>
-            <!-- Subject options will be populated dynamically -->
           </select>
         </div>
 
-        <!-- Auto-filled Campus -->
+        <!-- Campus Auto-filled -->
         <div class="formElement">
           <label for="campus" class="formLabel">Campus</label>
           <input type="text" id="campus" name="campus" readonly placeholder="Campus will appear here">
@@ -133,9 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <label for="contactPreference" class="formLabel">Contact Preference</label>
           <select id="contactPreference" name="contactPreference" required>
             <option value="" disabled selected>Select preference</option>
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-            <option value="sms">SMS</option>
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="SMS">SMS</option>
           </select>
         </div>
 
@@ -151,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit" class="btn">Register</button>
       </form>
 
-      <!-- Message -->
+      <!-- Message Area -->
       <div id="message">
         <?php
           if (isset($successMessage)) {
@@ -165,55 +176,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 </div>
 
-<!-- Event Dates and Subject Handling -->
+<!-- JavaScript to load data dynamically -->
 <script>
-  // Function to load event dates from the server
   async function loadEventDates() {
-    try {
-      const response = await fetch('../php/eventdates.php');
-      const events = await response.json();
-      const bookingDateSelect = document.getElementById('bookingDate');
-      bookingDateSelect.innerHTML = '<option value="" disabled selected>Select date</option>';
+  try {
+    const response = await fetch('../php/eventdates.php');
+    const events = await response.json();
+    const bookingDateSelect = document.getElementById('bookingDate');
+    bookingDateSelect.innerHTML = '<option value="" disabled selected>Select date</option>';
 
-      const seen = new Set();
-      if (Array.isArray(events)) {
-        events.forEach(event => {
-          const rawDate = new Date(event.EventDate);
-          const dateStr = rawDate.toISOString().split('T')[0]; // Use ISO format for comparison
+    const seen = new Set();
+    events.forEach(event => {
+      const rawDate = new Date(event.EventDate);
+      const dateStr = rawDate.toISOString().split('T')[0];
+      if (!seen.has(dateStr)) {
+        seen.add(dateStr);
+        const option = document.createElement('option');
+        option.value = dateStr;
 
-          if (!seen.has(dateStr)) {
-            seen.add(dateStr);
+        // Format as DD/MM/YYYY
+        option.textContent = `${String(rawDate.getDate()).padStart(2, '0')}/${
+          String(rawDate.getMonth() + 1).padStart(2, '0')}/${rawDate.getFullYear()}`;
 
-            const option = document.createElement('option');
-            option.value = dateStr;
-
-            // Format the date as "Month Day, Year" (e.g., "April 24, 2025")
-            option.textContent = rawDate.toLocaleDateString(undefined, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            });
-
-            bookingDateSelect.appendChild(option);
-          }
-        });
+        bookingDateSelect.appendChild(option);
       }
-    } catch (err) {
-      console.error('Error loading event dates:', err);
-    }
+    });
+  } catch (err) {
+    console.error('Error loading event dates:', err);
   }
+}
 
-  // Function to dynamically load subjects from getsubjects.php
   async function loadSubjects() {
     try {
-      const response = await fetch('/php/getsubjects.php'); // Fetching subjects from the PHP script
+      const response = await fetch('/php/getsubjects.php');
       const subjects = await response.json();
       const subjectSelect = document.getElementById('subjectInterest');
-      
-      // Clear any existing options
       subjectSelect.innerHTML = '<option value="" disabled selected>Select subject</option>';
-
-      // Populate the subject dropdown with options from the database
       subjects.forEach(subject => {
         const option = document.createElement('option');
         option.value = subject.SubjectName;
@@ -225,50 +223,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 
-  // Update campus field based on subject interest
-  const subjectInterestSelect = document.getElementById('subjectInterest');
-  subjectInterestSelect.addEventListener('change', async (e) => {
+  document.getElementById('subjectInterest').addEventListener('change', async (e) => {
     const selectedSubject = e.target.value;
     try {
-      // Fetch campus based on the selected subject using the PHP script (subjectlist.php)
       const response = await fetch(`/php/subjectlist.php?subject=${encodeURIComponent(selectedSubject)}`);
       const data = await response.json();
-
-      if (data.campusName) {
-        // Update the campus field with the name of the campus
-        document.getElementById('campus').value = data.campusName;
-      } else {
-        document.getElementById('campus').value = 'No campus found for this subject';
-      }
+      document.getElementById('campus').value = data.campusName || 'No campus found for this subject';
     } catch (err) {
       console.error('Error fetching campus:', err);
       document.getElementById('campus').value = 'Error fetching campus';
     }
   });
 
-  // Load subjects when the page loads
-  window.onload = function() {
+  window.onload = () => {
     loadEventDates();
-    loadSubjects(); // Load the subject list
+    loadSubjects();
   };
 </script>
 
+<!-- Inactivity Timer Script -->
 <script>
 let inactivityTimeout;
 
+// Function to reset the inactivity timer
 function resetInactivityTimer() {
   clearTimeout(inactivityTimeout);
   inactivityTimeout = setTimeout(() => {
-    alert("You have been logged out due to inactivity.");
-    window.location.href = "logout.php";
-  }, 5 * 60 * 1000); // 5 minutes
+    alert("You have been logged out due to inactivity."); // Show alert
+    window.location.href = "logout.php"; // Redirect to logout page
+  }, 5 * 60 * 1000); // Set timeout for 5 minutes
 }
 
+// Detect user interaction and reset the inactivity timer
 ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
   document.addEventListener(evt, resetInactivityTimer, false);
 });
 
-resetInactivityTimer(); // Start the timer initially
+// Start the inactivity timer
+resetInactivityTimer(); 
 </script>
 
 </body>
