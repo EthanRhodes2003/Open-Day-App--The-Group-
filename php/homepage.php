@@ -85,28 +85,6 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </div>
 
-<!-- Inactivity Timer Script -->
-<script>
-let inactivityTimeout;
-
-// Function to reset the inactivity timer
-function resetInactivityTimer() {
-  clearTimeout(inactivityTimeout);
-  inactivityTimeout = setTimeout(() => {
-    alert("You have been logged out due to inactivity."); // Show alert
-    window.location.href = "logout.php"; // Redirect to logout page
-  }, 5 * 60 * 1000); // Set timeout for 5 minutes
-}
-
-// Detect user interaction and reset the inactivity timer
-['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
-  document.addEventListener(evt, resetInactivityTimer, false);
-});
-
-// Start the inactivity timer
-resetInactivityTimer(); 
-</script>
-
 <script src="../js/homepage.js"></script> <!-- Link to custom JS file -->
 </body>
 </html>
