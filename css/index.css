@@ -1,104 +1,152 @@
-/* Reset default margins and padding to ensure consistent spacing */
+/* Reset default margins and padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Set a dark background for the entire page and center content */
+/* Set body styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black;
-  color: white;
+  background-color: #0a0a0a; /* Darker black background */
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Use min-height for flexibility */
+  padding: 20px; /* Add padding for smaller screens */
+  line-height: 1.6;
 }
 
-/* Mobile Frame */
+/* Mobile Frame - Enhanced */
 .mobileFrame {
-  width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 95%; /* Increased width */
+  max-width: 450px; /* Adjusted max-width for a more mobile feel */
+  height: auto; /* Allow height to adjust to content */
+  min-height: 80vh; /* Ensure minimum height */
+  background: linear-gradient(to bottom right, #1a1a2e, #16213e); /* Darker, richer gradient */
+  border-radius: 20px; /* Adjusted radius */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset; /* Smoother and more pronounced shadow */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(10px); /* Add blur effect for a modern look */
+  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
 }
 
-/* Top bar with the application title */
+/* Title Bar - Refined */
 .titleBar {
-  background: #BE0F34;
-  color: white;
+  background: linear-gradient(to right, #e94560, #be0f34); /* Vibrant red gradient */
+  color: #ffffff;
   text-align: center;
-  padding: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
+  padding: 20px; /* Increased padding */
+  font-size: 1.5rem; /* Slightly larger font */
+  font-weight: 700; /* Bolder */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Main content inside the mobile frame */
+/* Main content - Improved Spacing and Alignment */
 .mobileContent {
   text-align: center;
-  margin-top: 80px;
+  padding: 40px 25px; /* Added horizontal padding */
+  flex-grow: 1; /* Allow content to fill available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
-/* Main heading styles */
+/* Main heading styles - Typography */
 h1 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 2rem; /* Increased size */
+  font-weight: 700; /* Bolder */
+  margin-bottom: 15px; /* Adjusted margin */
+  line-height: 1.3;
+  color: #ffffff;
 }
 
 /* Paragraph styles */
 p {
-  font-size: 1rem;
-  margin-bottom: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 30px; /* Increased margin */
+  color: rgba(255, 255, 255, 0.9); /* Slightly less prominent color */
 }
 
 /* Container for buttons */
 .btnContainer {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 15px; /* Adjusted gap */
   align-items: center;
+  width: 100%;
 }
 
-/* General button styling */
+/* General button styling - Enhanced */
 .btn {
   display: block;
-  width: 80%;
-  max-width: 250px;
-  padding: 15px;
+  width: 80%; /* Adjusted width */
+  max-width: 350px;
+  padding: 15px; /* Adjusted padding */
   text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600; /* Semi-bold */
+  color: #ffffff;
+  border: none; /* Remove default border */
+  border-radius: 8px; /* More rounded corners */
   text-decoration: none;
-  transition: 0.3s;
+  transition: transform 0.2s ease-out, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+  position: relative;
+  overflow: hidden;
 }
 
-/* User login/signup button with blue color */
+/* Button hover effect - Interactive */
+.btn:hover {
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Add a subtle ripple effect on hover */
+.btn:hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  animation: ripple 0.5s ease-out forwards;
+}
+
+@keyframes ripple {
+  to {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+  }
+}
+
+
+/* User login/signup button - Gradient */
 .userBtn {
-  background: #1E90FF;
+  background: linear-gradient(to right, #3f72af, #16213e); /* Blue gradient */
 }
 
 .userBtn:hover {
-  background: #187bcd;
+  background: linear-gradient(to right, #16213e, #3f72af); /* Reversed gradient */
 }
 
-/* Admin login button with red color */
+/* Admin login button - Gradient */
 .adminBtn {
-  background: #BE0F34;
+  background: linear-gradient(to right, #e94560, #be0f34); /* Red gradient */
 }
 
 .adminBtn:hover {
-  background: #9a0d2b;
+  background: linear-gradient(to right, #be0f34, #e94560); /* Reversed gradient */
 }

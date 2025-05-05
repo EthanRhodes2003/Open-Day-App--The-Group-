@@ -1,0 +1,187 @@
+/* Reset default margins and padding */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+   /* Set body styles */
+   body {
+     font-family: 'Poppins', sans-serif;
+     background-color: #0a0a0a; /* Darker black background */
+     color: #ffffff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh; /* Use min-height for flexibility */
+     padding: 20px; /* Add padding for smaller screens */
+     line-height: 1.6;
+   }
+   
+   /* Mobile Frame - Consistent Styling */
+   .mobileFrame {
+     width: 95%; /* Increased width */
+     max-width: 450px; /* Adjusted max-width for a more mobile feel */
+     height: auto; /* Allow height to adjust to content */
+     min-height: 80vh; /* Ensure minimum height */
+     background: linear-gradient(to bottom right, #1a1a2e, #16213e); /* Darker, richer gradient */
+     border-radius: 20px; /* Adjusted radius */
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset; /* Smoother and more pronounced shadow */
+     position: relative;
+     overflow: hidden;
+     display: flex;
+     flex-direction: column;
+     backdrop-filter: blur(10px); /* Add blur effect for a modern look */
+     -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+   }
+   
+   /* Title Bar - Consistent Styling */
+   .titleBar {
+     background: linear-gradient(to right, #e94560, #be0f34); /* Vibrant red gradient */
+     color: #ffffff;
+     text-align: center;
+     padding: 20px; /* Increased padding */
+     font-size: 1.5rem; /* Slightly larger font */
+     font-weight: 700; /* Bolder */
+     border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+   
+   .titleBar .logo {
+     flex-grow: 1;
+     text-align: center;
+     margin-left: 20px; /* Add margin to the left of the logo */
+   }
+   
+   
+   /* Back Button Styling */
+   .backButton {
+     color: #ffffff;
+     font-size: 1.8rem; /* Larger size for visibility */
+     text-decoration: none;
+     padding: 0 10px;
+     transition: color 0.3s ease;
+   }
+   
+   .backButton:hover {
+     color: #e94560; /* Highlight on hover */
+   }
+   
+   
+   /* Main content - Improved Spacing and Alignment */
+   .mobileContent {
+     text-align: center;
+     padding: 40px 25px; /* Added horizontal padding */
+     flex-grow: 1; /* Allow content to fill available space */
+     display: flex;
+     flex-direction: column;
+     justify-content: center; /* Center content vertically */
+     align-items: center; /* Center content horizontally */
+   }
+   
+   /* Form Container Styling */
+   .formContainer {
+       background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+       padding: 30px;
+       border-radius: 15px;
+       width: 100%;
+       max-width: 350px; /* Limit form width */
+       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+       text-align: left; /* Align form content to the left */
+   }
+   
+   .formContainer h2 {
+       font-size: 1.8rem;
+       font-weight: 700;
+       margin-bottom: 20px;
+       color: #ffffff;
+       text-align: center; /* Center the heading */
+   }
+   
+   .formElement {
+       margin-bottom: 20px; /* Space between form elements */
+   }
+   
+   .formControl {
+       width: 100%;
+       padding: 12px 15px;
+       border: 1px solid rgba(255, 255, 255, 0.2);
+       border-radius: 8px;
+       background-color: rgba(0, 0, 0, 0.3); /* Darker input background */
+       color: #ffffff;
+       font-size: 1rem;
+       transition: border-color 0.3s ease, box-shadow 0.3s ease;
+   }
+   
+   .formControl:focus {
+       outline: none;
+       border-color: #e94560; /* Highlight color on focus */
+       box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
+   }
+   
+   .formControl::placeholder {
+       color: rgba(255, 255, 255, 0.6); /* Lighter placeholder text */
+   }
+   
+   
+   /* General button styling - Enhanced (consistent with index.css) */
+   .btn {
+     display: block;
+     width: 100%; /* Make button fill the form container width */
+     padding: 12px 15px; /* Adjusted padding for form button */
+     text-align: center;
+     font-size: 1.1rem;
+     font-weight: 600; /* Semi-bold */
+     color: #ffffff;
+     border: none; /* Remove default border */
+     border-radius: 8px; /* More rounded corners */
+     text-decoration: none;
+     transition: transform 0.2s ease-out, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+     cursor: pointer;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+     position: relative;
+     overflow: hidden;
+     background: linear-gradient(to right, #e94560, #be0f34); /* Red gradient for admin button */
+     margin-top: 10px; /* Space above the button */
+   }
+   
+   /* Button hover effect - Interactive */
+   .btn:hover {
+     transform: translateY(-3px); /* Slight lift effect */
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+     background: linear-gradient(to right, #be0f34, #e94560); /* Reversed gradient on hover */
+   }
+   
+   /* Add a subtle ripple effect on hover */
+   .btn:hover::after {
+     content: '';
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 5px;
+     height: 5px;
+     background: rgba(255, 255, 255, 0.3);
+     opacity: 0;
+     border-radius: 100%;
+     transform: translate(-50%, -50%);
+     animation: ripple 0.5s ease-out forwards;
+   }
+   
+   @keyframes ripple {
+     to {
+       width: 200%;
+       height: 200%;
+       opacity: 1;
+     }
+   }
+   
+   /* Message div styling */
+   .message {
+       margin-top: 15px;
+       font-size: 1rem;
+       text-align: center;
+       min-height: 1.2em; /* Reserve space for message */
+   }

@@ -10,8 +10,8 @@ if (!isset($_SESSION['admin_id'])) {
 
 // Fetch booking data from the database
 $bookings = $pdo->query("
-    SELECT 
-        b.BookingID, b.AccountID, a.Phone, a.Email, a.Birthday, a.Country, 
+    SELECT
+        b.BookingID, b.AccountID, a.Phone, a.Email, a.Birthday, a.Country,
         b.EventID, b.LevelOfInterest, b.SubjectOfInterest, b.YearOfEntry,
         e.EventDate, b.CampusID, c.Name AS CampusName, b.ContactPreference,
         CONCAT(a.FirstName, ' ', a.LastName) AS FullName
@@ -36,10 +36,8 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<!-- Mobile Frame -->
 <div class="mobileFrame">
-  
-  <!-- Title Bar with Logo and Logout Button -->
+
   <div class="titleBar">
     <div class="logo">Wolvo Open Day</div>
     <div class="logoutButtonContainer">
@@ -49,10 +47,8 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 
-  <!-- Main Content Area -->
   <div class="mobileContent">
-    
-    <!-- Booking Data Section -->
+
     <section id="bookings">
       <div class="sectionHeader">
         <h2>Booking Data</h2>
@@ -81,8 +77,7 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
               <th>Subject</th>
               <th>Campus ID</th>
               <th>Campus Name</th>
-              <th>Contact Preference</th> <!-- Added column for Contact Preference -->
-            </tr>
+              <th>Contact Preference</th> </tr>
           </thead>
           <tbody>
             <?php foreach ($bookings as $row): ?>
@@ -100,8 +95,7 @@ $accounts = $pdo->query("SELECT * FROM ACCOUNT")->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($row['SubjectOfInterest']) ?></td>
                 <td><?= htmlspecialchars($row['CampusID']) ?></td>
                 <td><?= htmlspecialchars($row['CampusName']) ?></td>
-                <td><?= htmlspecialchars($row['ContactPreference']) ?></td> <!-- Displaying Contact Preference -->
-              </tr>
+                <td><?= htmlspecialchars($row['ContactPreference']) ?></td> </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
