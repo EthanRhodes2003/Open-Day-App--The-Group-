@@ -8,24 +8,21 @@
 /* Body styling */
 body {
   font-family: 'Poppins', sans-serif;
-  /* Light neutral background to complement red */
-  background-color: #fef6f6; /* Very light pink/off-white */
+  background-color: black; /* Black background for the entire page */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  height: 100vh;
 }
 
 /* Mobile Frame */
 .mobileFrame {
-  width: 100%;
-  max-width: 400px;
-  min-height: 85vh;
-  /* Soft gradient background */
-  background: linear-gradient(135deg, #ffebee, #ffcdd2); /* Light red tones */
-  border-radius: 25px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 768px;
+  height: 90vh;
+  background-color: #001F3F;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -34,194 +31,86 @@ body {
 
 /* Title Bar Styling */
 .titleBar {
-  /* Red gradient background */
-  background: linear-gradient(to right, #C62828, #EF5350); /* Dark Red to Lighter Red */
+  background: #BE0F34;
   color: white;
   text-align: center;
-  padding: 12px 15px;
-  font-size: 1.2rem;
-  font-weight: 600;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: absolute;
   width: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
 }
 
 /* Back Button Styling */
 .backButton {
   position: absolute;
-  left: 20px;
-  font-size: 1.8rem;
+  left: 15px;
+  font-size: 1.5rem;
   cursor: pointer;
   color: white;
   text-decoration: none;
-  transition: transform 0.2s ease;
 }
 
 .backButton:hover {
-  transform: scale(1.1);
   color: #f0f0f0;
 }
 
 /* Main Content Wrapper */
 .mobileContent {
-  padding: 25px 25px 30px;
+  padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
+  margin-top: 40px;
 }
 
 /* Form Container Styling */
-.formContainer, #loginFormContainer {
-  background: rgba(255, 255, 255, 0.95); /* Slightly more opaque white */
-  padding: 25px;
+.formContainer {
+  background: #5088C9; /* Blue background */
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-bottom: 25px; /* Increased space between forms */
-}
-
-/* Remove bottom margin from the last container */
-#loginFormContainer {
-    margin-bottom: 0;
 }
 
 /* Form Headings */
 h2 {
-  color: #B71C1C; /* Darker red heading */
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-/* Form Element Wrapper */
-.formElement {
-    margin-bottom: 15px;
-    position: relative;
+  color: white;
+  margin-bottom: 15px;
 }
 
 /* Input and Select Styling */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="date"],
-select {
+input, select {
   width: 100%;
-  padding: 12px 15px;
-  margin: 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #fff; /* Pure white inputs */
-  font-size: 0.95rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Style for Date input placeholder text */
-input[type="date"]:required:invalid::-webkit-datetime-edit {
-    color: #999;
-}
-input[type="date"]:required:invalid {
-    color: #999; /* Fallback for non-webkit */
-}
-input[type="date"] {
-  color: #333; /* Ensure date text is visible */
-}
-
-
-/* Focus Effects for Inputs and Select */
-input:focus, select:focus {
-  border-color: #C62828; /* Red border on focus */
-  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.2); /* Red glow effect */
-  outline: none;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: none;
 }
 
 /* Button Styling */
 button.btn {
   width: 100%;
-  padding: 12px 15px;
-  /* Red button gradient */
-  background: linear-gradient(to right, #C62828, #EF5350);
+  padding: 10px;
+  background: #BE0F34;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
-  margin-top: 10px;
+  font-weight: bold;
 }
 
 /* Button Hover Effect */
 button.btn:hover {
-  /* Darker red gradient on hover */
-  background: linear-gradient(to right, #B71C1C, #D32F2F);
-  transform: translateY(-2px);
+  background: #a00d2e;
 }
 
-button.btn:active {
-    transform: translateY(0px);
-}
-
-/* Message Styling */
-.message {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #D32F2F; /* Standard error red */
-  min-height: 1em; /* Prevent layout shift when message appears */
-}
-
-/* Make Select Arrow red */
-select {
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23C62828" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Red arrow */
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 20px;
-  padding-right: 40px;
-}
-
-/* Media query for responsiveness */
-@media (max-width: 480px) {
-  body {
-      padding: 10px;
-  }
-  .mobileFrame {
-      border-radius: 15px;
-      min-height: 90vh;
-  }
-   .titleBar {
-      font-size: 1.1rem;
-      padding: 10px 12px;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-  }
-  .backButton {
-      left: 15px;
-      font-size: 1.6rem;
-  }
-  .mobileContent {
-      padding: 20px;
-  }
-  .formContainer, #loginFormContainer {
-      padding: 20px;
-      margin-bottom: 20px;
-  }
-  h2 {
-      font-size: 1.3rem;
-  }
-}
-
-/* Accessibility class */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+/* Focus Effects for Inputs and Select */
+input:focus, select:focus {
+  border: 2px solid #BE0F34; /* Red border when focused */
+  outline: none;
 }

@@ -5,116 +5,111 @@
   box-sizing: border-box;
 }
 
-/* Set body styles - Dark background */
+/* Set body styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Slightly softer dark background */
-  color: #e0e0e0; /* Off-white text */
+  background-color: #0a0a0a; /* Darker black background */
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  min-height: 100vh; /* Use min-height for flexibility */
+  padding: 20px; /* Add padding for smaller screens */
   line-height: 1.6;
 }
 
-/* Mobile Frame - Refined Dark/Reddish Glassmorphism */
+/* Mobile Frame - Enhanced */
 .mobileFrame {
-  width: 95%;
-  max-width: 450px;
-  height: auto;
-  min-height: 80vh;
-  /* Darker gradient with subtle red hint */
-  background: linear-gradient(145deg, rgba(45, 31, 31, 0.5), rgba(28, 17, 17, 0.6));
-  border-radius: 25px; /* Smoother radius */
-  /* Glass effect border */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); /* Adjusted shadow */
+  width: 95%; /* Increased width */
+  max-width: 450px; /* Adjusted max-width for a more mobile feel */
+  height: auto; /* Allow height to adjust to content */
+  min-height: 80vh; /* Ensure minimum height */
+  background: linear-gradient(to bottom right, #1a1a2e, #16213e); /* Darker, richer gradient */
+  border-radius: 20px; /* Adjusted radius */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset; /* Smoother and more pronounced shadow */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(12px) saturate(110%); /* Adjusted blur/saturation */
-  -webkit-backdrop-filter: blur(12px) saturate(110%);
+  backdrop-filter: blur(10px); /* Add blur effect for a modern look */
+  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
 }
 
-/* Title Bar - Consistent Red Gradient */
+/* Title Bar - Refined */
 .titleBar {
-  background: linear-gradient(to right, #d32f2f, #e57373); /* Refined red gradient */
+  background: linear-gradient(to right, #e94560, #be0f34); /* Vibrant red gradient */
   color: #ffffff;
   text-align: center;
-  padding: 18px 20px; /* Adjusted padding */
-  font-size: 1.4rem; /* Adjusted size */
-  font-weight: 600; /* Semi-bold */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Slightly softer border */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-  flex-shrink: 0; /* Prevent shrinking */
+  padding: 20px; /* Increased padding */
+  font-size: 1.5rem; /* Slightly larger font */
+  font-weight: 700; /* Bolder */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Main content - Improved Spacing */
+/* Main content - Improved Spacing and Alignment */
 .mobileContent {
   text-align: center;
-  padding: 45px 30px; /* Increased padding */
-  flex-grow: 1;
+  padding: 40px 25px; /* Added horizontal padding */
+  flex-grow: 1; /* Allow content to fill available space */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
-/* Main heading styles */
+/* Main heading styles - Typography */
 h1 {
-  font-size: 1.9rem; /* Adjusted size */
-  font-weight: 700;
-  margin-bottom: 18px; /* Adjusted margin */
-  line-height: 1.35;
-  color: #ffffff; /* Bright white */
+  font-size: 2rem; /* Increased size */
+  font-weight: 700; /* Bolder */
+  margin-bottom: 15px; /* Adjusted margin */
+  line-height: 1.3;
+  color: #ffffff;
 }
 
 /* Paragraph styles */
 p {
-  font-size: 1.05rem; /* Adjusted size */
-  margin-bottom: 35px; /* Increased margin */
-  color: rgba(255, 255, 255, 0.85); /* Slightly brighter */
-  max-width: 90%; /* Prevent text from touching edges */
+  font-size: 1.1rem;
+  margin-bottom: 30px; /* Increased margin */
+  color: rgba(255, 255, 255, 0.9); /* Slightly less prominent color */
 }
 
 /* Container for buttons */
 .btnContainer {
   display: flex;
   flex-direction: column;
-  gap: 18px; /* Increased gap */
+  gap: 15px; /* Adjusted gap */
   align-items: center;
   width: 100%;
 }
 
-/* General button styling - Refined */
+/* General button styling - Enhanced */
 .btn {
   display: block;
-  width: 85%; /* Adjusted width */
-  max-width: 300px; /* Adjusted max-width */
-  padding: 14px; /* Adjusted padding */
+  width: 80%; /* Adjusted width */
+  max-width: 350px;
+  padding: 15px; /* Adjusted padding */
   text-align: center;
-  font-size: 1rem; /* Adjusted size */
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 600; /* Semi-bold */
   color: #ffffff;
-  border: none;
-  border-radius: 10px; /* Slightly more rounded */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* More rounded corners */
   text-decoration: none;
-  transition: transform 0.2s ease-out, background 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease-out, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
   cursor: pointer;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35); /* Adjusted shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
   position: relative;
   overflow: hidden;
 }
 
-/* Button hover effect */
+/* Button hover effect - Interactive */
 .btn:hover {
-  transform: translateY(-4px) scale(1.02); /* Enhanced lift and slight scale */
-  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.45); /* Enhanced shadow */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
-/* Ripple effect (kept as is) */
+/* Add a subtle ripple effect on hover */
 .btn:hover::after {
   content: '';
   position: absolute;
@@ -122,7 +117,7 @@ p {
   left: 50%;
   width: 5px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.25); /* Slightly less opaque ripple */
+  background: rgba(255, 255, 255, 0.3);
   opacity: 0;
   border-radius: 100%;
   transform: translate(-50%, -50%);
@@ -131,27 +126,27 @@ p {
 
 @keyframes ripple {
   to {
-    width: 250%; /* Larger ripple */
-    padding-top: 250%; /* Maintain aspect ratio */
-    opacity: 0; /* Fade out ripple */
+    width: 200%;
+    height: 200%;
+    opacity: 1;
   }
 }
 
 
-/* User login/signup button - Keeping Blue */
+/* User login/signup button - Gradient */
 .userBtn {
-  background: linear-gradient(to right, #3a7bd5, #00d2ff); /* Updated Blue gradient */
+  background: linear-gradient(to right, #3f72af, #16213e); /* Blue gradient */
 }
 
 .userBtn:hover {
-  background: linear-gradient(to right, #00d2ff, #3a7bd5); /* Reversed gradient */
+  background: linear-gradient(to right, #16213e, #3f72af); /* Reversed gradient */
 }
 
-/* Admin login button - Consistent Red */
+/* Admin login button - Gradient */
 .adminBtn {
-  background: linear-gradient(to right, #d32f2f, #e57373); /* Consistent Red gradient */
+  background: linear-gradient(to right, #e94560, #be0f34); /* Red gradient */
 }
 
 .adminBtn:hover {
-  background: linear-gradient(to right, #e57373, #d32f2f); /* Reversed gradient */
+  background: linear-gradient(to right, #be0f34, #e94560); /* Reversed gradient */
 }

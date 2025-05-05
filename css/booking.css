@@ -5,257 +5,144 @@
   box-sizing: border-box;
 }
 
-/* Body styling - Light neutral background */
+/* Body styling */
 body {
   font-family: 'Poppins', sans-serif;
-  /* Very light pink/off-white background */
-  background-color: #fef6f6;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Use min-height */
-  padding: 20px; /* Add padding for smaller screens */
+  height: 100vh;
 }
 
-/* Mobile Frame - Light gradient, softer shadow */
+/* Mobile Frame */
 .mobileFrame {
-  width: 100%; /* Responsive width */
-  max-width: 480px; /* Suitable max-width for forms */
-  min-height: 85vh; /* Use min-height */
-  /* Light reddish/neutral gradient */
-  background: linear-gradient(135deg, #fffafa, #ffebee);
-  border-radius: 25px; /* Softer radius */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  width: 90%;
+  max-width: 768px;
+  height: 90vh;
+  background-color: #001F3F;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling - Red gradient, part of flow */
-.titleBar {
-  /* Red gradient */
-  background: linear-gradient(to right, #C62828, #E53935);
-  color: white;
-  text-align: center;
-  padding: 12px 15px; /* Adjusted padding */
-  font-size: 1.2rem;
-  font-weight: 600;
-  width: 100%;
-  display: flex; /* Use flexbox for alignment */
-  align-items: center;
-  justify-content: space-between; /* Space out items */
-  position: relative; /* Keep relative for potential absolute children if needed, but primarily for flow */
-  border-top-left-radius: 25px; /* Match frame radius */
-  border-top-right-radius: 25px; /* Match frame radius */
-  flex-shrink: 0; /* Prevent shrinking */
-}
-
-/* Back Button Styling - Integrated into flex */
-.backButton {
-  color: white;
-  text-decoration: none;
-  font-size: 1.8rem; /* Larger icon */
-  line-height: 1; /* Align icon better */
-  padding: 5px; /* Add padding for easier clicking */
-  margin-left: -5px; /* Adjust position slightly */
-  transition: transform 0.2s ease;
-}
-.backButton:hover {
-    transform: scale(1.1);
-}
-
-/* Logo Styling */
-.logo {
-    /* Title bar text is implicitly the logo here based on previous files */
-    /* If there's a dedicated logo element, style it here */
-    font-weight: 600;
-    /* Ensure it doesn't get squished */
-    margin: 0 auto; /* Helps center if space allows */
-    padding: 0 10px; /* Add padding around text */
-}
-
-/* Logout Button Container & Button Styling */
 .logoutButtonContainer {
-  /* Removed absolute positioning */
-  flex-shrink: 0; /* Prevent shrinking */
+  position: absolute;
+  top: 5px;
+  right: 30px; 
 }
 
 .logoutButton {
-  padding: 8px 14px;
-  /* Subtle style matching title bar */
-  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  background-color: #f44336;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .logoutButton:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.7);
+  background-color: #d32f2f;
 }
 
-/* Main Content - Adjusted padding */
+/* Title Bar Styling */
+.titleBar {
+  background: #BE0F34;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Back Button Styling */
+.backButton {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Main Content */
 .mobileContent {
-  /* Removed margin-top as title bar is in flow */
-  padding: 25px 25px 30px; /* Uniform padding */
+  padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
+  margin-top: 40px;
 }
 
-/* Booking Form Container - Light background, more padding */
+/* Booking Form Container */
 .formContainer {
-  text-align: left; /* Align labels/inputs left */
-  background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
-  padding: 30px; /* Increased padding */
+  text-align: center;
+  background: #5088C9;
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Heading Styling - Dark red color */
+/* Form Heading Styling */
 h1 {
-  color: #B71C1C; /* Dark red */
-  margin-bottom: 25px; /* More space below heading */
-  text-align: center; /* Center heading */
-  font-size: 1.6rem;
-  font-weight: 600;
+  color: black;
+  margin-bottom: 15px;
 }
 
-/* Form Element Styling - Increased spacing */
+/* Form Element Styling */
 .formElement {
-  margin-bottom: 20px; /* More space between elements */
+  margin-bottom: 1.5rem;
 }
 
-/* Form Label Styling - Better contrast and spacing */
+/* Form Label Styling */
 .formLabel {
-  display: block; /* Ensure label is on its own line */
-  color: #444; /* Dark grey for contrast */
-  margin-bottom: 8px; /* Space between label and input */
-  font-size: 0.9rem; /* Slightly smaller label */
-  font-weight: 500;
+  color: white;
+  margin-bottom: 8px;
+  font-size: 1rem;
 }
 
-/* Input Fields Styling - Modern look */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="date"],
-input[type="number"], /* Added common types */
-select {
+/* Input Fields Styling */
+input, select {
   width: 100%;
-  padding: 12px 15px; /* Increased padding */
-  /* Removed margin here, handled by .formElement */
-  border-radius: 8px; /* Softer radius */
-  border: 1px solid #ccc; /* Subtle border */
-  background-color: #fff; /* White background */
-  font-size: 0.95rem;
-  color: #333;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
 }
 
-/* Style for Date input placeholder text (if applicable) */
-input[type="date"]:required:invalid::-webkit-datetime-edit {
-    color: #999;
-}
-input[type="date"]:required:invalid {
-    color: #999;
-}
-
-
-/* Focus Effects for Inputs and Select - Red accent */
-input:focus, select:focus {
-  border-color: #C62828; /* Red border on focus */
-  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.2); /* Red glow effect */
-  outline: none;
-}
-
-/* Select Arrow Styling */
-select {
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23C62828" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Red arrow */
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 20px;
-  padding-right: 40px; /* Make space for the arrow */
-}
-
-/* Button Styling - Red gradient, enhanced interaction */
+/* Button Styling */
 button.btn {
   width: 100%;
-  padding: 12px 15px; /* Consistent padding */
-  /* Red gradient */
-  background: linear-gradient(to right, #D32F2F, #E57373);
+  padding: 10px;
+  background: #BE0F34;
   color: white;
   border: none;
-  border-radius: 8px; /* Match input radius */
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  margin-top: 15px; /* Space above button */
 }
 
 /* Button Hover Effect */
 button.btn:hover {
-  background: linear-gradient(to right, #C62828, #EF5350); /* Slightly different red gradient */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3); /* Reddish shadow */
+  background: #a00d2e;
 }
 
-button.btn:active {
-  transform: translateY(0px);
-  box-shadow: 0 2px 5px rgba(211, 47, 47, 0.2); /* Smaller shadow on press */
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  body {
-      padding: 10px; /* Less padding */
-  }
-  .mobileFrame {
-      border-radius: 15px; /* Smaller radius */
-  }
-   .titleBar {
-      padding: 10px 12px;
-      font-size: 1.1rem;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-   }
-  .backButton {
-      font-size: 1.6rem;
-      margin-left: -3px;
-  }
-  .logoutButton {
-      padding: 6px 10px;
-      font-size: 0.8rem;
-  }
-  .mobileContent {
-      padding: 20px; /* Less padding */
-  }
-  .formContainer {
-      padding: 20px; /* Less padding */
-  }
-  h1 {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-  }
-   input[type="text"],
-   input[type="email"],
-   input[type="tel"],
-   input[type="password"],
-   input[type="date"],
-   input[type="number"],
-   select {
-       padding: 10px 12px;
-       font-size: 0.9rem;
-   }
-    button.btn {
-       padding: 11px 15px;
-       font-size: 0.95rem;
-   }
+/* Focus Effects for Inputs and Select */
+input:focus, select:focus {
+  border: 2px solid #BE0F34;
+  outline: none;
 }

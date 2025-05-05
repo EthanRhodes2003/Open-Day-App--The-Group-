@@ -4,169 +4,158 @@
      padding: 0;
      box-sizing: border-box;
    }
-
-   /* Set body styles - Consistent Dark */
+   
+   /* Set body styles */
    body {
      font-family: 'Poppins', sans-serif;
-     background-color: #121212; /* Consistent dark background */
-     color: #e0e0e0;
+     background-color: #0a0a0a; /* Darker black background */
+     color: #ffffff;
      display: flex;
      justify-content: center;
      align-items: center;
-     min-height: 100vh;
-     padding: 20px;
+     min-height: 100vh; /* Use min-height for flexibility */
+     padding: 20px; /* Add padding for smaller screens */
      line-height: 1.6;
    }
-
+   
    /* Mobile Frame - Consistent Styling */
    .mobileFrame {
-     width: 95%;
-     max-width: 450px;
-     height: auto;
-     min-height: 80vh;
-     /* Darker gradient with subtle red hint */
-     background: linear-gradient(145deg, rgba(45, 31, 31, 0.5), rgba(28, 17, 17, 0.6));
-     border-radius: 25px; /* Smoother radius */
-     /* Glass effect border */
-     border: 1px solid rgba(255, 255, 255, 0.1);
-     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); /* Adjusted shadow */
+     width: 95%; /* Increased width */
+     max-width: 450px; /* Adjusted max-width for a more mobile feel */
+     height: auto; /* Allow height to adjust to content */
+     min-height: 80vh; /* Ensure minimum height */
+     background: linear-gradient(to bottom right, #1a1a2e, #16213e); /* Darker, richer gradient */
+     border-radius: 20px; /* Adjusted radius */
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset; /* Smoother and more pronounced shadow */
      position: relative;
      overflow: hidden;
      display: flex;
      flex-direction: column;
-     backdrop-filter: blur(12px) saturate(110%); /* Adjusted blur/saturation */
-     -webkit-backdrop-filter: blur(12px) saturate(110%);
+     backdrop-filter: blur(10px); /* Add blur effect for a modern look */
+     -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
    }
-
+   
    /* Title Bar - Consistent Styling */
    .titleBar {
-     background: linear-gradient(to right, #d32f2f, #e57373); /* Consistent red gradient */
+     background: linear-gradient(to right, #e94560, #be0f34); /* Vibrant red gradient */
      color: #ffffff;
      text-align: center;
-     padding: 18px 20px; /* Adjusted padding */
-     font-size: 1.4rem; /* Adjusted size */
-     font-weight: 600;
-     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+     padding: 20px; /* Increased padding */
+     font-size: 1.5rem; /* Slightly larger font */
+     font-weight: 700; /* Bolder */
+     border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
      display: flex;
      align-items: center;
-     justify-content: space-between; /* Space for back button */
-     flex-shrink: 0;
+     justify-content: space-between;
    }
-
-   /* Back Button Styling */
-   .backButton {
-     color: #ffffff;
-     font-size: 1.7rem; /* Adjusted size */
-     text-decoration: none;
-     padding: 5px 10px 5px 0; /* Adjust padding for click area */
-     margin-left: -5px; /* Adjust position */
-     transition: transform 0.2s ease, color 0.3s ease;
-     line-height: 1;
-   }
-
-   .backButton:hover {
-     color: #f5caca; /* Lighter red hint on hover */
-     transform: scale(1.1);
-   }
-
-   /* Logo/Title positioning */
+   
    .titleBar .logo {
      flex-grow: 1;
      text-align: center;
-     /* Adjust margin to keep centered despite back button */
-     margin-right: 30px; /* Approximate width of back button */
+     margin-left: 20px; /* Add margin to the left of the logo */
    }
-
-
-   /* Main content - Improved Spacing */
+   
+   
+   /* Back Button Styling */
+   .backButton {
+     color: #ffffff;
+     font-size: 1.8rem; /* Larger size for visibility */
+     text-decoration: none;
+     padding: 0 10px;
+     transition: color 0.3s ease;
+   }
+   
+   .backButton:hover {
+     color: #e94560; /* Highlight on hover */
+   }
+   
+   
+   /* Main content - Improved Spacing and Alignment */
    .mobileContent {
      text-align: center;
-     padding: 35px 25px; /* Adjusted padding */
-     flex-grow: 1;
+     padding: 40px 25px; /* Added horizontal padding */
+     flex-grow: 1; /* Allow content to fill available space */
      display: flex;
      flex-direction: column;
-     justify-content: center;
-     align-items: center;
+     justify-content: center; /* Center content vertically */
+     align-items: center; /* Center content horizontally */
    }
-
-   /* Form Container Styling - Refined Glass Look */
+   
+   /* Form Container Styling */
    .formContainer {
-       background-color: rgba(255, 255, 255, 0.08); /* Slightly lighter transparent background */
-       padding: 35px; /* Increased padding */
+       background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+       padding: 30px;
        border-radius: 15px;
-       border: 1px solid rgba(255, 255, 255, 0.12); /* Subtle border */
        width: 100%;
-       max-width: 360px; /* Slightly larger max-width */
-       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-       text-align: left;
+       max-width: 350px; /* Limit form width */
+       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+       text-align: left; /* Align form content to the left */
    }
-
+   
    .formContainer h2 {
-       font-size: 1.7rem; /* Adjusted size */
+       font-size: 1.8rem;
        font-weight: 700;
-       margin-bottom: 25px; /* Increased margin */
+       margin-bottom: 20px;
        color: #ffffff;
-       text-align: center;
+       text-align: center; /* Center the heading */
    }
-
+   
    .formElement {
-       margin-bottom: 22px; /* Increased space */
+       margin-bottom: 20px; /* Space between form elements */
    }
-
-   /* Form Control Input Styling */
+   
    .formControl {
        width: 100%;
-       padding: 13px 16px; /* Adjusted padding */
-       border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly lighter border */
-       border-radius: 10px; /* Match button radius */
-       background-color: rgba(0, 0, 0, 0.25); /* Adjusted background */
+       padding: 12px 15px;
+       border: 1px solid rgba(255, 255, 255, 0.2);
+       border-radius: 8px;
+       background-color: rgba(0, 0, 0, 0.3); /* Darker input background */
        color: #ffffff;
-       font-size: 0.95rem; /* Adjusted font size */
-       transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+       font-size: 1rem;
+       transition: border-color 0.3s ease, box-shadow 0.3s ease;
    }
-
+   
    .formControl:focus {
        outline: none;
-       border-color: #e57373; /* Lighter red focus border */
-       background-color: rgba(0, 0, 0, 0.3);
-       box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.3); /* Reddish glow */
+       border-color: #e94560; /* Highlight color on focus */
+       box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
    }
-
+   
    .formControl::placeholder {
-       color: rgba(255, 255, 255, 0.55); /* Adjusted placeholder */
+       color: rgba(255, 255, 255, 0.6); /* Lighter placeholder text */
    }
-
-
-   /* Button styling - Consistent with index.css adminBtn */
+   
+   
+   /* General button styling - Enhanced (consistent with index.css) */
    .btn {
      display: block;
-     width: 100%;
-     padding: 14px; /* Consistent padding */
+     width: 100%; /* Make button fill the form container width */
+     padding: 12px 15px; /* Adjusted padding for form button */
      text-align: center;
-     font-size: 1rem;
-     font-weight: 600;
+     font-size: 1.1rem;
+     font-weight: 600; /* Semi-bold */
      color: #ffffff;
-     border: none;
-     border-radius: 10px; /* Consistent radius */
+     border: none; /* Remove default border */
+     border-radius: 8px; /* More rounded corners */
      text-decoration: none;
-     transition: transform 0.2s ease-out, background 0.3s ease, box-shadow 0.3s ease;
+     transition: transform 0.2s ease-out, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
      cursor: pointer;
-     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
      position: relative;
      overflow: hidden;
-     background: linear-gradient(to right, #d32f2f, #e57373); /* Consistent Red gradient */
-     margin-top: 15px; /* Adjusted space */
+     background: linear-gradient(to right, #e94560, #be0f34); /* Red gradient for admin button */
+     margin-top: 10px; /* Space above the button */
    }
-
-   /* Button hover effect - Consistent */
+   
+   /* Button hover effect - Interactive */
    .btn:hover {
-     transform: translateY(-4px) scale(1.02); /* Consistent hover */
-     box-shadow: 0 9px 18px rgba(0, 0, 0, 0.45);
-     background: linear-gradient(to right, #e57373, #d32f2f); /* Reversed gradient */
+     transform: translateY(-3px); /* Slight lift effect */
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+     background: linear-gradient(to right, #be0f34, #e94560); /* Reversed gradient on hover */
    }
-
-   /* Ripple effect (kept as is) */
+   
+   /* Add a subtle ripple effect on hover */
    .btn:hover::after {
      content: '';
      position: absolute;
@@ -174,37 +163,25 @@
      left: 50%;
      width: 5px;
      height: 5px;
-     background: rgba(255, 255, 255, 0.25);
+     background: rgba(255, 255, 255, 0.3);
      opacity: 0;
      border-radius: 100%;
      transform: translate(-50%, -50%);
      animation: ripple 0.5s ease-out forwards;
    }
-
+   
    @keyframes ripple {
      to {
-       width: 250%;
-       padding-top: 250%;
-       opacity: 0;
+       width: 200%;
+       height: 200%;
+       opacity: 1;
      }
    }
-
+   
    /* Message div styling */
    .message {
-       margin-top: 18px; /* Adjusted margin */
-       font-size: 0.95rem; /* Adjusted size */
+       margin-top: 15px;
+       font-size: 1rem;
        text-align: center;
-       min-height: 1.3em; /* Reserve space */
-       color: #ffcdd2; /* Default message color (light red) */
-   }
-
-   /* Optional: Style for error messages specifically */
-   .message.error { /* Add class="error" in JS if message is error */
-        color: #ef9a9a;
-        font-weight: 500;
-   }
-   /* Optional: Style for success messages specifically */
-   .message.success { /* Add class="success" in JS if message is success */
-        color: #a5d6a7; /* Light green */
-        font-weight: 500;
+       min-height: 1.2em; /* Reserve space for message */
    }

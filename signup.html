@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up / Log In</title>
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signup.css"> <!-- Link to custom CSS file -->
 </head>
 <body>
 
+<!-- Mobile Frame -->
 <div class="mobileFrame">
-
+  
+  <!-- Title Bar with Logo and Back Button -->
   <div class="titleBar">
     <a href="index.html" class="backButton">&larr;</a>
     <div class="logo">Wolvo Open Day</div>
   </div>
 
+  <!-- Main Content Section -->
   <div class="mobileContent">
+    <!-- Authentication Forms -->
     <section id="auth">
-
       <div class="formContainer">
+        <!-- Sign Up Form -->
         <h2>Sign Up</h2>
-        <form id="signupForm" method="POST">
+        <form id="signupForm" method="POST"> 
           <div class="formElement">
             <input type="text" name="firstName" id="firstName" class="formControl" placeholder="First Name" required>
           </div>
@@ -37,11 +41,12 @@
             <input type="password" name="password" id="password" class="formControl" placeholder="Password" required>
           </div>
           <div class="formElement">
-             <label for="dob" class="sr-only">Date of Birth</label> <input type="date" name="dob" id="dob" class="formControl" required>
+            <input type="date" name="dob" id="dob" class="formControl" required>
           </div>
           <div class="formElement">
-             <label for="country" class="sr-only">Select Country</label> <select name="country" id="country" class="formControl" required>
-                <option value="" disabled selected>Select Country</option> <option value="United Kingdom">United Kingdom</option>
+            <select name="country" id="country" class="formControl" required>
+                <option value="">Select Country</option>
+                <option value="United Kingdom">United Kingdom</option>
                 <option value="United States">United States</option>
                 <option value="Canada">Canada</option>
                 <option value="Australia">Australia</option>
@@ -62,40 +67,32 @@
                 <option value="Netherlands">Netherlands</option>
                 <option value="Singapore">Singapore</option>
             </select>
-          </div>
+        </div> 
           <button type="submit" class="btn">Sign Up</button>
         </form>
-        <div id="signupMessage" class="message"></div>
-      </div> <div id="loginFormContainer">
+
+        <!-- Sign Up Message Display -->
+        <div id="signupMessage" class="message"></div> 
+
+        <!-- Log In Form -->
         <h2>Log In</h2>
-        <form id="loginForm" method="POST">
+        <form id="loginForm" method="POST"> 
           <div class="formElement">
-             <label for="loginEmail" class="sr-only">Email</label> <input type="email" name="email" id="loginEmail" class="formControl" placeholder="Email" required>
+            <input type="email" name="email" id="loginEmail" class="formControl" placeholder="Email" required> 
           </div>
           <div class="formElement">
-            <label for="loginPassword" class="sr-only">Password</label> <input type="password" name="password" id="loginPassword" class="formControl" placeholder="Password" required>
+            <input type="password" name="password" id="loginPassword" class="formControl" placeholder="Password" required> 
           </div>
           <button type="submit" class="btn">Log In</button>
         </form>
-        <div id="loginMessage" class="message"></div>
-      </div> </section>
+
+        <!-- Log In Message Display -->
+        <div id="loginMessage" class="message"></div> 
+      </div>
+    </section>
   </div>
 
 </div>
-
-<style>
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-</style>
 
 <script src="js/signup.js"></script>
 

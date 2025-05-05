@@ -5,125 +5,90 @@
   box-sizing: border-box;
 }
 
-/* Body styling - Light neutral background */
+/* Body styling */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fef6f6; /* Consistent light background */
+  background-color: black;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align frame to top */
-  min-height: 100vh;
-  padding: 20px;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Mobile Frame - Light gradient, softer shadow */
+/* Mobile Frame */
 .mobileFrame {
-  width: 100%;
-  max-width: 600px; /* Adjusted max-width for account details */
-  min-height: 85vh;
-  /* Light reddish/neutral gradient */
-  background: linear-gradient(135deg, #fffafa, #ffebee);
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 768px;
+  height: 90vh;
+  background-color: #001F3F;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  margin-top: 20px; /* Add some space from top */
-  margin-bottom: 20px; /* Add space at bottom */
 }
 
-/* Title Bar Styling - Red gradient, part of flow */
-.titleBar {
-  background: linear-gradient(to right, #C62828, #E53935); /* Consistent red gradient */
-  color: white;
-  text-align: center;
-  padding: 12px 20px; /* Adjusted padding */
-  font-size: 1.2rem;
-  font-weight: 600;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Space out items */
-  position: relative;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  flex-shrink: 0;
-}
-
-/* Logo/Title Area */
-.logo {
-  /* Assuming the title bar text acts as the logo/title */
-  font-weight: 600;
-  margin: 0 auto; /* Center title */
-  padding: 0 10px;
-}
-
-/* Logout Button Container & Button Styling */
 .logoutButtonContainer {
-  /* Removed absolute positioning */
-  flex-shrink: 0;
+  position: absolute;
+  top: 5px;
+  right: 30px; 
 }
 
 .logoutButton {
-  padding: 8px 14px;
-  background-color: rgba(255, 255, 255, 0.2); /* Subtle style */
+  padding: 6px 12px;
+  background-color: #f44336;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .logoutButton:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.7);
+  background-color: #d32f2f;
 }
 
-/* Main Content - Adjusted padding */
+/* Title Bar Styling */
+.titleBar {
+  background: #BE0F34;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Content */
 .mobileContent {
-  /* Removed margin-top */
-  padding: 25px 30px 30px; /* Adjusted padding */
+  padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
-  color: #333; /* Default dark text color */
+  margin-top: 40px;
+  color: black;
 }
 
-/* Title for Account Details Section (assuming this is in mobileContent) */
-.sectionHeader {
-  /* Assuming this wraps the h2 title */
-  margin-bottom: 25px; /* Space below title */
-  text-align: center;
-}
-
-.sectionHeader h2 {
-  color: #B71C1C; /* Dark Red */
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding-bottom: 10px;
-  /* Optional: add border */
-  /* border-bottom: 1px solid rgba(183, 28, 28, 0.2); */
-}
-
-
-/* User Profile Section - Main card styling */
+/* User Profile Section */
 .userProfile {
-  background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
-  padding: 25px 30px; /* Adjusted padding */
+  background: white;
+  padding: 1.5rem;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
-  margin-bottom: 25px; /* Space below profile card */
+  margin-bottom: 1.5rem;
 }
 
 /* Profile Header Section */
 .profileHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 25px; /* More space below header */
-  padding-bottom: 20px; /* Space */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Subtle separator */
+  margin-bottom: 1.5rem;
 }
 
 /* Profile Picture Styling */
@@ -131,199 +96,84 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #e0e0e0; /* Keep placeholder background */
+  background-color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px; /* More space */
+  margin-right: 1rem;
   overflow: hidden;
-  flex-shrink: 0; /* Prevent shrinking */
-  border: 3px solid white; /* Add border */
-  box-shadow: 0 0 0 2px #E57373; /* Reddish outer ring */
-}
-/* Optional: Style for an actual image if present */
-.profilePicture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* Profile Information Section */
 .profileInfo {
   text-align: left;
-  flex-grow: 1; /* Allow text to take available space */
 }
 
 /* Profile Name Styling */
 .profileInfo h3 {
-  margin-bottom: 6px; /* Adjust spacing */
-  color: #333; /* Dark primary text */
-  font-size: 1.3rem;
-  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: black;
 }
-
-/* Additional profile info (e.g., email) */
-.profileInfo p {
-    font-size: 0.95rem;
-    color: #666; /* Secondary text color */
-    line-height: 1.4;
-}
-
 
 /* Data Section for Account Information */
 .dataSection {
-  margin-bottom: 25px; /* Consistent spacing */
+  margin-bottom: 1.5rem;
 }
-.dataSection:last-of-type {
-    margin-bottom: 10px; /* Reduce margin on last section */
-}
-
 
 /* Data Section Header Styling */
 .dataSection h4 {
   text-align: left;
-  margin-bottom: 15px; /* More space below header */
-  /* Use red color */
-  color: #C62828;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase; /* Optional: Uppercase headers */
-  letter-spacing: 0.5px; /* Optional: Spacing */
-  border-bottom: 1px solid rgba(198, 40, 40, 0.2); /* Reddish border */
-  padding-bottom: 8px;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  color: black;
 }
 
-/* Data Item Styling - Improved layout */
+/* Data Item Styling */
 .dataItem {
   display: flex;
   justify-content: space-between;
-  align-items: baseline; /* Align text baselines */
-  margin: 10px 0; /* Vertical spacing */
-  padding: 8px 5px; /* Add slight padding */
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.06); /* Very subtle dashed separator */
-}
-.dataItem:last-child {
-    border-bottom: none; /* Remove border from last item in section */
+  margin: 0.5rem 0;
+  text-align: left;
+  color: black;
 }
 
 /* Label for Data Items */
 .itemLabel {
-  font-weight: 500; /* Slightly less bold */
-  color: #555; /* Medium grey */
-  margin-right: 10px; /* Space between label and value */
-  flex-basis: 40%; /* Give label some defined space */
-  flex-shrink: 0;
+  font-weight: bold;
+  color: black;
 }
 
 /* Item Value Styling */
 .itemValue {
-  color: #333; /* Dark text for value */
-  text-align: right;
-  font-weight: 500; /* Match label weight or make slightly bolder */
-  flex-grow: 1; /* Allow value to take remaining space */
+  color: black;
+}
+
+/* Title for Account Details Section */
+.sectionHeader h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 /* Back to Home Button Styling */
 .btnContainer {
   text-align: center;
-  margin-top: 30px; /* More space above button */
+  margin-top: 1rem;
 }
 
 .btn {
-  /* Consistent button styling */
-  display: inline-block;
-  padding: 11px 25px; /* Adjusted padding */
-  background: linear-gradient(to right, #D32F2F, #E57373); /* Red gradient */
+  background-color: #BE0F34;
   color: white;
+  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
 }
 
 .btn:hover {
-  background: linear-gradient(to right, #C62828, #EF5350);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
-}
-
-.btn:active {
-  transform: translateY(0px);
-  box-shadow: 0 2px 5px rgba(211, 47, 47, 0.2);
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-  .mobileFrame {
-    border-radius: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .titleBar {
-    padding: 10px 15px;
-    font-size: 1.1rem;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
-  .logoutButton {
-    padding: 6px 10px;
-    font-size: 0.8rem;
-  }
-  .mobileContent {
-    padding: 20px;
-  }
-  .sectionHeader h2 {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-  }
-  .userProfile {
-    padding: 20px;
-  }
-  .profileHeader {
-    flex-direction: column; /* Stack image and text */
-    text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-  }
-  .profilePicture {
-    width: 70px;
-    height: 70px;
-    margin-right: 0;
-    margin-bottom: 15px; /* Space below picture */
-  }
-  .profileInfo h3 {
-      font-size: 1.2rem;
-  }
-   .profileInfo p {
-      font-size: 0.9rem;
-  }
-  .dataSection h4 {
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-  }
-  .dataItem {
-      flex-direction: column; /* Stack label and value */
-      align-items: flex-start; /* Align items left */
-      margin: 8px 0;
-      padding: 8px 0;
-  }
-  .itemLabel {
-      margin-bottom: 4px; /* Space between label and value */
-      font-size: 0.85rem;
-      flex-basis: auto;
-  }
-  .itemValue {
-      text-align: left;
-      font-size: 0.9rem;
-  }
-  .btn {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-  }
+  background-color: #a00d2e;
 }
