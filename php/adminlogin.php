@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../php/db.php'; // Include your database connection
+include '../php/db.php'; // Database connection
 
 header('Content-Type: application/json'); // Set response type to JSON
 
@@ -14,12 +14,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($admin) {
-        if ($password === $admin['Password']) {
+        // Hash the entered password 
+        $hashedPasswordInput = hash('sha256', $password);
+
+        // Compare the hashed input password with the hashed password from the database
+        if ($hashedPasswordInput === $admin['Password']) {
             // Login success
-            $_SESSION['admin_id'] = $admin['AdminID']; // Save admin ID in session
+            $_SESSION['admin_id'] = $admin['AdminID']; 
             $_SESSION['admin_name'] = $admin['Name'];
             $_SESSION['admin_email'] = $admin['Email'];
-            
+
             // Return success response with redirect URL
             echo json_encode([
                 "success" => true,
