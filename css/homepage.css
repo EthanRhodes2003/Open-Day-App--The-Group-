@@ -1,218 +1,272 @@
-/* Reset default margin, padding, and apply box-sizing for consistency */
+/* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling: black background, centering content */
+/* Body styling: Light neutral background */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #000;
+  /* Light background to complement reds */
+  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Use min-height */
+  padding: 20px; /* Add padding for smaller screens */
 }
 
 /* Mobile Frame */
 .mobileFrame {
-  width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100%; /* More responsive */
+  max-width: 420px; /* Adjusted max-width */
+  min-height: 85vh; /* Use min-height */
+  /* Very subtle reddish/neutral gradient */
+  background: linear-gradient(135deg, #fffafa, #ffebee);
+  border-radius: 25px; /* Softer radius */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer, deeper shadow */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar: Red background with white text, fixed at the top */
+/* Title Bar: Red gradient, improved padding */
 .titleBar {
-  background: #BE0F34;
+  /* Red gradient */
+  background: linear-gradient(to right, #C62828, #E53935);
   color: white;
   text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  position: absolute;
+  padding: 12px 15px; /* Increased padding */
+  font-size: 1.2rem; /* Slightly larger */
+  font-weight: 600; /* Bolder */
+  /* Remove absolute positioning - let it be part of the flow */
   width: 100%;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Center logo */
+  position: relative; /* For positioning logout button */
+  border-top-left-radius: 25px; /* Match frame radius */
+  border-top-right-radius: 25px; /* Match frame radius */
 }
+
+/* Logo specific styling if needed */
+.logo {
+    flex-grow: 1; /* Allow logo to take space */
+    text-align: center; /* Ensure it stays centered */
+    margin-left: 50px; /* Add margin to roughly balance the logout button space */
+}
+
 
 .logoutButtonContainer {
   position: absolute;
-  top: 5px;
-  right: 30px; 
+  right: 15px; /* Adjusted position */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center */
 }
+
+/* Logout Button: Styled to match other buttons better */
 .logoutButton {
-  padding: 6px 12px;
-  background-color: #f44336;
+  padding: 8px 14px; /* Adjusted padding */
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle background */
   color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+  border-radius: 20px; /* Rounded */
+  font-size: 0.85rem; /* Slightly smaller */
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .logoutButton:hover {
-  background-color: #d32f2f;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Content Wrapper: Adjusted padding to avoid title bar overlap */
+/* Content Wrapper: Adjusted padding */
 .mobileContent {
-  padding: 50px 20px 20px;
+  /* Removed fixed padding top, handled by title bar flow */
+  padding: 20px 20px 30px;
   overflow-y: auto;
   flex-grow: 1;
   text-align: center;
 }
 
-/* Section Styling: Light blue background with shadow and rounded corners */
+/* Section Styling: Clean white background, subtle shadow, more padding */
 section {
-  background-color: #AEDFF7;
-  padding: 1.5rem;
-  margin: 1rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: black;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  padding: 1.8rem; /* Increased padding */
+  margin: 1.5rem 10px; /* Adjusted margin for breathing room */
+  border-radius: 15px; /* Consistent radius */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Softer shadow */
+  color: #333; /* Darker text color */
 }
 
-/* Hero Section: Gradient overlay on background image */
+/* Hero Section: Darker overlay for contrast, adjust padding */
 #hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/800');
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/api/placeholder/1200/800'); /* Slightly darker overlay */
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.5rem; /* More padding */
   border-radius: 15px;
+  margin-top: 1.5rem; /* Ensure space from title bar */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for hero */
 }
 
-/* Hero Section Text: Adjusted heading and paragraph sizes */
+/* Hero Section Text: Improve hierarchy */
 .heroContent h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem; /* Larger heading */
+  font-weight: 700; /* Bold */
   margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .heroContent p {
   font-size: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* More space before button */
+  line-height: 1.6;
 }
 
-/* Button Styling: Red background with hover effect */
+/* Button Styling: Unified red theme */
 .button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #BE0F34;
+  padding: 0.9rem 2rem; /* Slightly larger padding */
+  /* Main red color */
+  background: #D32F2F; /* Consistent Red */
   color: white;
   text-decoration: none;
-  border-radius: 25px;
-  transition: 0.3s;
-  font-weight: bold;
+  border-radius: 25px; /* Keep rounded */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: 600; /* Bolder */
+  font-size: 0.95rem;
+  border: none; /* Remove potential default borders */
+  cursor: pointer;
 }
 
-/* Button Hover Effect: Slight lift and shadow */
+/* Button Hover Effect: Darken and lift */
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(190, 15, 52, 0.2);
+  background-color: #B71C1C; /* Darker Red */
+  transform: translateY(-3px); /* Slightly more lift */
+  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.3); /* Reddish shadow */
 }
 
-/* Account Button Styling: Blue background for account-related actions */
+/* Account Button Styling: Use same red style */
 .accountButton {
-  background: #0072CE;
+  background: #D32F2F; /* Same red as other buttons */
 }
 
 .accountButton:hover {
-  background: #0085E6;
-  box-shadow: 0 4px 8px rgba(0, 114, 206, 0.3);
+  background: #B71C1C; /* Darker red on hover */
+  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.3); /* Match shadow */
 }
 
-/* Section Header Styling: Centered and spaced out */
+/* Section Header Styling */
 .sectionHeader {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* More space below header */
 }
 
-/* Event List Styling: Styled list with white background and shadow */
+.sectionHeader h2 {
+    font-size: 1.4rem; /* Slightly larger section titles */
+    font-weight: 600;
+    color: #B71C1C; /* Dark red color for headers */
+}
+
+/* Event List Styling: Improved spacing and look */
 .eventList {
   list-style: none;
   padding: 0;
   text-align: center;
+  margin-top: 0.5rem; /* Space from header */
 }
 
 .eventList li {
-  background: white;
-  padding: 1rem;
-  margin: 0.5rem auto;
-  width: 80%;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
+  background: #fff; /* Keep white for contrast */
+  color: #555; /* Slightly lighter text */
+  padding: 1rem 1.5rem; /* Adjusted padding */
+  margin: 0.8rem auto; /* More vertical space */
+  width: 90%; /* Slightly wider */
+  border-radius: 10px; /* Less rounded than sections */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  font-weight: 500; /* Normal weight */
+  border-left: 4px solid #E57373; /* Red accent border */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Account Page: User profile styling */
-.userProfile {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin-bottom: 1.5rem;
+.eventList li:hover {
+    transform: translateX(5px); /* Slight move on hover */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1); /* Enhance shadow on hover */
 }
 
-/* Profile Header: Display profile picture and user info side by side */
-.profileHeader {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
+/* Contact Section Styling */
+#contact p {
+    margin-bottom: 0.8rem; /* Space between lines */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444; /* Dark grey text */
+}
+#contact strong {
+    color: #C62828; /* Red emphasis */
+    font-weight: 600;
 }
 
-/* Profile Picture Styling: Circular and centered */
-.profilePicture {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #E0E0E0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-  overflow: hidden;
+
+/* --- Styles Below Are for Account Page (Assuming they are unused on homepage) --- */
+/* If .userProfile, .profileHeader etc. ARE used on homepage, they need re-styling too */
+.userProfile, .profileHeader, .profilePicture, .profileInfo, .dataSection, .dataItem, .itemLabel {
+  /* Consider applying reddish theme elements here if these styles are used on homepage.php */
+  /* For now, assuming they are only for account.php */
 }
 
-/* Profile Info: Text aligned to the left */
-.profileInfo {
-  text-align: left;
-}
-
-.profileInfo h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Data Section Styling: Margin for spacing and header with underline */
-.dataSection {
-  margin-bottom: 1.5rem;
-}
-
-.dataSection h4 {
-  text-align: left;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-/* Data Item Styling: Flex layout for labels and values */
-.dataItem {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.5rem 0;
-  text-align: left;
-}
-
-.itemLabel {
-  font-weight: bold;
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+  .mobileFrame {
+      border-radius: 15px;
+      min-height: 90vh;
+  }
+   .titleBar {
+      font-size: 1.1rem;
+      padding: 10px 12px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+  }
+  .logo {
+      margin-left: 40px; /* Adjust balance */
+  }
+  .logoutButtonContainer {
+      right: 10px;
+  }
+  .logoutButton {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+  }
+  .mobileContent {
+      padding: 15px;
+  }
+  section {
+      padding: 1.5rem;
+      margin: 1rem 5px;
+  }
+  #hero {
+      padding: 2rem 1rem;
+  }
+  .heroContent h1 {
+      font-size: 1.6rem;
+  }
+  .button {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.9rem;
+  }
+  .sectionHeader h2 {
+      font-size: 1.3rem;
+  }
+  .eventList li {
+      width: 95%;
+      padding: 0.8rem 1rem;
+  }
 }
