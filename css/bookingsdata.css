@@ -8,210 +8,147 @@
 /* Body Styling */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #1a0a0a; /* Darker reddish-black background */
-  color: #ffffff;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Use min-height for flexibility */
-  padding: 20px; /* Add padding for smaller screens */
-  line-height: 1.6;
+  height: 100vh;
 }
 
-/* Mobile Frame - Reddish Themed Gradient */
+/* Mobile Frame */
 .mobileFrame {
-  width: 95%; /* Increased width */
-  max-width: 900px; /* Increased max-width for data display */
-  height: auto; /* Allow height to adjust to content */
-  min-height: 90vh; /* Ensure minimum height */
-  background: linear-gradient(to bottom right, #2e1a1a, #211616); /* Darker, reddish gradient */
-  border-radius: 20px; /* Adjusted radius */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset; /* Smoother and more pronounced shadow */
+  width: 90%;
+  max-width: 768px;
+  height: 90vh;
+  background-color: #001F3F;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(10px); /* Add blur effect for a modern look */
-  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
 }
 
-/* Title Bar - Vibrant Red Gradient (consistent) */
-.titleBar {
-  background: linear-gradient(to right, #e94560, #be0f34); /* Vibrant red gradient */
-  color: #ffffff;
-  text-align: center;
-  padding: 15px 20px; /* Adjusted padding */
-  font-size: 1.5rem; /* Slightly larger font */
-  font-weight: 700; /* Bolder */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  display: flex; /* Use flexbox */
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Space out logo and button */
-}
-
-.titleBar .logo {
-  /* No flex-grow needed here, space-between handles distribution */
-  text-align: center;
-  flex-grow: 1; /* Allow logo to take up remaining space */
-}
-
-/* Logout Button Container Styling - Removed absolute positioning */
 .logoutButtonContainer {
-  /* Removed position, top, right, transform */
-   flex-shrink: 0; /* Prevent button from shrinking */
+  position: absolute;
+  top: 5px;
+  right: 30px; 
 }
 
-
-/* Logout Button Styling (consistent red) */
 .logoutButton {
-  padding: 8px 15px; /* Adjusted padding */
-  background-color: #e94560; /* Match title bar red */
+  padding: 6px 12px;
+  background-color: #f44336;
   color: white;
   border: none;
-  border-radius: 8px; /* More rounded corners */
-  font-size: 1rem; /* Slightly larger font */
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .logoutButton:hover {
-  background-color: #be0f34; /* Darker red on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #d32f2f;
 }
 
+/* Title Bar Styling */
+.titleBar {
+  background: #BE0F34;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Main Content Styling */
 .mobileContent {
-  padding: 30px 20px; /* Adjusted padding */
+  padding: 50px 20px 20px;
   overflow-y: auto;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 30px; /* Space between sections */
+  margin-top: 40px;
 }
 
 /* Section Header Styling */
 .sectionHeader h2 {
-  color: #ffffff;
-  font-size: 1.8rem; /* Increased size */
-  margin-bottom: 15px; /* Adjusted margin */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
-  padding-bottom: 5px;
-}
-
-/* Table Wrapper for Horizontal Scroll */
-.tableWrapper {
-  overflow-x: auto; /* Enable horizontal scrolling for tables */
+  color: white;
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
 }
 
-/* Table Styling */
+/* Table Layout Fix for auto-width based on content */
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto;
-  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent dark background */
-  color: #ffffff;
-  border-radius: 8px; /* Apply border radius to the table */
-  overflow: hidden; /* Ensures border-radius clips content */
+  table-layout: auto; /* Let columns auto size to their content */
 }
 
-/* Table Header Styling - Reddish Gradient */
+/* Ensure th and td don't wrap text unnecessarily */
+th, td {
+  white-space: nowrap;
+  padding: 8px 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+  color: white;
+}
+
+/* Make background of table black */
+table {
+  background-color: #000;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* Table Header Styling */
 th {
-  background: linear-gradient(to right, #be0f34, #e94560); /* Red gradient for headers */
-  color: #ffffff;
-  font-weight: 600; /* Semi-bold */
-  padding: 12px 15px; /* Adjusted padding */
-  text-align: left;
-  white-space: nowrap; /* Prevent wrapping in headers */
-}
-
-/* Table Data Styling */
-td {
-  padding: 10px 15px; /* Adjusted padding */
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-  color: rgba(255, 255, 255, 0.9);
-  white-space: nowrap; /* Prevent wrapping in data cells */
+  background-color: #BE0F34;
+  font-weight: bold;
 }
 
 /* Zebra stripe rows */
-tbody tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.05); /* Lighter stripe */
+tr:nth-child(even) {
+  background-color: #111;
 }
 
-/* Hover effect on rows */
-tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Highlight on hover */
+tr:hover {
+  background-color: #222;
+}
+
+/* Horizontal scroll for smaller screens */
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+/* Hover effect */
+tr:hover {
+  background-color: #222;
 }
 
 /* Filter input styles */
+.sectionHeader input[type="text"] {
+  padding: 8px 12px;
+  margin: 8px 8px 15px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  max-width: 200px;
+}
+
 .filterInputs {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* Space between filter inputs */
-  margin-bottom: 20px;
-  align-items: center;
 }
 
-.filterInputs input[type="text"],
-#accountFilter {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(0, 0, 0, 0.3); /* Darker input background */
-  color: #ffffff;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 180px; /* Limit input width */
-}
-
-.filterInputs input[type="text"]:focus,
-#accountFilter:focus {
-  outline: none;
-  border-color: #e94560; /* Highlight color on focus - red */
-  box-shadow: 0 0 8px rgba(233, 69, 96, 0.5); /* Reddish shadow */
-}
-
-.filterInputs input[type="text"]::placeholder,
-#accountFilter::placeholder {
-  color: rgba(255, 255, 255, 0.6); /* Lighter placeholder text */
-}
-
-/* Style the horizontal rule */
-hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(233, 69, 96, 0.3), transparent); /* Reddish gradient HR */
-    margin: 30px 0; /* More space around the separator */
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-  .titleBar {
-      flex-direction: column; /* Stack items */
-      gap: 10px; /* Add space between stacked items */
-  }
-
-  .titleBar .logo {
-      text-align: center; /* Center logo when stacked */
-  }
-
-  .logoutButtonContainer {
-    /* No need for specific stacking styles as it's now part of the flex column */
-  }
-
-  .filterInputs {
-      flex-direction: column; /* Stack filters vertically */
-      align-items: stretch; /* Stretch filters to fill width */
-  }
-
-  .filterInputs input[type="text"],
-  #accountFilter {
-      max-width: 100%; /* Allow inputs to take full width */
-  }
+/* Search Input */
+.search-input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 200px;
 }
