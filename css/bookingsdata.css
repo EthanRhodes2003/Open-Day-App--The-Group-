@@ -1,3 +1,5 @@
+/* css/bookingsdata.css (Revised - Width Reverted) */
+
 /* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
@@ -5,150 +7,197 @@
   box-sizing: border-box;
 }
 
-/* Body Styling */
+/* Body styling - consistent */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black;
+  background-color: #121212; /* Consistent dark background */
+  color: #E0E0E0; /* Consistent off-white text */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Mobile Frame */
+/* Mobile Frame - Original max-width */
 .mobileFrame {
-  width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Original width */
+  max-width: 768px; /* *** Original max-width restored *** */
+  height: 90vh; /* Original height */
+  max-height: 850px; /* Allow generous max-height for content */
+  background-color: #001F3F; /* Consistent dark blue */
+  border-radius: 30px; /* Original radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.logoutButtonContainer {
-  position: absolute;
-  top: 5px;
-  right: 30px; 
-}
-
-.logoutButton {
-  padding: 6px 12px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.logoutButton:hover {
-  background-color: #d32f2f;
-}
-
-/* Title Bar Styling */
+/* Title Bar Styling - consistent */
 .titleBar {
-  background: #BE0F34;
+  background: #BE0F34; /* Consistent red */
   color: white;
   text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  position: absolute;
+  padding: 15px 10px; /* Increased padding */
+  font-size: 1.3rem; /* Slightly larger font size */
+  font-weight: 600;
+  position: relative;
   width: 100%;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Logo within Title Bar */
+.logo {
+  flex-grow: 1;
+  text-align: center;
+  margin-left: -60px; /* Adjust based on logout button size */
+}
+
+/* Logout Button Container */
+.logoutButtonContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+/* Logout Button Styling (Improved) */
+.logoutButton {
+  padding: 8px 14px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
 /* Main Content Styling */
 .mobileContent {
-  padding: 50px 20px 20px;
+  padding: 25px 30px; /* Adjusted padding */
   overflow-y: auto;
   flex-grow: 1;
-  margin-top: 40px;
+  /* Add margin-top matching original if needed, but padding should handle space */
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 2.5rem;
 }
 
 /* Section Header Styling */
-.sectionHeader h2 {
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.sectionHeader {
+    margin-bottom: 1.5rem;
 }
 
-/* Table Layout Fix for auto-width based on content */
+.sectionHeader h2 {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Filter Input Container */
+.filterInputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Filter input styles - consistent */
+.filterInputs input[type="text"],
+#accountFilter {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #445c7a;
+  background-color: #0a2a4e;
+  color: #E0E0E0;
+  font-size: 0.9rem;
+  width: auto;
+  flex-grow: 1;
+  max-width: 180px; /* Kept max-width for individual inputs */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterInputs input[type="text"]::placeholder,
+#accountFilter::placeholder {
+  color: #88a1c2;
+  opacity: 1;
+}
+
+.filterInputs input[type="text"]:focus,
+#accountFilter:focus {
+  border-color: #1E90FF;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3);
+  outline: none;
+}
+
+/* Table Wrapper for Horizontal Scroll */
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid #2a4a75;
+  border-radius: 8px;
+  background-color: #0a1f33;
+}
+
+/* Table Layout */
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto; /* Let columns auto size to their content */
-}
-
-/* Ensure th and td don't wrap text unnecessarily */
-th, td {
-  white-space: nowrap;
-  padding: 8px 15px;
-  text-align: left;
-  border-bottom: 1px solid #444;
-  color: white;
-}
-
-/* Make background of table black */
-table {
-  background-color: #000;
-  color: white;
-  border: 1px solid #444;
+  table-layout: auto;
+  /* Removed min-width to let it fit, relying on wrapper overflow */
 }
 
 /* Table Header Styling */
 th {
-  background-color: #BE0F34;
-  font-weight: bold;
+  background-color: #15355a;
+  color: #E0E0E0;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 2px solid #2a4a75;
+  white-space: nowrap; /* Kept nowrap */
+}
+
+/* Table Cell Styling */
+td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #2a4a75;
+  color: #c0d0e0;
+  white-space: nowrap; /* Kept nowrap */
+  font-size: 0.9rem;
 }
 
 /* Zebra stripe rows */
-tr:nth-child(even) {
-  background-color: #111;
-}
-
-tr:hover {
-  background-color: #222;
-}
-
-/* Horizontal scroll for smaller screens */
-.tableWrapper {
-  overflow-x: auto;
-  margin-bottom: 2rem;
+tr:nth-child(even) td {
+  background-color: #102a45;
 }
 
 /* Hover effect */
-tr:hover {
-  background-color: #222;
+tr:hover td {
+  background-color: #1a4068;
+  color: #ffffff;
 }
 
-/* Filter input styles */
-.sectionHeader input[type="text"] {
-  padding: 8px 12px;
-  margin: 8px 8px 15px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  max-width: 200px;
-}
-
-.filterInputs {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* Search Input */
-.search-input {
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 200px;
+/* Horizontal Rule */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #2a4a75;
+    margin: 2.5rem 0;
 }

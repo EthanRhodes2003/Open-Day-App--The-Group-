@@ -1,3 +1,5 @@
+/* css/booking.css */
+
 /* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
@@ -5,144 +7,238 @@
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* Body styling - consistent */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black;
+  background-color: #121212; /* Consistent dark background */
+  color: #E0E0E0; /* Consistent off-white text */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Mobile Frame */
+/* Mobile Frame - consistent */
 .mobileFrame {
   width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 768px; /* Original max-width */
+  height: 90vh; /* Original height */
+  max-height: 850px;
+  background-color: #001F3F; /* Consistent dark blue */
+  border-radius: 30px; /* Original radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.logoutButtonContainer {
-  position: absolute;
-  top: 5px;
-  right: 30px; 
-}
-
-.logoutButton {
-  padding: 6px 12px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.logoutButton:hover {
-  background-color: #d32f2f;
-}
-
-/* Title Bar Styling */
+/* Title Bar Styling - consistent */
 .titleBar {
-  background: #BE0F34;
+  background: #BE0F34; /* Consistent red */
   color: white;
   text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  position: absolute;
+  padding: 15px 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative; /* Changed from absolute */
   width: 100%;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Back Button Styling */
+/* Back Button Styling - consistent */
 .backButton {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
   position: absolute;
-  left: 10px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/* Main Content */
-.mobileContent {
-  padding: 50px 20px 20px;
-  overflow-y: auto;
+.backButton:hover {
+  color: #f0f0f0;
+}
+
+/* Logo within Title Bar - consistent */
+.logo {
   flex-grow: 1;
-  margin-top: 40px;
+  text-align: center;
+  margin: 0 30px 0 -30px; /* Adjust left margin based on back/logout button space */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* Logout Button Container - consistent */
+.logoutButtonContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+/* Logout Button Styling - consistent */
+.logoutButton {
+  padding: 8px 14px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Main Content Wrapper */
+.mobileContent {
+  padding: 25px 30px; /* Adjusted padding */
+  overflow-y: auto; /* Enable scroll */
+  flex-grow: 1;
 }
 
 /* Booking Form Container */
 .formContainer {
-  text-align: center;
-  background: #5088C9;
-  padding: 20px;
+  /* Removed background color - use frame's background */
+  padding: 10px 0; /* Reduced padding */
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Removed box-shadow */
+  text-align: left; /* Align form elements left */
 }
 
 /* Form Heading Styling */
 h1 {
-  color: black;
-  margin-bottom: 15px;
+  color: white; /* White heading */
+  margin-bottom: 2rem; /* More space below heading */
+  font-size: 1.8rem; /* Larger heading */
+  font-weight: 600;
+  text-align: center; /* Center heading */
 }
 
-/* Form Element Styling */
+/* Form Element Wrapper */
 .formElement {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem; /* Consistent space between form fields */
 }
 
 /* Form Label Styling */
 .formLabel {
-  color: white;
-  margin-bottom: 8px;
-  font-size: 1rem;
+  display: block; /* Ensure label is on its own line */
+  color: #b0c4de; /* Lighter blue/grey color for labels */
+  margin-bottom: 6px; /* Space between label and input */
+  font-size: 0.9rem; /* Slightly smaller label */
+  font-weight: 500;
 }
 
-/* Input Fields Styling */
-input, select {
+/* Input and Select Styling - consistent */
+input[type="text"], /* Added type=text for the readonly campus input */
+select {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  border: none;
-  font-size: 1rem;
+  padding: 12px 15px;
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #445c7a;
+  background-color: #0a2a4e;
+  color: #E0E0E0;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Button Styling */
+/* Readonly input styling */
+input[readonly] {
+    background-color: #15355a; /* Slightly different background */
+    color: #a0b4cf; /* Dimmer text */
+    cursor: not-allowed;
+}
+
+/* Select dropdown arrow styling - consistent */
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+/* Focus Effects for Inputs and Select - consistent */
+input:not([readonly]):focus, select:focus { /* Exclude readonly from focus effect */
+  border-color: #1E90FF;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3);
+  outline: none;
+}
+
+/* Button Styling - consistent */
 button.btn {
+  display: block; /* Ensure button takes full width */
   width: 100%;
-  padding: 10px;
-  background: #BE0F34;
+  padding: 14px 20px;
+  background: #BE0F34; /* Consistent red */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 1.5rem; /* More space above button */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Hover Effect */
+/* Button Hover Effect - consistent */
 button.btn:hover {
   background: #a00d2e;
+  transform: translateY(-2px);
 }
 
-/* Focus Effects for Inputs and Select */
-input:focus, select:focus {
-  border: 2px solid #BE0F34;
-  outline: none;
+/* Button Focus Effect - consistent */
+button.btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* Message Area Styling */
+#message {
+  margin-top: 1.5rem; /* Space above messages */
+  padding: 12px 15px; /* Padding inside message area */
+  border-radius: 8px;
+  font-size: 0.95rem;
+  min-height: 1.5em;
+  color: white;
+  text-align: center;
+  background-color: transparent; /* Default transparent */
+}
+
+/* Specific message styles (match classes used in PHP) */
+#message .success {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745; /* Green text */
+  border: 1px solid rgba(40, 167, 69, 0.4);
+}
+
+#message .error {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #dc3545; /* Red text */
+  border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+/* Ensure paragraphs inside message div don't add extra margin */
+#message p {
+    margin: 0;
 }

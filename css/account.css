@@ -1,3 +1,5 @@
+/* css/account.css */
+
 /* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
@@ -5,175 +7,271 @@
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* Body styling - consistent */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black;
+  background-color: #121212; /* Consistent dark background */
+  color: #E0E0E0; /* Consistent off-white text */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Mobile Frame */
+/* Mobile Frame - consistent */
 .mobileFrame {
   width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 768px; /* Original max-width */
+  height: 90vh; /* Original height */
+  max-height: 850px;
+  background-color: #001F3F; /* Consistent dark blue */
+  border-radius: 30px; /* Original radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.logoutButtonContainer {
-  position: absolute;
-  top: 5px;
-  right: 30px; 
-}
-
-.logoutButton {
-  padding: 6px 12px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.logoutButton:hover {
-  background-color: #d32f2f;
-}
-
-/* Title Bar Styling */
+/* Title Bar Styling - consistent */
 .titleBar {
-  background: #BE0F34;
+  background: #BE0F34; /* Consistent red */
   color: white;
   text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  position: absolute;
+  padding: 15px 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative; /* Changed from absolute */
   width: 100%;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Main Content */
-.mobileContent {
-  padding: 50px 20px 20px;
-  overflow-y: auto;
+/* Logo within Title Bar - consistent */
+.logo {
   flex-grow: 1;
-  margin-top: 40px;
-  color: black;
+  text-align: center;
+  margin-left: -60px; /* Adjust based on logout button size */
 }
 
-/* User Profile Section */
+/* Logout Button Container - consistent */
+.logoutButtonContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+/* Logout Button Styling - consistent */
+.logoutButton {
+  padding: 8px 14px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Main Content Wrapper */
+.mobileContent {
+  padding: 25px 30px; /* Adjusted padding */
+  overflow-y: auto; /* Enable scroll */
+  flex-grow: 1;
+  color: #E0E0E0; /* Ensure default text color is light */
+}
+
+/* Account Details Section Wrapper */
+.accountSection {
+    /* No specific styles needed if mobileContent provides padding */
+}
+
+/* Overall Section Header (e.g., "My Account") */
+.sectionHeader h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem; /* Larger heading */
+  font-weight: 600;
+  margin-bottom: 1.5rem; /* Space below main heading */
+}
+
+/* User Profile Container Card */
 .userProfile {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin-bottom: 1.5rem;
+  background: #0a2a4e; /* Dark blue card background, darker than frame */
+  padding: 1.5rem 2rem; /* Increased padding */
+  border-radius: 15px; /* Consistent radius */
+  margin-bottom: 2rem; /* Space below profile card */
+  border: 1px solid #15355a; /* Subtle border */
 }
 
 /* Profile Header Section */
 .profileHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* More space below header */
+  padding-bottom: 1.5rem; /* Space */
+  border-bottom: 1px solid #15355a; /* Separator line */
 }
 
 /* Profile Picture Styling */
 .profilePicture {
-  width: 80px;
-  height: 80px;
+  width: 70px; /* Slightly smaller */
+  height: 70px;
   border-radius: 50%;
-  background-color: #E0E0E0;
+  background-color: #15355a; /* Darker circle background */
+  color: #a0b4cf; /* Lighter icon color */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 1.5rem; /* More space */
   overflow: hidden;
+  font-size: 2.5rem; /* Larger icon size */
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Profile Information Section */
 .profileInfo {
   text-align: left;
+  flex-grow: 1; /* Allow text to take available space */
 }
 
 /* Profile Name Styling */
 .profileInfo h3 {
-  margin-bottom: 0.5rem;
-  color: black;
+  margin-bottom: 0.3rem; /* Less space below name */
+  color: white; /* White name */
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
-/* Data Section for Account Information */
+/* Profile Subtitle (e.g., Student ID) */
+.profileInfo p {
+    font-size: 0.9rem;
+    color: #a0b4cf; /* Dimmer text color */
+    margin: 0;
+}
+
+
+/* Data Section for Account/Booking Information */
 .dataSection {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* Space between data sections */
 }
 
-/* Data Section Header Styling */
+.dataSection:last-child {
+    margin-bottom: 0; /* No margin for the last section inside card */
+}
+
+/* Data Section Header Styling (e.g., "Personal Information") */
 .dataSection h4 {
   text-align: left;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-  color: black;
+  margin-bottom: 1rem; /* Space below heading */
+  /* Removed border-bottom */
+  padding-bottom: 0;
+  color: #FFFFFF; /* White heading */
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-/* Data Item Styling */
+/* Data Item Styling (Label/Value Pair) */
 .dataItem {
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem 0;
+  align-items: baseline; /* Align text baselines */
+  margin-bottom: 0.8rem; /* Space between items */
+  padding: 0.5rem 0; /* Vertical padding for spacing */
   text-align: left;
-  color: black;
+  border-bottom: 1px dashed #15355a; /* Subtle dashed separator */
+  font-size: 0.95rem;
+}
+.dataItem:last-child {
+    border-bottom: none; /* No border for last item in section */
+    margin-bottom: 0;
 }
 
 /* Label for Data Items */
 .itemLabel {
-  font-weight: bold;
-  color: black;
+  font-weight: 500; /* Slightly less bold */
+  color: #a0b4cf; /* Dimmer label color */
+  margin-right: 1rem; /* Space between label and value */
+  flex-basis: 40%; /* Give label a consistent width */
+  flex-shrink: 0;
 }
 
 /* Item Value Styling */
 .itemValue {
-  color: black;
+  color: #E0E0E0; /* Main light text color for value */
+  text-align: right; /* Align value to the right */
+  flex-grow: 1;
 }
 
-/* Title for Account Details Section */
-.sectionHeader h2 {
-  text-align: center;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+/* Booking Information Specifics */
+.bookingCard {
+    /* Style individual bookings if needed, otherwise dataItem handles rows */
+    /* Example: border: 1px solid red; margin-bottom: 1rem; padding: 1rem; */
+    margin-bottom: 1.5rem;
+}
+.bookingCard h5 { /* Style for Booking ID */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b0c4de;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #15355a;
+}
+
+.bookingSeparator { /* Style for HR between bookings */
+    border: none;
+    height: 1px;
+    background-color: #15355a;
+    margin: 2rem 0; /* More space around separator */
+}
+
+/* No Bookings Message */
+.dataSection p {
+    color: #a0b4cf;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 /* Back to Home Button Styling */
 .btnContainer {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem; /* Space above button */
 }
 
+/* Use consistent button styling */
 .btn {
-  background-color: #BE0F34;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
   display: inline-block;
+  padding: 14px 28px;
+  background: #BE0F34; /* Consistent red */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
-  background-color: #a00d2e;
+  transform: translateY(-2px);
+  background: #a00d2e; /* Consistent hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
 }

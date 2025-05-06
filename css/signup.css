@@ -1,3 +1,5 @@
+/* css/signup.css */
+
 /* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
@@ -5,42 +7,44 @@
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* Body styling - consistent with index.css */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: black; /* Black background for the entire page */
+  background-color: #121212; /* Consistent dark background */
+  color: #E0E0E0; /* Consistent off-white text */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px; /* Consistent padding around the frame */
 }
 
-/* Mobile Frame */
+/* Mobile Frame - consistent with index.css */
 .mobileFrame {
-  width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px; /* Allow slightly more height for forms */
+  background-color: #001F3F; /* Consistent dark blue */
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling */
+/* Title Bar Styling - consistent with index.css */
 .titleBar {
-  background: #BE0F34;
+  background: #BE0F34; /* Consistent red */
   color: white;
   text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  position: absolute;
+  padding: 15px 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative; /* Changed from absolute */
   width: 100%;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,68 +53,163 @@ body {
 /* Back Button Styling */
 .backButton {
   position: absolute;
-  left: 15px;
-  font-size: 1.5rem;
+  left: 20px; /* Adjusted position */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem; /* Slightly larger */
+  line-height: 1;
   cursor: pointer;
   color: white;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .backButton:hover {
   color: #f0f0f0;
 }
 
+/* Logo within Title Bar */
+.logo {
+  flex-grow: 1; /* Allow logo to take space */
+  text-align: center; /* Center logo text */
+  /* Adjust margin if needed to fine-tune centering with back button */
+  margin-left: -30px; /* Offset back button width approx */
+}
+
+
 /* Main Content Wrapper */
 .mobileContent {
-  padding: 50px 20px 20px;
-  overflow-y: auto;
+  padding: 20px 25px; /* Adjusted padding */
+  overflow-y: auto; /* Enable scroll for long forms */
   flex-grow: 1;
-  margin-top: 40px;
 }
 
 /* Form Container Styling */
 .formContainer {
-  background: #5088C9; /* Blue background */
-  padding: 20px;
+  /* Removed background color - use frame's background */
+  padding: 10px 0; /* Reduced padding, rely on mobileContent padding */
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Removed box-shadow */
   text-align: center;
 }
+
+/* Separate Signup/Login Sections */
+#signupForm, #loginForm {
+    margin-bottom: 2.5rem; /* Space between forms */
+}
+#loginForm {
+    margin-bottom: 1rem; /* Less space after login form */
+}
+
 
 /* Form Headings */
 h2 {
   color: white;
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem; /* Increased space below headings */
+  font-size: 1.5rem; /* Slightly larger heading */
+  font-weight: 600;
+}
+
+/* Form Element Wrapper (Assuming <div class="formElement"> wraps inputs/selects in HTML) */
+.formElement {
+    margin-bottom: 1rem; /* Space between form fields */
 }
 
 /* Input and Select Styling */
-input, select {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  border: none;
+  padding: 12px 15px; /* Adjusted padding */
+  margin: 0; /* Removed default margin */
+  border-radius: 8px; /* Consistent rounded corners */
+  border: 1px solid #445c7a; /* Subtle border */
+  background-color: #0a2a4e; /* Darker input background */
+  color: #E0E0E0; /* Light text color */
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Button Styling */
-button.btn {
-  width: 100%;
-  padding: 10px;
-  background: #BE0F34;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+input[type="date"] {
+    /* Basic styling for date input appearance if needed */
+    color-scheme: dark; /* Hint for dark mode date picker */
 }
 
-/* Button Hover Effect */
-button.btn:hover {
-  background: #a00d2e;
+/* Placeholder text color */
+::placeholder {
+  color: #88a1c2;
+  opacity: 1; /* Ensure placeholder is visible */
+}
+
+/* Select dropdown arrow styling (basic) */
+select {
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 40px; /* Make space for custom arrow */
 }
 
 /* Focus Effects for Inputs and Select */
 input:focus, select:focus {
-  border: 2px solid #BE0F34; /* Red border when focused */
+  border-color: #1E90FF; /* Blue border on focus */
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3); /* Subtle glow effect */
   outline: none;
+}
+
+/* Button Styling - consistent with index.css */
+button.btn {
+  display: inline-block; /* Allow button to size naturally if needed, but keep width */
+  width: 100%;
+  padding: 14px 20px; /* Adjusted padding */
+  background: #BE0F34; /* Consistent red */
+  color: white;
+  border: none;
+  border-radius: 12px; /* Consistent radius */
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0.5rem; /* Add some space above button */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Hover Effect - consistent */
+button.btn:hover {
+  background: #a00d2e; /* Darker red */
+  transform: translateY(-2px);
+}
+
+/* Button Focus Effect - consistent */
+button.btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* Message Area Styling */
+.message {
+  margin-top: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  min-height: 1.5em; /* Reserve space even when empty */
+  color: white; /* Default color */
+  text-align: center;
+}
+
+/* Specific styles can be added via JS based on success/error */
+.message.success {
+  background-color: rgba(40, 167, 69, 0.2); /* Green tint */
+  color: #28a745;
+}
+
+.message.error {
+  background-color: rgba(220, 53, 69, 0.2); /* Red tint */
+  color: #dc3545;
 }

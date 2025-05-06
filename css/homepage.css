@@ -1,218 +1,228 @@
-/* Reset default margin, padding, and apply box-sizing for consistency */
+/* css/homepage.css (Corrected - Removed Initial Opacity/Transform) */
+
+/* Reset default margin, padding, and apply box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling: black background, centering content */
+/* Body styling - consistent */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #000;
+  background-color: #121212; /* Consistent dark background */
+  color: #E0E0E0; /* Consistent off-white text */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Mobile Frame */
+/* Mobile Frame - consistent */
 .mobileFrame {
   width: 90%;
-  max-width: 768px;
-  height: 90vh;
-  background-color: #001F3F;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 768px; /* Original max-width */
+  height: 90vh; /* Original height */
+  max-height: 850px;
+  background-color: #001F3F; /* Consistent dark blue */
+  border-radius: 30px; /* Original radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar: Red background with white text, fixed at the top */
+/* Title Bar Styling - consistent */
 .titleBar {
-  background: #BE0F34;
+  background: #BE0F34; /* Consistent red */
   color: white;
   text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  position: absolute;
+  padding: 15px 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative;
   width: 100%;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Logo within Title Bar */
+.logo {
+  flex-grow: 1;
+  text-align: center;
+  margin-left: -60px; /* Adjust based on logout button size */
+}
+
+/* Logout Button Container - consistent */
 .logoutButtonContainer {
   position: absolute;
-  top: 5px;
-  right: 30px; 
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
 }
+
+/* Logout Button Styling - consistent */
 .logoutButton {
-  padding: 6px 12px;
-  background-color: #f44336;
+  padding: 8px 14px;
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .logoutButton:hover {
-  background-color: #d32f2f;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Content Wrapper: Adjusted padding to avoid title bar overlap */
+/* Content Wrapper */
 .mobileContent {
-  padding: 50px 20px 20px;
+  padding: 25px 20px;
   overflow-y: auto;
   flex-grow: 1;
   text-align: center;
 }
 
-/* Section Styling: Light blue background with shadow and rounded corners */
+/* Section Styling - Removed initial opacity/transform */
 section {
-  background-color: #AEDFF7;
-  padding: 1.5rem;
-  margin: 1rem;
+  padding: 2rem 1rem;
+  margin: 0 0 1.5rem 0;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: black;
+  color: #E0E0E0;
+  border: 1px solid #15355a;
+  background-color: rgba(10, 31, 51, 0.5);
+  /* Removed opacity and transform - content will be visible immediately */
+  /* Keep transition for potential future JS fixes */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Hero Section: Gradient overlay on background image */
+section:last-child {
+    margin-bottom: 0;
+}
+
+/* Hero Section Specific Styling */
 #hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/800');
+  background: linear-gradient(rgba(190, 15, 52, 0.6), rgba(0, 31, 63, 0.8)), url('/api/placeholder/1200/800');
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 2rem 1rem;
-  border-radius: 15px;
+  padding: 3rem 1.5rem;
+  border: none;
+  margin-bottom: 2rem;
+  text-align: center;
+  /* Ensure hero is also visible */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Hero Section Text: Adjusted heading and paragraph sizes */
+/* Hero Section Text */
 .heroContent h1 {
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .heroContent p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
-/* Button Styling: Red background with hover effect */
+/* Button Styling - Consistent Base */
 .button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #BE0F34;
+  padding: 14px 28px;
+  background: #BE0F34; /* Default red */
   color: white;
   text-decoration: none;
-  border-radius: 25px;
-  transition: 0.3s;
-  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Hover Effect: Slight lift and shadow */
+/* Button Hover Effect - Consistent Base */
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(190, 15, 52, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Account Button Styling: Blue background for account-related actions */
+/* Button Focus Effect - Consistent Base */
+.button:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* Specific Button Colors */
 .accountButton {
-  background: #0072CE;
+  background: #1E90FF; /* Consistent blue */
 }
 
 .accountButton:hover {
-  background: #0085E6;
-  box-shadow: 0 4px 8px rgba(0, 114, 206, 0.3);
+  background: #187bcd; /* Consistent darker blue */
 }
 
-/* Section Header Styling: Centered and spaced out */
+/* Section Header Styling */
 .sectionHeader {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Event List Styling: Styled list with white background and shadow */
+.sectionHeader h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+
+/* Event List Styling */
 .eventList {
   list-style: none;
   padding: 0;
   text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .eventList li {
-  background: white;
-  padding: 1rem;
-  margin: 0.5rem auto;
-  width: 80%;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #E0E0E0;
+  padding: 12px 15px;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #2a4a75;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
 }
 
-/* Account Page: User profile styling */
-.userProfile {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin-bottom: 1.5rem;
+.eventList li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Profile Header: Display profile picture and user info side by side */
-.profileHeader {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
+/* Contact Section Specifics */
+#contact p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+#contact p strong {
+    color: #ffffff;
 }
 
-/* Profile Picture Styling: Circular and centered */
-.profilePicture {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #E0E0E0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-  overflow: hidden;
-}
-
-/* Profile Info: Text aligned to the left */
-.profileInfo {
-  text-align: left;
-}
-
-.profileInfo h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Data Section Styling: Margin for spacing and header with underline */
-.dataSection {
-  margin-bottom: 1.5rem;
-}
-
-.dataSection h4 {
-  text-align: left;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-/* Data Item Styling: Flex layout for labels and values */
-.dataItem {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.5rem 0;
-  text-align: left;
-}
-
-.itemLabel {
-  font-weight: bold;
-}
+/* --- Cleaned Up Unused Styles --- */
+/* Styles removed previously remain removed */
