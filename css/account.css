@@ -19,14 +19,14 @@ body {
   padding: 20px;
 }
 
-/* Mobile Frame - consistent */
+/* Mobile Frame */
 .mobileFrame {
-  width: 90%;
-  max-width: 768px; /* Original max-width */
-  height: 90vh; /* Original height */
-  max-height: 850px;
-  background-color: #001F3F; /* Consistent dark blue */
-  border-radius: 30px; /* Original radius */
+  width: 100%; /* Use full width up to max-width */
+  max-width: 450px; /* Slightly wider for better content fit */
+  height: 85vh; /* Adjust height slightly */
+  max-height: 800px; /* Add max-height */
+  background-color: #001F3F; /* Keep existing dark blue */
+  border-radius: 35px; /* Slightly more rounded corners */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
   position: relative;
   overflow: hidden;

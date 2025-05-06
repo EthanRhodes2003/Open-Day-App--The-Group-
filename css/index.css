@@ -24,7 +24,7 @@ body {
   width: 100%; /* Use full width up to max-width */
   max-width: 450px; /* Slightly wider for better content fit */
   height: 85vh; /* Adjust height slightly */
-  max-height: 700px; /* Add max-height */
+  max-height: 800px; /* Add max-height */
   background-color: #001F3F; /* Keep existing dark blue */
   border-radius: 35px; /* Slightly more rounded corners */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
