@@ -3,7 +3,7 @@
 $host = '127.0.0.1'; // localhost
 $dbname = 'OpenDayAppDB';
 $username = 'root';
-$password = '1234'; // Replace with your MySQL password for now as we are using local host.
+$password = ''; // Replace with your MySQL password for now as we are using local host.
                 // If no password then leave blank.
 
 try {

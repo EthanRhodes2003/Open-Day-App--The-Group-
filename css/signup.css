@@ -213,3 +213,25 @@ button.btn:focus-visible {
   background-color: rgba(220, 53, 69, 0.2); /* Red tint */
   color: #dc3545;
 }
+
+/* --- Password Requirements Feedback Styles --- */
+.passwordRequirements {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  text-align: left; 
+  font-size: 0.85rem;
+  color: #a0b4cf; 
+}
+
+.passwordRequirements li {
+  margin-bottom: 3px;
+}
+
+.passwordRequirements li.valid {
+  color: #28a745; /* Green for valid */
+}
+
+.passwordRequirements li.invalid {
+  color: #dc3545; /* Red for invalid */
+}

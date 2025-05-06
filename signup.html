@@ -4,27 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up / Log In</title>
-    <link rel="stylesheet" href="css/signup.css"> <!-- Link to custom CSS file -->
-</head>
+    <link rel="stylesheet" href="css/signup.css"> </head>
 <body>
 
-<!-- Mobile Frame -->
 <div class="mobileFrame">
-  
-  <!-- Title Bar with Logo and Back Button -->
+
   <div class="titleBar">
     <a href="index.html" class="backButton">&larr;</a>
     <div class="logo">Wolvo Open Day</div>
   </div>
 
-  <!-- Main Content Section -->
   <div class="mobileContent">
-    <!-- Authentication Forms -->
     <section id="auth">
       <div class="formContainer">
-        <!-- Sign Up Form -->
         <h2>Sign Up</h2>
-        <form id="signupForm" method="POST"> 
+        <form id="signupForm" method="POST">
           <div class="formElement">
             <input type="text" name="firstName" id="firstName" class="formControl" placeholder="First Name" required>
           </div>
@@ -35,10 +29,16 @@
             <input type="email" name="email" id="email" class="formControl" placeholder="Email" required>
           </div>
           <div class="formElement">
-            <input type="tel" name="phone" id="phone" class="formControl" placeholder="Phone Number" required>
-          </div>
+            <input type="tel" name="phone" id="phone" class="formControl" placeholder="Phone Number" maxlength="11" required> </div>
           <div class="formElement">
             <input type="password" name="password" id="password" class="formControl" placeholder="Password" required>
+             <ul id="passwordRequirements" class="passwordRequirements">
+                <li>Min 8 characters</li>
+                <li>At least one uppercase letter</li>
+                <li>At least one lowercase letter</li>
+                <li>At least one number</li>
+                <li>At least one special character (!@#$%^&*)</li>
+            </ul>
           </div>
           <div class="formElement">
             <input type="date" name="dob" id="dob" class="formControl" required>
@@ -67,27 +67,24 @@
                 <option value="Netherlands">Netherlands</option>
                 <option value="Singapore">Singapore</option>
             </select>
-        </div> 
+        </div>
           <button type="submit" class="btn">Sign Up</button>
         </form>
 
-        <!-- Sign Up Message Display -->
-        <div id="signupMessage" class="message"></div> 
+        <div id="signupMessage" class="message"></div>
 
-        <!-- Log In Form -->
         <h2>Log In</h2>
-        <form id="loginForm" method="POST"> 
+        <form id="loginForm" method="POST">
           <div class="formElement">
-            <input type="email" name="email" id="loginEmail" class="formControl" placeholder="Email" required> 
+            <input type="email" name="email" id="loginEmail" class="formControl" placeholder="Email" required>
           </div>
           <div class="formElement">
-            <input type="password" name="password" id="loginPassword" class="formControl" placeholder="Password" required> 
+            <input type="password" name="password" id="loginPassword" class="formControl" placeholder="Password" required>
           </div>
           <button type="submit" class="btn">Log In</button>
         </form>
 
-        <!-- Log In Message Display -->
-        <div id="loginMessage" class="message"></div> 
+        <div id="loginMessage" class="message"></div>
       </div>
     </section>
   </div>
