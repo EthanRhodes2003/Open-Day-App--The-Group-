@@ -193,13 +193,13 @@ th:last-child {
 
 /* Table Cell Styles */
 td {
-  padding: 8px 12px;
+  padding: 6px 12px;
   text-align: left;
   border-bottom: 1px solid #2a4a75;
   border-right: 1px solid #2a4a75; 
   color: #c0d0e0;
   white-space: nowrap;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 /* Remove right border from the last data cell in each row */
