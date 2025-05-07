@@ -1,17 +1,15 @@
-/* css/account.css */
-
-/* Reset default margin, padding, and apply box-sizing */
+/* Basic reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling - consistent */
+/* Body styles for background, font, and centering */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Consistent dark background */
-  color: #E0E0E0; /* Consistent off-white text */
+  background-color: #121212;
+  color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,30 +17,30 @@ body {
   padding: 20px;
 }
 
-/* Mobile Frame */
+/* Styles for the mobile frame container */
 .mobileFrame {
-  width: 100%; /* Use full width up to max-width */
-  max-width: 450px; /* Slightly wider for better content fit */
-  height: 85vh; /* Adjust height slightly */
-  max-height: 800px; /* Add max-height */
-  background-color: #001F3F; /* Keep existing dark blue */
-  border-radius: 35px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: #001F3F;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling - consistent */
+/* Styles for the top title bar */
 .titleBar {
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   text-align: center;
   padding: 15px 10px;
   font-size: 1.3rem;
   font-weight: 600;
-  position: relative; /* Changed from absolute */
+  position: relative;
   width: 100%;
   flex-shrink: 0;
   display: flex;
@@ -50,14 +48,14 @@ body {
   justify-content: center;
 }
 
-/* Logo within Title Bar - consistent */
+/* Styles for the logo in the title bar */
 .logo {
   flex-grow: 1;
   text-align: center;
-  margin-left: -60px; /* Adjust based on logout button size */
+  margin-left: -60px;
 }
 
-/* Logout Button Container - consistent */
+/* Container for the logout button */
 .logoutButtonContainer {
   position: absolute;
   top: 50%;
@@ -65,7 +63,7 @@ body {
   right: 20px;
 }
 
-/* Logout Button Styling - consistent */
+/* Styles for the logout button */
 .logoutButton {
   padding: 8px 14px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -78,148 +76,141 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Hover effect for logout button */
 .logoutButton:hover {
   background-color: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Main Content Wrapper */
+/* Styles for the main content area */
 .mobileContent {
-  padding: 25px 30px; /* Adjusted padding */
-  overflow-y: auto; /* Enable scroll */
+  padding: 25px 30px;
+  overflow-y: auto;
   flex-grow: 1;
-  color: #E0E0E0; /* Ensure default text color is light */
+  color: #E0E0E0;
 }
 
-/* Account Details Section Wrapper */
-.accountSection {
-    /* No specific styles needed if mobileContent provides padding */
-}
-
-/* Overall Section Header (e.g., "My Account") */
+/* Styles for section headers */
 .sectionHeader h2 {
   text-align: center;
   color: white;
-  font-size: 1.8rem; /* Larger heading */
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 1.5rem; /* Space below main heading */
+  margin-bottom: 1.5rem;
 }
 
-/* User Profile Container Card */
+/* Styles for the user profile card */
 .userProfile {
-  background: #0a2a4e; /* Dark blue card background, darker than frame */
-  padding: 1.5rem 2rem; /* Increased padding */
-  border-radius: 15px; /* Consistent radius */
-  margin-bottom: 2rem; /* Space below profile card */
-  border: 1px solid #15355a; /* Subtle border */
+  background: #0a2a4e;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  border: 1px solid #15355a;
 }
 
-/* Profile Header Section */
+/* Styles for the profile header */
 .profileHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem; /* More space below header */
-  padding-bottom: 1.5rem; /* Space */
-  border-bottom: 1px solid #15355a; /* Separator line */
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #15355a;
 }
 
-/* Profile Picture Styling */
+/* Styles for the profile picture circle */
 .profilePicture {
-  width: 70px; /* Slightly smaller */
+  width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #15355a; /* Darker circle background */
-  color: #a0b4cf; /* Lighter icon color */
+  background-color: #15355a;
+  color: #a0b4cf;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1.5rem; /* More space */
+  margin-right: 1.5rem;
   overflow: hidden;
-  font-size: 2.5rem; /* Larger icon size */
-  flex-shrink: 0; /* Prevent shrinking */
+  font-size: 2.5rem;
+  flex-shrink: 0;
 }
 
-/* Profile Information Section */
+/* Styles for profile information text */
 .profileInfo {
   text-align: left;
-  flex-grow: 1; /* Allow text to take available space */
+  flex-grow: 1;
 }
 
-/* Profile Name Styling */
+/* Styles for profile name */
 .profileInfo h3 {
-  margin-bottom: 0.3rem; /* Less space below name */
-  color: white; /* White name */
+  margin-bottom: 0.3rem;
+  color: white;
   font-size: 1.4rem;
   font-weight: 600;
 }
 
-/* Profile Subtitle (e.g., Student ID) */
+/* Styles for profile subtitle (e.g., Student ID) */
 .profileInfo p {
     font-size: 0.9rem;
-    color: #a0b4cf; /* Dimmer text color */
+    color: #a0b4cf;
     margin: 0;
 }
 
-
-/* Data Section for Account/Booking Information */
+/* Styles for data sections (personal info, bookings) */
 .dataSection {
-  margin-bottom: 2rem; /* Space between data sections */
+  margin-bottom: 2rem;
 }
 
 .dataSection:last-child {
-    margin-bottom: 0; /* No margin for the last section inside card */
+    margin-bottom: 0;
 }
 
-/* Data Section Header Styling (e.g., "Personal Information") */
+/* Styles for data section headers */
 .dataSection h4 {
   text-align: left;
-  margin-bottom: 1rem; /* Space below heading */
-  /* Removed border-bottom */
+  margin-bottom: 1rem;
   padding-bottom: 0;
-  color: #FFFFFF; /* White heading */
+  color: #FFFFFF;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-/* Data Item Styling (Label/Value Pair) */
+/* Styles for individual data items (label/value pairs) */
 .dataItem {
   display: flex;
   justify-content: space-between;
-  align-items: baseline; /* Align text baselines */
-  margin-bottom: 0.8rem; /* Space between items */
-  padding: 0.5rem 0; /* Vertical padding for spacing */
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0;
   text-align: left;
-  border-bottom: 1px dashed #15355a; /* Subtle dashed separator */
+  border-bottom: 1px dashed #15355a;
   font-size: 0.95rem;
 }
 .dataItem:last-child {
-    border-bottom: none; /* No border for last item in section */
+    border-bottom: none;
     margin-bottom: 0;
 }
 
-/* Label for Data Items */
+/* Styles for data item labels */
 .itemLabel {
-  font-weight: 500; /* Slightly less bold */
-  color: #a0b4cf; /* Dimmer label color */
-  margin-right: 1rem; /* Space between label and value */
-  flex-basis: 40%; /* Give label a consistent width */
+  font-weight: 500;
+  color: #a0b4cf;
+  margin-right: 1rem;
+  flex-basis: 40%;
   flex-shrink: 0;
 }
 
-/* Item Value Styling */
+/* Styles for data item values */
 .itemValue {
-  color: #E0E0E0; /* Main light text color for value */
-  text-align: right; /* Align value to the right */
+  color: #E0E0E0;
+  text-align: right;
   flex-grow: 1;
 }
 
-/* Booking Information Specifics */
+/* Styles for individual booking cards */
 .bookingCard {
-    /* Style individual bookings if needed, otherwise dataItem handles rows */
-    /* Example: border: 1px solid red; margin-bottom: 1rem; padding: 1rem; */
     margin-bottom: 1.5rem;
 }
-.bookingCard h5 { /* Style for Booking ID */
+/* Styles for Booking ID heading */
+.bookingCard h5 {
     font-size: 1rem;
     font-weight: 600;
     color: #b0c4de;
@@ -228,14 +219,15 @@ body {
     border-bottom: 1px solid #15355a;
 }
 
-.bookingSeparator { /* Style for HR between bookings */
+/* Styles for separator line between bookings */
+.bookingSeparator {
     border: none;
     height: 1px;
     background-color: #15355a;
-    margin: 2rem 0; /* More space around separator */
+    margin: 2rem 0;
 }
 
-/* No Bookings Message */
+/* Styles for "No Bookings" message */
 .dataSection p {
     color: #a0b4cf;
     font-style: italic;
@@ -243,17 +235,17 @@ body {
     padding: 1rem 0;
 }
 
-/* Back to Home Button Styling */
+/* Container for the "Back to Home" button */
 .btnContainer {
   text-align: center;
-  margin-top: 2rem; /* Space above button */
+  margin-top: 2rem;
 }
 
-/* Use consistent button styling */
+/* Consistent button styles */
 .btn {
   display: inline-block;
   padding: 14px 28px;
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   text-decoration: none;
   border: none;
@@ -265,12 +257,14 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Hover effect for buttons */
 .btn:hover {
   transform: translateY(-2px);
-  background: #a00d2e; /* Consistent hover */
+  background: #a00d2e;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Focus effect for buttons */
 .btn:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;

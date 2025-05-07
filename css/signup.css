@@ -1,48 +1,46 @@
-/* css/signup.css */
-
-/* Reset default margin, padding, and apply box-sizing */
+/* Basic reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling - consistent with index.css */
+/* Body styles for background, font, and centering */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Consistent dark background */
-  color: #E0E0E0; /* Consistent off-white text */
+  background-color: #121212;
+  color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px; /* Consistent padding around the frame */
+  padding: 20px;
 }
 
-/* Mobile Frame */
+/* Styles for the mobile frame container */
 .mobileFrame {
-  width: 100%; /* Use full width up to max-width */
-  max-width: 450px; /* Slightly wider for better content fit */
-  height: 85vh; /* Adjust height slightly */
-  max-height: 800px; /* Add max-height */
-  background-color: #001F3F; /* Keep existing dark blue */
-  border-radius: 35px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: #001F3F;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling - consistent with index.css */
+/* Styles for the top title bar */
 .titleBar {
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   text-align: center;
   padding: 15px 10px;
   font-size: 1.3rem;
   font-weight: 600;
-  position: relative; /* Changed from absolute */
+  position: relative;
   width: 100%;
   flex-shrink: 0;
   display: flex;
@@ -50,13 +48,13 @@ body {
   justify-content: center;
 }
 
-/* Back Button Styling */
+/* Styles for the back button */
 .backButton {
   position: absolute;
-  left: 20px; /* Adjusted position */
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.8rem; /* Slightly larger */
+  font-size: 1.8rem;
   line-height: 1;
   cursor: pointer;
   color: white;
@@ -64,58 +62,54 @@ body {
   transition: color 0.2s ease;
 }
 
+/* Hover effect for back button */
 .backButton:hover {
   color: #f0f0f0;
 }
 
-/* Logo within Title Bar */
+/* Styles for the logo in the title bar */
 .logo {
-  flex-grow: 1; /* Allow logo to take space */
-  text-align: center; /* Center logo text */
-  /* Adjust margin if needed to fine-tune centering with back button */
-  margin-left: -30px; /* Offset back button width approx */
+  flex-grow: 1;
+  text-align: center;
+  margin-left: -30px;
 }
 
-
-/* Main Content Wrapper */
+/* Styles for the main content area */
 .mobileContent {
-  padding: 20px 25px; /* Adjusted padding */
-  overflow-y: auto; /* Enable scroll for long forms */
+  padding: 20px 25px;
+  overflow-y: auto;
   flex-grow: 1;
 }
 
-/* Form Container Styling */
+/* Styles for the form container */
 .formContainer {
-  /* Removed background color - use frame's background */
-  padding: 10px 0; /* Reduced padding, rely on mobileContent padding */
+  padding: 10px 0;
   border-radius: 15px;
-  /* Removed box-shadow */
   text-align: center;
 }
 
-/* Separate Signup/Login Sections */
+/* Styles for signup and login sections */
 #signupForm, #loginForm {
-    margin-bottom: 2.5rem; /* Space between forms */
+    margin-bottom: 2.5rem;
 }
 #loginForm {
-    margin-bottom: 1rem; /* Less space after login form */
+    margin-bottom: 1rem;
 }
 
-
-/* Form Headings */
+/* Styles for form headings */
 h2 {
   color: white;
-  margin-bottom: 1.5rem; /* Increased space below headings */
-  font-size: 1.5rem; /* Slightly larger heading */
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
-/* Form Element Wrapper (Assuming <div class="formElement"> wraps inputs/selects in HTML) */
+/* Styles for form element wrappers */
 .formElement {
-    margin-bottom: 1rem; /* Space between form fields */
+    margin-bottom: 1rem;
 }
 
-/* Input and Select Styling */
+/* Styles for input fields and select dropdowns */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -123,105 +117,105 @@ input[type="password"],
 input[type="date"],
 select {
   width: 100%;
-  padding: 12px 15px; /* Adjusted padding */
-  margin: 0; /* Removed default margin */
-  border-radius: 8px; /* Consistent rounded corners */
-  border: 1px solid #445c7a; /* Subtle border */
-  background-color: #0a2a4e; /* Darker input background */
-  color: #E0E0E0; /* Light text color */
+  padding: 12px 15px;
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #445c7a;
+  background-color: #0a2a4e;
+  color: #E0E0E0;
   font-size: 0.95rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="date"] {
-    /* Basic styling for date input appearance if needed */
-    color-scheme: dark; /* Hint for dark mode date picker */
+    color-scheme: dark;
 }
 
-/* Placeholder text color */
+/* Styles for placeholder text */
 ::placeholder {
   color: #88a1c2;
-  opacity: 1; /* Ensure placeholder is visible */
+  opacity: 1;
 }
 
-/* Select dropdown arrow styling (basic) */
+/* Styles for the select dropdown arrow */
 select {
-  appearance: none; /* Remove default arrow */
+  appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 20px;
-  padding-right: 40px; /* Make space for custom arrow */
+  padding-right: 40px;
 }
 
-/* Focus Effects for Inputs and Select */
+/* Focus effects for inputs and select */
 input:focus, select:focus {
-  border-color: #1E90FF; /* Blue border on focus */
-  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3); /* Subtle glow effect */
+  border-color: #1E90FF;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3);
   outline: none;
 }
 
-/* Button Styling - consistent with index.css */
+/* Consistent button styles */
 button.btn {
-  display: inline-block; /* Allow button to size naturally if needed, but keep width */
+  display: inline-block;
   width: 100%;
-  padding: 14px 20px; /* Adjusted padding */
-  background: #BE0F34; /* Consistent red */
+  padding: 14px 20px;
+  background: #BE0F34;
   color: white;
   border: none;
-  border-radius: 12px; /* Consistent radius */
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
-  margin-top: 0.5rem; /* Add some space above button */
+  margin-top: 0.5rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Hover Effect - consistent */
+/* Hover effect for buttons */
 button.btn:hover {
-  background: #a00d2e; /* Darker red */
+  background: #a00d2e;
   transform: translateY(-2px);
 }
 
-/* Button Focus Effect - consistent */
+/* Focus effect for buttons */
 button.btn:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
 
-/* Message Area Styling */
+/* Styles for the message area */
 .message {
   margin-top: 1rem;
   padding: 10px;
   border-radius: 5px;
   font-size: 0.9rem;
-  min-height: 1.5em; /* Reserve space even when empty */
-  color: white; /* Default color */
+  min-height: 1.5em;
+  color: white;
   text-align: center;
 }
 
-/* Specific styles can be added via JS based on success/error */
+/* Styles for success messages */
 .message.success {
-  background-color: rgba(40, 167, 69, 0.2); /* Green tint */
+  background-color: rgba(40, 167, 69, 0.2);
   color: #28a745;
 }
 
+/* Styles for error messages */
 .message.error {
-  background-color: rgba(220, 53, 69, 0.2); /* Red tint */
+  background-color: rgba(220, 53, 69, 0.2);
   color: #dc3545;
 }
 
-/* --- Password Requirements Feedback Styles --- */
+/* Styles for password requirements feedback */
 .passwordRequirements {
   list-style: none;
   padding: 0;
   margin-top: 5px;
-  text-align: left; 
+  text-align: left;
   font-size: 0.85rem;
-  color: #a0b4cf; 
+  color: #a0b4cf;
 }
 
 .passwordRequirements li {
@@ -229,9 +223,9 @@ button.btn:focus-visible {
 }
 
 .passwordRequirements li.valid {
-  color: #28a745; /* Green for valid */
+  color: #28a745;
 }
 
 .passwordRequirements li.invalid {
-  color: #dc3545; /* Red for invalid */
+  color: #dc3545;
 }

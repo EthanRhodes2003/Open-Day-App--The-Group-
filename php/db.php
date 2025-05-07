@@ -7,6 +7,7 @@ $password = ''; // Replace with your MySQL password for now as we are using loca
                 // If no password then leave blank.
 
 try {
+    // Create a new PDO instance to connect to the database
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const signupForm = document.getElementById("signupForm");
     const loginForm = document.getElementById("loginForm");
-    const passwordInput = document.getElementById("password"); // Get the password input
-    const passwordRequirements = document.getElementById("passwordRequirements"); // Get the requirements list
+    const passwordInput = document.getElementById("password"); 
+    const passwordRequirements = document.getElementById("passwordRequirements"); 
 
     // Function to check password against policy and update UI
     function checkPasswordPolicy(password) {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const reqs = document.querySelectorAll("#passwordRequirements li");
 
         // Check each requirement and update the corresponding list item class
-        if (reqs.length >= 5) { // Make sure we have all the list items
+        if (reqs.length >= 5) { 
             // Check length
             if (password.length >= minLength) {
                 reqs[0].className = 'valid'; // Mark as valid

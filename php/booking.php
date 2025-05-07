@@ -1,74 +1,22 @@
 <?php
+// Start the session to manage user login state
 session_start();
+// Include the database connection file
 include '../php/db.php';
 
+// Check if the user is logged in, if not, redirect to the login page
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
 
+// Get the logged-in user's account ID from the session
 $accountID = $_SESSION['user_id'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $entryYear = $_POST['entryYear'] ?? '';
-    $educationLevel = $_POST['educationLevel'] ?? '';
-    $subjectInterest = $_POST['subjectInterest'] ?? '';
-    $contactPreference = $_POST['contactPreference'] ?? '';
-    $eventDate = $_POST['bookingDate'] ?? '';
+// Variables to hold messages (these will be set by booking.js's fetch request)
+$successMessage = '';
+$errorMessage = '';
 
-    if (empty($entryYear) || empty($educationLevel) || empty($subjectInterest) || empty($contactPreference) || empty($eventDate)) {
-        $errorMessage = 'All fields are required.';
-    } else {
-        try {
-            // Get EventID from date
-            $stmt = $pdo->prepare("SELECT EventID FROM EVENT WHERE EventDate = ?");
-            $stmt->execute([$eventDate]);
-            $eventRow = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($eventRow) {
-                $eventID = $eventRow['EventID'];
-
-                // Check for duplicate booking
-                $stmt = $pdo->prepare("SELECT COUNT(*) FROM BOOKING WHERE AccountID = ? AND EventID = ?");
-                $stmt->execute([$accountID, $eventID]);
-                $alreadyBooked = $stmt->fetchColumn();
-
-                if ($alreadyBooked) {
-                    $errorMessage = "You’ve already booked this Open Day.";
-                } else {
-                    // Get campus based on subject
-                    $stmt = $pdo->prepare("SELECT c.CampusID, c.Name AS campusName 
-                                           FROM CAMPUS c
-                                           INNER JOIN SUBJECT_TO_CAMPUS stc ON c.CampusID = stc.CampusID
-                                           WHERE stc.SubjectName = ?");
-                    $stmt->execute([$subjectInterest]);
-                    $campus = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    if ($campus) {
-                        $stmt = $pdo->prepare("INSERT INTO BOOKING (AccountID, YearOfEntry, LevelOfInterest, SubjectOfInterest, ContactPreference, EventID, CampusID)
-                                               VALUES (?, ?, ?, ?, ?, ?, ?)");
-                        $stmt->execute([
-                            $accountID,
-                            $entryYear,
-                            $educationLevel,
-                            $subjectInterest,
-                            $contactPreference,
-                            $eventID,
-                            $campus['CampusID']
-                        ]);
-                        $successMessage = 'Booking successfully created!';
-                    } else {
-                        $errorMessage = 'No campus found for the selected subject.';
-                    }
-                }
-            } else {
-                $errorMessage = 'Invalid event date selected.';
-            }
-        } catch (PDOException $e) {
-            $errorMessage = 'Booking failed: ' . $e->getMessage();
-        }
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h1>Register for Open Day</h1>
 
       <form id="signupForm" method="POST">
-        <!-- Entry Year -->
         <div class="formElement">
           <label for="entryYear" class="formLabel">Year of Entry</label>
           <select id="entryYear" name="entryYear" required>
@@ -112,20 +59,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </select>
         </div>
 
-        <!-- Education Level -->
-  <div class="formElement">
-    <label for="educationLevel" class="formLabel">Education Level</label>
-    <select id="educationLevel" name="educationLevel" required>
-      <option value="" disabled selected>Select level</option>
-      <option value="Level 4">Level 4 (Certificate)</option>
-      <option value="Level 5">Level 5 (Diploma/Foundation)</option>
-      <option value="Level 6">Level 6 (Bachelor's Degree)</option>
-      <option value="Level 7">Level 7 (Master's Degree)</option>
-      <option value="Level 8">Level 8 (Doctorate)</option>
-    </select>
-  </div>
+        <div class="formElement">
+          <label for="educationLevel" class="formLabel">Education Level</label>
+          <select id="educationLevel" name="educationLevel" required>
+            <option value="" disabled selected>Select level</option>
+            <option value="Level 4">Level 4 (Certificate)</option>
+            <option value="Level 5">Level 5 (Diploma/Foundation)</option>
+            <option value="Level 6">Level 6 (Bachelor's Degree)</option>
+            <option value="Level 7">Level 7 (Master's Degree)</option>
+            <option value="Level 8">Level 8 (Doctorate)</option>
+          </select>
+        </div>
 
-        <!-- Subject Interest -->
         <div class="formElement">
           <label for="subjectInterest" class="formLabel">Subject Interest</label>
           <select id="subjectInterest" name="subjectInterest" required>
@@ -133,13 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </select>
         </div>
 
-        <!-- Campus Auto-filled -->
         <div class="formElement">
           <label for="campus" class="formLabel">Campus</label>
           <input type="text" id="campus" name="campus" readonly placeholder="Campus will appear here">
         </div>
 
-        <!-- Contact Preference -->
         <div class="formElement">
           <label for="contactPreference" class="formLabel">Contact Preference</label>
           <select id="contactPreference" name="contactPreference" required>
@@ -150,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </select>
         </div>
 
-        <!-- Booking Date -->
         <div class="formElement">
           <label for="bookingDate" class="formLabel">Open Day Date</label>
           <select id="bookingDate" name="bookingDate" required>
@@ -158,16 +100,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </select>
         </div>
 
-        <!-- Submit Button -->
         <button type="submit" class="btn">Register</button>
       </form>
 
-      <!-- Message Area -->
       <div id="message">
         <?php
-          if (isset($successMessage)) {
+          // Display success or error message if set (these would likely be set by the JS fetch now)
+          if (!empty($successMessage)) {
               echo "<p class='success'>$successMessage</p>";
-          } elseif (isset($errorMessage)) {
+          } elseif (!empty($errorMessage)) {
               echo "<p class='error'>$errorMessage</p>";
           }
         ?>
@@ -176,25 +117,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 </div>
 
-<!-- JavaScript to load data dynamically -->
 <script>
+  // Function to load available event dates into the dropdown
   async function loadEventDates() {
   try {
+    // Fetch event dates from the server
     const response = await fetch('../php/eventdates.php');
     const events = await response.json();
     const bookingDateSelect = document.getElementById('bookingDate');
+    // Clear previous options and add a default option
     bookingDateSelect.innerHTML = '<option value="" disabled selected>Select date</option>';
 
     const seen = new Set();
+    // Iterate through the fetched events
     events.forEach(event => {
       const rawDate = new Date(event.EventDate);
       const dateStr = rawDate.toISOString().split('T')[0];
+      // Add unique dates to the dropdown
       if (!seen.has(dateStr)) {
         seen.add(dateStr);
         const option = document.createElement('option');
         option.value = dateStr;
 
-        // Format as DD/MM/YYYY
+        // Format the date as DD/MM/YYYY for display
         option.textContent = `${String(rawDate.getDate()).padStart(2, '0')}/${
           String(rawDate.getMonth() + 1).padStart(2, '0')}/${rawDate.getFullYear()}`;
 
@@ -202,16 +147,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
     });
   } catch (err) {
+    // Log errors if fetching event dates fails
     console.error('Error loading event dates:', err);
   }
 }
 
+  // Function to load available subjects into the dropdown
   async function loadSubjects() {
     try {
-      const response = await fetch('/php/getsubjects.php');
+      // Fetch subjects from the server
+      const response = await fetch('../php/getsubjects.php'); // Corrected path
       const subjects = await response.json();
       const subjectSelect = document.getElementById('subjectInterest');
+      // Clear previous options and add a default option
       subjectSelect.innerHTML = '<option value="" disabled selected>Select subject</option>';
+      // Add each fetched subject to the dropdown
       subjects.forEach(subject => {
         const option = document.createElement('option');
         option.value = subject.SubjectName;
@@ -219,22 +169,88 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         subjectSelect.appendChild(option);
       });
     } catch (error) {
+      // Log errors if fetching subjects fails
       console.error('Error fetching subjects:', error);
     }
   }
 
+  // Add an event listener to the subject dropdown to update the campus field
   document.getElementById('subjectInterest').addEventListener('change', async (e) => {
     const selectedSubject = e.target.value;
     try {
-      const response = await fetch(`/php/subjectlist.php?subject=${encodeURIComponent(selectedSubject)}`);
+      // Fetch the campus name based on the selected subject
+      const response = await fetch(`../php/subjectlist.php?subject=${encodeURIComponent(selectedSubject)}`); // Corrected path
       const data = await response.json();
+      // Update the campus input field with the fetched campus name
       document.getElementById('campus').value = data.campusName || 'No campus found for this subject';
     } catch (err) {
+      // Log errors and update the campus field if fetching campus fails
       console.error('Error fetching campus:', err);
       document.getElementById('campus').value = 'Error fetching campus';
     }
   });
 
+  // Handle form submission using fetch
+  document.getElementById('signupForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent page reload on form submission
+
+    // Collect the form data
+    const formData = {
+      entryYear: document.getElementById('entryYear').value,
+      educationLevel: document.getElementById('educationLevel').value,
+      subjectInterest: document.getElementById('subjectInterest').value,
+      contactPreference: document.getElementById('contactPreference').value,
+      bookingDate: document.getElementById('bookingDate').value,
+      eventID: document.getElementById('bookingDate').selectedOptions[0].value // This assumes the option value is EventID as per loadEventDates function
+    };
+
+    // Validate all fields are filled
+    for (const key in formData) {
+      if (!formData[key]) {
+        document.getElementById('message').textContent = 'Please fill in all the required fields.';
+        document.getElementById('message').className = 'message error'; // Added 'message' class
+        return;
+      }
+    }
+
+    try {
+      // Send the form data to the PHP script for processing
+      const response = await fetch('../php/submitbooking.php', { // Path confirmed from booking.js
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(formData)
+      });
+
+      const data = await response.json();
+
+      console.log(data); // Log the response for debugging
+
+      const messageDiv = document.getElementById('message');
+
+      // Check if the booking was successfully processed
+      if (data.success) {
+        messageDiv.textContent = 'Booking successful!';
+        messageDiv.className = 'message success'; // Added 'message' class
+        // Redirect to account page after successful booking with a slight delay
+        setTimeout(() => {
+             window.location.href = '../php/account.php';
+        }, 1000); // 1 second delay
+      } else {
+        messageDiv.textContent = data.message || 'Booking failed. Please try again.';
+        messageDiv.className = 'message error'; // Added 'message' class
+      }
+    } catch (error) {
+      console.error('Error during form submission:', error);
+      const messageDiv = document.getElementById('message');
+      messageDiv.textContent = 'An error occurred. Please try again.';
+      messageDiv.className = 'message error'; // Added 'message' class
+    }
+  });
+
+
+  // Load event dates and subjects when the window finishes loading
   window.onload = () => {
     loadEventDates();
     loadSubjects();

@@ -1,17 +1,15 @@
-/* css/homepage.css (Corrected - Removed Initial Opacity/Transform) */
-
-/* Reset default margin, padding, and apply box-sizing */
+/* Basic reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling - consistent */
+/* Body styles for background, font, and centering */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Consistent dark background */
-  color: #E0E0E0; /* Consistent off-white text */
+  background-color: #121212;
+  color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,24 +17,24 @@ body {
   padding: 20px;
 }
 
-/* Mobile Frame */
+/* Styles for the mobile frame container */
 .mobileFrame {
-  width: 100%; /* Use full width up to max-width */
-  max-width: 450px; /* Slightly wider for better content fit */
-  height: 85vh; /* Adjust height slightly */
-  max-height: 800px; /* Add max-height */
-  background-color: #001F3F; /* Keep existing dark blue */
-  border-radius: 35px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: #001F3F;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling - consistent */
+/* Styles for the top title bar */
 .titleBar {
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   text-align: center;
   padding: 15px 10px;
@@ -50,14 +48,14 @@ body {
   justify-content: center;
 }
 
-/* Logo within Title Bar */
+/* Styles for the logo in the title bar */
 .logo {
   flex-grow: 1;
   text-align: center;
-  margin-left: -60px; /* Adjust based on logout button size */
+  margin-left: -60px;
 }
 
-/* Logout Button Container - consistent */
+/* Container for the logout button */
 .logoutButtonContainer {
   position: absolute;
   top: 50%;
@@ -65,7 +63,7 @@ body {
   right: 20px;
 }
 
-/* Logout Button Styling - consistent */
+/* Styles for the logout button */
 .logoutButton {
   padding: 8px 14px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -78,12 +76,13 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Hover effect for logout button */
 .logoutButton:hover {
   background-color: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Content Wrapper */
+/* Styles for the main content area */
 .mobileContent {
   padding: 25px 20px;
   overflow-y: auto;
@@ -91,7 +90,7 @@ body {
   text-align: center;
 }
 
-/* Section Styling - Removed initial opacity/transform */
+/* Styles for sections */
 section {
   padding: 2rem 1rem;
   margin: 0 0 1.5rem 0;
@@ -99,8 +98,6 @@ section {
   color: #E0E0E0;
   border: 1px solid #15355a;
   background-color: rgba(10, 31, 51, 0.5);
-  /* Removed opacity and transform - content will be visible immediately */
-  /* Keep transition for potential future JS fixes */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -108,7 +105,7 @@ section:last-child {
     margin-bottom: 0;
 }
 
-/* Hero Section Specific Styling */
+/* Specific styles for the hero section */
 #hero {
   background: linear-gradient(rgba(190, 15, 52, 0.6), rgba(0, 31, 63, 0.8)), url('/api/placeholder/1200/800');
   background-size: cover;
@@ -118,12 +115,11 @@ section:last-child {
   border: none;
   margin-bottom: 2rem;
   text-align: center;
-  /* Ensure hero is also visible */
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Hero Section Text */
+/* Styles for text in the hero section */
 .heroContent h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -138,11 +134,11 @@ section:last-child {
   opacity: 0.9;
 }
 
-/* Button Styling - Consistent Base */
+/* Consistent base button styles */
 .button {
   display: inline-block;
   padding: 14px 28px;
-  background: #BE0F34; /* Default red */
+  background: #BE0F34;
   color: white;
   text-decoration: none;
   border: none;
@@ -154,41 +150,42 @@ section:last-child {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Hover Effect - Consistent Base */
+/* Hover effect for buttons */
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Button Focus Effect - Consistent Base */
+/* Focus effect for buttons */
 .button:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
 
-/* Specific Button Colors */
+/* Specific styles for the account button */
 .accountButton {
-  background: #1E90FF; /* Consistent blue */
+  background: #1E90FF;
 }
 
+/* Hover effect for account button */
 .accountButton:hover {
-  background: #187bcd; /* Consistent darker blue */
+  background: #187bcd;
 }
 
-/* Section Header Styling */
+/* Styles for section headers */
 .sectionHeader {
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
+/* Styles for section headings */
 .sectionHeader h2 {
     font-size: 1.5rem;
     font-weight: 600;
     color: white;
 }
 
-
-/* Event List Styling */
+/* Styles for the event list */
 .eventList {
   list-style: none;
   padding: 0;
@@ -198,6 +195,7 @@ section:last-child {
   margin-right: auto;
 }
 
+/* Styles for individual event list items */
 .eventList li {
   background-color: rgba(255, 255, 255, 0.05);
   color: #E0E0E0;
@@ -210,11 +208,12 @@ section:last-child {
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect for event list items */
 .eventList li:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Contact Section Specifics */
+/* Specific styles for contact section text */
 #contact p {
     margin-bottom: 0.75rem;
     font-size: 1rem;
@@ -224,5 +223,48 @@ section:last-child {
     color: #ffffff;
 }
 
-/* --- Cleaned Up Unused Styles --- */
-/* Styles removed previously remain removed */
+/* Add space between FAQ items */
+.faqItem {
+  margin-bottom: 1.5rem;
+}
+/* Styles for FAQ item text */
+.faqItem p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Remove bottom margin for the last FAQ item */
+.faqItems .faqItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Add space between event items in schedule */
+.eventItem {
+  margin-bottom: 1rem;
+}
+
+/* Styles for event item text */
+.eventItem p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Remove bottom margin for the last event item */
+.eventSchedule .eventItem:last-child {
+  margin-bottom: 0;
+}
+
+/* General styles for FAQ and event items */
+.faqItem, .eventItem {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+}
+
+/* Remove bottom margin for the last item in containers */
+.faqItems .faqItem:last-child,
+.eventSchedule .eventItem:last-child {
+  margin-bottom: 0;
+}

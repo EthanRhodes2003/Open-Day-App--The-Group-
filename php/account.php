@@ -1,22 +1,25 @@
 <?php
+// Start the session to manage user login state
 session_start();
+// Include the database connection file
 include '../php/db.php';
 
-// Ensure user is logged in, otherwise redirect to login page
+// Check if the user is logged in, if not, redirect to the login page
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
+// Get the logged-in user's ID from the session
 $userId = $_SESSION['user_id'];
 
-// Fetch user data from the database
+// Fetch user data from the database based on their ID
 $stmt = $pdo->prepare("SELECT * FROM ACCOUNT WHERE AccountID = ?");
 $stmt->execute([$userId]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Fetch booking data, including campus name and event date
-$stmtBookings = $pdo->prepare("SELECT b.*, c.Name AS CampusName, e.EventDate 
+// Fetch booking data for the logged-in user, including campus name and event date
+$stmtBookings = $pdo->prepare("SELECT b.*, c.Name AS CampusName, e.EventDate
                                FROM BOOKING b
                                JOIN CAMPUS c ON b.CampusID = c.CampusID
                                JOIN EVENT e ON b.EventID = e.EventID
@@ -31,14 +34,12 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Account - Wolvo Open Day</title>
-  <link rel="stylesheet" href="../css/account.css"> <!-- Link to custom CSS file -->
+  <link rel="stylesheet" href="../css/account.css">
 </head>
 <body>
 
-<!-- Mobile Frame -->
 <div class="mobileFrame">
-  
-  <!-- Title Bar -->
+
   <div class="titleBar">
     <div class="logo">Wolvo Open Day</div>
     <div class="logoutButtonContainer">
@@ -48,10 +49,8 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 
-  <!-- Main Content -->
   <div class="mobileContent">
 
-    <!-- Account Details Section -->
     <section id="accountDetails" class="accountSection">
       <div class="sectionHeader">
         <h2>My Account</h2>
@@ -136,5 +135,5 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
 
 </div>
 
-</body>  
+</body>
 </html>

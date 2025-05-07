@@ -1,129 +1,135 @@
-/* css/index.css */
-
-/* Reset default margins and padding to ensure consistent spacing */
+/* Basic reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Set a dark background for the entire page and center content */
+/* Body styles for background, font, and centering */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Slightly lighter dark background */
-  color: #E0E0E0; /* Off-white for better readability */
+  background-color: #121212;
+  color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Use min-height to ensure it covers viewport */
-  padding: 20px; /* Add some padding around the frame */
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Mobile Frame */
+/* Styles for the mobile frame container */
 .mobileFrame {
-  width: 100%; /* Use full width up to max-width */
-  max-width: 450px; /* Slightly wider for better content fit */
-  height: 85vh; /* Adjust height slightly */
-  max-height: 800px; /* Add max-height */
-  background-color: #001F3F; /* Keep existing dark blue */
-  border-radius: 35px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: #001F3F;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Top bar with the application title */
+/* Styles for the top title bar */
 .titleBar {
-  background: #BE0F34; /* Keep existing red */
+  background: #BE0F34;
   color: white;
   text-align: center;
-  padding: 15px 10px; /* Increased padding */
-  font-size: 1.3rem; /* Slightly larger font size */
-  font-weight: 600; /* Use font-weight number */
-  /* Removed absolute positioning - let it flow naturally */
-  flex-shrink: 0; /* Prevent shrinking */
+  padding: 15px 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
-/* Main content inside the mobile frame */
+/* Styles for the logo in the title bar */
+.logo {
+  flex-grow: 1;
+  text-align: center;
+  margin-left: -60px;
+}
+
+/* Styles for the main content area */
 .mobileContent {
-  flex-grow: 1; /* Allow content to take available space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 30px 25px; /* Adjusted padding */
-  overflow-y: auto; /* Add scroll if content overflows */
-  color: white; /* Ensure text inside is white */
+  padding: 30px 25px;
+  overflow-y: auto;
+  color: white;
 }
 
-/* Main heading styles */
+/* Styles for main heading (H1) */
 h1 {
-  font-size: 1.8rem; /* Larger heading */
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 1rem; /* Consistent spacing unit */
+  margin-bottom: 1rem;
   line-height: 1.3;
 }
 
-/* Paragraph styles */
+/* Styles for paragraph text */
 p {
   font-size: 1rem;
-  margin-bottom: 2.5rem; /* Increased space before buttons */
+  margin-bottom: 2.5rem;
   line-height: 1.5;
-  max-width: 90%; /* Prevent text from touching edges */
+  max-width: 90%;
 }
 
 /* Container for buttons */
 .btnContainer {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Space between buttons */
+  gap: 1rem;
   align-items: center;
-  width: 100%; /* Ensure container takes width */
+  width: 100%;
 }
 
-/* General button styling */
+/* General button styles */
 .btn {
   display: block;
-  width: 90%; /* Responsive width */
-  max-width: 300px; /* Max button width */
-  padding: 16px 20px; /* Increased padding for better touch targets */
+  width: 90%;
+  max-width: 300px;
+  padding: 16px 20px;
   text-align: center;
   font-size: 1rem;
-  font-weight: 600; /* Bolder text */
+  font-weight: 600;
   color: white;
-  border: none; /* Remove border if any */
-  border-radius: 12px; /* More rounded buttons */
+  border: none;
+  border-radius: 12px;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smoother transitions */
+  transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* User login/signup button */
+/* Styles for user login/signup button */
 .userBtn {
-  background-color: #1E90FF; /* Keep existing blue */
+  background-color: #1E90FF;
 }
 
+/* Hover effect for user button */
 .userBtn:hover {
-  background-color: #187bcd; /* Slightly darker blue on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
+  background-color: #187bcd;
+  transform: translateY(-2px);
 }
 
-/* Admin login button */
+/* Styles for admin login button */
 .adminBtn {
-  background-color: #BE0F34; /* Keep existing red */
+  background-color: #BE0F34;
 }
 
+/* Hover effect for admin button */
 .adminBtn:hover {
-  background-color: #a00d2e; /* Slightly darker red on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
+  background-color: #a00d2e;
+  transform: translateY(-2px);
 }
 
-/* Add focus styles for accessibility */
+/* Focus styles for buttons */
 .btn:focus-visible {
-  outline: 2px solid #FFFFFF; /* White outline */
+  outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }

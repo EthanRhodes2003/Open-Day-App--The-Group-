@@ -1,17 +1,15 @@
-/* css/booking.css */
-
-/* Reset default margin, padding, and apply box-sizing */
+/* Basic reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling - consistent */
+/* Body styles for background, font, and centering */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Consistent dark background */
-  color: #E0E0E0; /* Consistent off-white text */
+  background-color: #121212;
+  color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,30 +17,30 @@ body {
   padding: 20px;
 }
 
-/* Mobile Frame */
+/* Styles for the mobile frame container */
 .mobileFrame {
-  width: 100%; /* Use full width up to max-width */
-  max-width: 450px; /* Slightly wider for better content fit */
-  height: 85vh; /* Adjust height slightly */
-  max-height: 800px; /* Add max-height */
-  background-color: #001F3F; /* Keep existing dark blue */
-  border-radius: 35px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: #001F3F;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling - consistent */
+/* Styles for the top title bar */
 .titleBar {
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   text-align: center;
   padding: 15px 10px;
   font-size: 1.3rem;
   font-weight: 600;
-  position: relative; /* Changed from absolute */
+  position: relative;
   width: 100%;
   flex-shrink: 0;
   display: flex;
@@ -50,7 +48,7 @@ body {
   justify-content: center;
 }
 
-/* Back Button Styling - consistent */
+/* Styles for the back button */
 .backButton {
   position: absolute;
   left: 20px;
@@ -64,22 +62,22 @@ body {
   transition: color 0.2s ease;
 }
 
+/* Hover effect for back button */
 .backButton:hover {
   color: #f0f0f0;
 }
 
-/* Logo within Title Bar - consistent */
+/* Styles for the logo in the title bar */
 .logo {
   flex-grow: 1;
   text-align: center;
-  margin: 0 30px 0 -30px; /* Adjust left margin based on back/logout button space */
+  margin: 0 30px 0 -30px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
-/* Logout Button Container - consistent */
+/* Container for the logout button */
 .logoutButtonContainer {
   position: absolute;
   top: 50%;
@@ -87,7 +85,7 @@ body {
   right: 20px;
 }
 
-/* Logout Button Styling - consistent */
+/* Styles for the logout button */
 .logoutButton {
   padding: 8px 14px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -100,52 +98,51 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Hover effect for logout button */
 .logoutButton:hover {
   background-color: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Main Content Wrapper */
+/* Styles for the main content area */
 .mobileContent {
-  padding: 25px 30px; /* Adjusted padding */
-  overflow-y: auto; /* Enable scroll */
+  padding: 25px 30px;
+  overflow-y: auto;
   flex-grow: 1;
 }
 
-/* Booking Form Container */
+/* Styles for the booking form container */
 .formContainer {
-  /* Removed background color - use frame's background */
-  padding: 10px 0; /* Reduced padding */
+  padding: 10px 0;
   border-radius: 15px;
-  /* Removed box-shadow */
-  text-align: left; /* Align form elements left */
+  text-align: left;
 }
 
-/* Form Heading Styling */
+/* Styles for the main form heading */
 h1 {
-  color: white; /* White heading */
-  margin-bottom: 2rem; /* More space below heading */
-  font-size: 1.8rem; /* Larger heading */
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  text-align: center; /* Center heading */
+  text-align: center;
 }
 
-/* Form Element Wrapper */
+/* Styles for form element wrappers */
 .formElement {
-    margin-bottom: 1.25rem; /* Consistent space between form fields */
+    margin-bottom: 1.25rem;
 }
 
-/* Form Label Styling */
+/* Styles for form labels */
 .formLabel {
-  display: block; /* Ensure label is on its own line */
-  color: #b0c4de; /* Lighter blue/grey color for labels */
-  margin-bottom: 6px; /* Space between label and input */
-  font-size: 0.9rem; /* Slightly smaller label */
+  display: block;
+  color: #b0c4de;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-/* Input and Select Styling - consistent */
-input[type="text"], /* Added type=text for the readonly campus input */
+/* Styles for input fields and select dropdowns */
+input[type="text"],
 select {
   width: 100%;
   padding: 12px 15px;
@@ -158,14 +155,14 @@ select {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Readonly input styling */
+/* Styles for readonly input fields */
 input[readonly] {
-    background-color: #15355a; /* Slightly different background */
-    color: #a0b4cf; /* Dimmer text */
+    background-color: #15355a;
+    color: #a0b4cf;
     cursor: not-allowed;
 }
 
-/* Select dropdown arrow styling - consistent */
+/* Styles for the select dropdown arrow */
 select {
   appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
@@ -175,19 +172,19 @@ select {
   padding-right: 40px;
 }
 
-/* Focus Effects for Inputs and Select - consistent */
-input:not([readonly]):focus, select:focus { /* Exclude readonly from focus effect */
+/* Focus effects for inputs and select (excluding readonly) */
+input:not([readonly]):focus, select:focus {
   border-color: #1E90FF;
   box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3);
   outline: none;
 }
 
-/* Button Styling - consistent */
+/* Consistent button styles */
 button.btn {
-  display: block; /* Ensure button takes full width */
+  display: block;
   width: 100%;
   padding: 14px 20px;
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   border: none;
   border-radius: 12px;
@@ -196,45 +193,46 @@ button.btn {
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
-  margin-top: 1.5rem; /* More space above button */
+  margin-top: 1.5rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Hover Effect - consistent */
+/* Hover effect for buttons */
 button.btn:hover {
   background: #a00d2e;
   transform: translateY(-2px);
 }
 
-/* Button Focus Effect - consistent */
+/* Focus effect for buttons */
 button.btn:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
 
-/* Message Area Styling */
+/* Styles for the message area */
 #message {
-  margin-top: 1.5rem; /* Space above messages */
-  padding: 12px 15px; /* Padding inside message area */
+  margin-top: 1.5rem;
+  padding: 12px 15px;
   border-radius: 8px;
   font-size: 0.95rem;
   min-height: 1.5em;
   color: white;
   text-align: center;
-  background-color: transparent; /* Default transparent */
+  background-color: transparent;
 }
 
-/* Specific message styles (match classes used in PHP) */
+/* Styles for success messages */
 #message .success {
   background-color: rgba(40, 167, 69, 0.2);
-  color: #28a745; /* Green text */
+  color: #28a745;
   border: 1px solid rgba(40, 167, 69, 0.4);
 }
 
+/* Styles for error messages */
 #message .error {
   background-color: rgba(220, 53, 69, 0.2);
-  color: #dc3545; /* Red text */
+  color: #dc3545;
   border: 1px solid rgba(220, 53, 69, 0.4);
 }
 

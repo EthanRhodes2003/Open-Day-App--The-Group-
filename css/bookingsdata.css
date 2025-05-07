@@ -1,17 +1,15 @@
-/* css/bookingsdata.css (Revised - Width Reverted) */
-
-/* Reset default margin, padding, and apply box-sizing */
+/* Basic reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling - consistent */
+/* Body styles for background, font, and centering */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* Consistent dark background */
-  color: #E0E0E0; /* Consistent off-white text */
+  background-color: #121212;
+  color: #E0E0E0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,28 +17,28 @@ body {
   padding: 20px;
 }
 
-/* Mobile Frame */
+/* Styles for the mobile frame container */
 .mobileFrame {
-  width: 100%; /* Use full width up to max-width */
-  max-width: 450px; /* Slightly wider for better content fit */
-  height: 85vh; /* Adjust height slightly */
-  max-height: 800px; /* Add max-height */
-  background-color: #001F3F; /* Keep existing dark blue */
-  border-radius: 35px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: #001F3F;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Title Bar Styling - consistent */
+/* Styles for the top title bar */
 .titleBar {
-  background: #BE0F34; /* Consistent red */
+  background: #BE0F34;
   color: white;
   text-align: center;
-  padding: 15px 10px; /* Increased padding */
-  font-size: 1.3rem; /* Slightly larger font size */
+  padding: 15px 10px;
+  font-size: 1.3rem;
   font-weight: 600;
   position: relative;
   width: 100%;
@@ -50,14 +48,14 @@ body {
   justify-content: center;
 }
 
-/* Logo within Title Bar */
+/* Styles for the logo in the title bar */
 .logo {
   flex-grow: 1;
   text-align: center;
-  margin-left: -60px; /* Adjust based on logout button size */
+  margin-left: -60px;
 }
 
-/* Logout Button Container */
+/* Container for the logout button */
 .logoutButtonContainer {
   position: absolute;
   top: 50%;
@@ -65,7 +63,7 @@ body {
   right: 20px;
 }
 
-/* Logout Button Styling (Improved) */
+/* Styles for the logout button */
 .logoutButton {
   padding: 8px 14px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -78,29 +76,30 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Hover effect for logout button */
 .logoutButton:hover {
   background-color: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Main Content Styling */
+/* Styles for the main content area */
 .mobileContent {
-  padding: 25px 30px; /* Adjusted padding */
+  padding: 25px 30px;
   overflow-y: auto;
   flex-grow: 1;
-  /* Add margin-top matching original if needed, but padding should handle space */
 }
 
-/* Section Styling */
+/* Styles for sections */
 section {
     margin-bottom: 2.5rem;
 }
 
-/* Section Header Styling */
+/* Styles for section headers */
 .sectionHeader {
     margin-bottom: 1.5rem;
 }
 
+/* Styles for section headings */
 .sectionHeader h2 {
   color: white;
   font-size: 1.6rem;
@@ -109,7 +108,7 @@ section {
   text-align: center;
 }
 
-/* Filter Input Container */
+/* Container for filter inputs */
 .filterInputs {
   display: flex;
   flex-wrap: wrap;
@@ -118,7 +117,7 @@ section {
   margin-bottom: 1.5rem;
 }
 
-/* Filter input styles - consistent */
+/* Styles for filter input fields */
 .filterInputs input[type="text"],
 #accountFilter {
   padding: 10px 12px;
@@ -127,18 +126,30 @@ section {
   background-color: #0a2a4e;
   color: #E0E0E0;
   font-size: 0.9rem;
-  width: auto;
-  flex-grow: 1;
-  max-width: 180px; /* Kept max-width for individual inputs */
+  width: calc(50% - 10px); 
+  flex-grow: 0; 
+  flex-shrink: 1; 
+  max-width: none; 
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Ensure account filter also respects the width,
+   but keep it flex-grow for single item centering */
+#accountFilter {
+    width: auto; 
+    flex-grow: 1; 
+    max-width: 180px; 
+}
+
+
+/* Styles for placeholder text in filter inputs */
 .filterInputs input[type="text"]::placeholder,
 #accountFilter::placeholder {
   color: #88a1c2;
   opacity: 1;
 }
 
+/* Focus effects for filter inputs */
 .filterInputs input[type="text"]:focus,
 #accountFilter:focus {
   border-color: #1E90FF;
@@ -146,7 +157,7 @@ section {
   outline: none;
 }
 
-/* Table Wrapper for Horizontal Scroll */
+/* Wrapper for tables to enable horizontal scroll */
 .tableWrapper {
   overflow-x: auto;
   border: 1px solid #2a4a75;
@@ -154,47 +165,61 @@ section {
   background-color: #0a1f33;
 }
 
-/* Table Layout */
+/* Table layout styles */
 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: auto;
-  /* Removed min-width to let it fit, relying on wrapper overflow */
 }
 
-/* Table Header Styling */
+/* Table Header Styles */
 th {
   background-color: #15355a;
   color: #E0E0E0;
   font-weight: 600;
   text-align: left;
-  padding: 12px 15px;
+  padding: 10px 12px;
   border-bottom: 2px solid #2a4a75;
-  white-space: nowrap; /* Kept nowrap */
+  border-right: 1px solid #2a4a75; 
+  white-space: nowrap;
+  font-size: 0.85rem;
 }
 
-/* Table Cell Styling */
+/* Remove right border from the last header cell */
+th:last-child {
+    border-right: none;
+}
+
+
+/* Table Cell Styles */
 td {
-  padding: 10px 15px;
+  padding: 8px 12px;
   text-align: left;
   border-bottom: 1px solid #2a4a75;
+  border-right: 1px solid #2a4a75; 
   color: #c0d0e0;
-  white-space: nowrap; /* Kept nowrap */
-  font-size: 0.9rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
 }
+
+/* Remove right border from the last data cell in each row */
+td:last-child {
+    border-right: none;
+}
+
 
 /* Zebra stripe rows */
 tr:nth-child(even) td {
   background-color: #102a45;
 }
 
-/* Hover effect */
+/* Hover effect for rows */
 tr:hover td {
   background-color: #1a4068;
   color: #ffffff;
 }
 
-/* Horizontal Rule */
+/* Styles for horizontal rule */
 hr {
     border: none;
     height: 1px;
