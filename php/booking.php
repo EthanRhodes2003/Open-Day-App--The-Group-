@@ -137,7 +137,7 @@ $errorMessage = '';
       if (!seen.has(dateStr)) {
         seen.add(dateStr);
         const option = document.createElement('option');
-        option.value = dateStr;
+        option.value = event.EventID; // Use EventID as the value
 
         // Format the date as DD/MM/YYYY for display
         option.textContent = `${String(rawDate.getDate()).padStart(2, '0')}/${
@@ -169,7 +169,6 @@ $errorMessage = '';
         subjectSelect.appendChild(option);
       });
     } catch (error) {
-      // Log errors if fetching subjects fails
       console.error('Error fetching subjects:', error);
     }
   }
@@ -184,7 +183,6 @@ $errorMessage = '';
       // Update the campus input field with the fetched campus name
       document.getElementById('campus').value = data.campusName || 'No campus found for this subject';
     } catch (err) {
-      // Log errors and update the campus field if fetching campus fails
       console.error('Error fetching campus:', err);
       document.getElementById('campus').value = 'Error fetching campus';
     }
