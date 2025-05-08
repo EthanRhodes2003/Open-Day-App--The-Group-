@@ -31,7 +31,10 @@ if (!isset($_SESSION['user_id'])) {
 
     <section id="hero">
       <div class="heroContent">
-        <h1>Discover Your Future at Wolvo</h1> <p>Experience campus life, meet our experts, and start your journey with us.</p> <a href="#register" class="button">📖 Book NOW</a> </div>
+        <h1>Discover Your Future at Wolvo</h1> 
+        <p>Experience campus life, meet our experts, and start your journey with us.</p> 
+        <a href="#register" class="button">📖 Book NOW</a> 
+        <img src="../img/uni2.png" alt="University Image 2" style="width:100%; height:auto; margin-top: 2rem;"></div>
     </section>
 
     <section id="upcomingEvents">
@@ -51,21 +54,15 @@ if (!isset($_SESSION['user_id'])) {
       </div>
       <div class="eventSchedule">
         <div class="eventItem">
-          <h3>
-            🗣️ University Talk
-          </h3>
+          <h3>🗣️ University Talk</h3>
           <p>Lecture Hall | 10:00 AM - 11:00 AM</p>
         </div>
         <div class="eventItem">
-          <h3>
-            🚶 Guided Campus Tour
-          </h3>
+          <h3>🚶 Guided Campus Tour</h3>
           <p>Meet at Main Reception | 11:00 AM - 12:00 PM</p>
         </div>
         <div class="eventItem">
-          <h3>
-            📚 Chosen Subject Tour
-          </h3>
+          <h3>📚 Chosen Subject Tour</h3>
           <p>Check subject department for location | 12:00 PM - 4:00 PM</p>
         </div>
       </div>
@@ -73,7 +70,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <section id="register">
       <div class="sectionHeader">
-        <h2>Book Now</h2>
+        <h2>📖 Book Now</h2>
       </div>
       <a href="../php/booking.php" class="button">Booking</a>
     </section>
@@ -100,7 +97,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <section id="account">
       <div class="sectionHeader">
-        <h2>Your Account</h2>
+        <h2>👤 Your Account</h2>
       </div>
       <a href="../php/account.php" class="button accountButton">My Account</a>
     </section>

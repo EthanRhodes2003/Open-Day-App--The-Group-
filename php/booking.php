@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Get the logged-in user's account ID from the session
+// Get the logged in user's account ID from the session
 $accountID = $_SESSION['user_id'];
 
 // Variables to hold messages (these will be set by booking.js's fetch request)
@@ -32,7 +32,7 @@ $errorMessage = '';
 <div class="mobileFrame">
   <div class="titleBar">
     <a href="homepage.php" class="backButton">&larr;</a>
-    <div class="logo">Open Day Signup</div>
+    <div class="logo">Wolvo Open Day</div>
     <div class="logoutButtonContainer">
       <form method="POST" action="logout.php">
         <button type="submit" class="logoutButton">Logout</button>

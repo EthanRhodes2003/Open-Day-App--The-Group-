@@ -21,7 +21,7 @@ body {
 .mobileFrame {
   width: 100%;
   max-width: 450px;
-  height: 85vh;
+  height: 95vh; 
   max-height: 800px;
   background-color: #001F3F;
   border-radius: 35px;
@@ -32,20 +32,26 @@ body {
   flex-direction: column;
 }
 
-/* Styles for the top title bar */
 .titleBar {
   background: #BE0F34;
   color: white;
-  text-align: center;
+  text-align: center; 
   padding: 15px 10px;
   font-size: 1.3rem;
   font-weight: 600;
-  position: relative;
+  position: relative; 
   width: 100%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+}
+
+.logo {
+  text-align: center;
+  color: white; 
+  font-size: 1.3rem; 
+  font-weight: 600; 
 }
 
 /* Styles for the back button */
@@ -65,13 +71,6 @@ body {
 /* Hover effect for back button */
 .backButton:hover {
   color: #f0f0f0;
-}
-
-/* Styles for the logo in the title bar */
-.logo {
-  flex-grow: 1;
-  text-align: center;
-  margin-left: -30px;
 }
 
 /* Styles for the main content area */
