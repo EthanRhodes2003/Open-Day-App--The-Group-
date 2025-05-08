@@ -43,6 +43,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    $stmtCheckBooking = $pdo->prepare("SELECT COUNT(*) FROM BOOKING WHERE AccountID = ? AND EventID = ?");
+    $stmtCheckBooking->execute([$accountID, $eventID]);
+    $existingBookingCount = $stmtCheckBooking->fetchColumn();
+
+    if ($existingBookingCount > 0) {
+        echo json_encode([
+            "success" => false,
+            "message" => "You have already booked this date."
+        ]);
+        exit; // Stop execution if a duplicate booking is found
+    }
+
+
     // Insert booking into the database
     $stmt = $pdo->prepare("INSERT INTO BOOKING (AccountID, EventID, CampusID, LevelOfInterest, SubjectOfInterest, YearOfEntry, ContactPreference)
                            VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -56,7 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "redirect" => "account.php" // Redirect to account page on success
         ]);
     } else {
-         // Log the actual error for debugging, but show a generic message to the user
         error_log("Booking failed for AccountID: " . $accountID . " Error: " . $stmt->errorInfo()[2]);
         echo json_encode([
             "success" => false,
