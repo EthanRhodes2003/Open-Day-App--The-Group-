@@ -20,6 +20,7 @@ $bookings = $pdo->query("
     JOIN ACCOUNT a ON b.AccountID = a.AccountID
     JOIN EVENT e ON b.EventID = e.EventID
     JOIN CAMPUS c ON b.CampusID = c.CampusID
+    ORDER BY b.BookingID ASC
 ")->fetchAll(PDO::FETCH_ASSOC);
 
 // Fetch all accounts data from the database
