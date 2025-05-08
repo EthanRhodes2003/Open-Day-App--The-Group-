@@ -63,7 +63,7 @@ $bookings = $stmtBookings->fetchAll(PDO::FETCH_ASSOC);
           </div>
           <div class="profileInfo">
             <h3><?php echo htmlspecialchars($user['FirstName']) . ' ' . htmlspecialchars($user['LastName']); ?></h3>
-            <p>Student ID: <?php echo htmlspecialchars($user['AccountID']); ?></p>
+            <p>Account ID: <?php echo htmlspecialchars($user['AccountID']); ?></p>
           </div>
         </div>
 
